@@ -11,9 +11,3 @@ Once you've made your working copy of the site repo, from the repo root folder, 
 ```
 hugo server
 ```
-
-[Docsy user guide]: https://docsy.dev/docs
-[Docsy]: https://github.com/google/docsy
-[Docsy Shortcodes]: https://www.docsy.dev/docs/adding-content/shortcodes/
-[example.docsy.dev]: https://example.docsy.dev
-[Hugo theme module]: https://gohugo.io/hugo-modules/use-modules/#use-a-module-for-a-theme
