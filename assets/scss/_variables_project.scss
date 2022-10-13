@@ -1,0 +1,43 @@
+/*
+
+Add styles or override variables from the theme here.
+
+*/
+
+$chargedyellow: #e9ff92;
+$groundedgreen: #031403;
+$courseblue: #5f65f5;
+$cloud: #fffdf6;
+$sky: #87d9da;
+$blue: #1595db;
+$coral: #ff615c;
+$clay: #9f550b;
+$purple: #e4b4ff;
+
+$enable-gradients: true;
+$enable-rounded: true;
+$enable-shadows: true;
+
+// Bootstrap Theme Colors
+// https://getbootstrap.com/docs/5.2/customize/color/
+// Default Docsy Colors: https://github.com/google/docsy/blob/main/assets/scss/_variables.scss
+
+//$primary: #30638E !default;
+$primary: $groundedgreen !default;
+$primary-light: lighten($courseblue, 75%) !default;
+//$secondary: #FFA630 !default;
+$secondary: $groundedgreen !default;
+$success: #00C853;
+$info: #00B8D4;
+$warning: #FF9100;
+$danger: #FF1744;
+$white: #FFF !default;
+$light: #D3F3EE !default;
+$dark: #403F4C !default;
+
+// Navbar
+
+$navbar-dark-color: rgba($chargedyellow, 0.75) !default;
+$navbar-dark-hover-color: rgba($white, 0.5) !default;
+$navbar-dark-active-color: $chargedyellow !default;
+$navbar-dark-disabled-color: rgba($white, 0.25) !default;

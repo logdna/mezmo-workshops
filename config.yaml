@@ -1,0 +1,180 @@
+baseURL: /
+title: Mezmo Workshops
+enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
+
+contentDir: content/en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+enableMissingTranslationPlaceholders: true
+
+taxonomies:
+  tag: tags
+  category: categories
+
+params:
+  taxonomy:
+    taxonomyCloud:
+      - tags
+      - categories
+    taxonomyCloudTitle:
+      - Tag Cloud
+      - Categories
+    taxonomyPageHeader:
+      - tags
+      - categories
+    pygmentsCodeFences: true
+    pygmentsUseClasses: false
+    pygmentsUseClassic: false
+    pygmentsStyle: tango
+
+  copyright: Mezmo, Inc.
+  privacy_policy: 'https://www.mezmo.com/privacy-policy'
+  version_menu: Releases
+  archived_version: false
+  version: '1.0'
+  url_latest_version: 'https://logdna.github.io/mezmo-workshops'
+  github_repo: 'https://github.com/logdna/mezmo-workshops'
+  github_project_repo: 'https://github.com/logdna/mezmo-workshops'
+  github_branch: master
+
+#  gcs_engine_id: d72aa9b2712488cc3
+  algolia_docsearch: true
+  offlineSearch: true
+  prism_syntax_highlighting: false
+
+  mermaid:
+    enable: true
+
+  ui:
+    # Set to true to disable breadcrumb navigation.
+    breadcrumb_disable: false
+    # Set to true to disable the About link in the site footer
+    footer_about_disable: true
+    # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+    navbar_logo: true
+    navbar_translucent_over_cover_disable: true
+    # Enable to show the side bar menu in its compact state.
+    sidebar_menu_compact: true
+    sidebar_menu_foldable: true
+    sidebar_menu_truncate: 1000
+    # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
+    sidebar_search_disable: false
+    feedback:
+      enable: true
+      'yes': >-
+        Glad to hear it! Please <a
+        href="https://github.com/logdna/mezmo-workshops/issues/new">tell us how we can improve</a>.
+      'no': >-
+        Sorry to hear that. Please <a
+        href="https://github.com/logdna/mezmo-workshops/issues/new">tell us how we can improve</a>.
+    readingtime:
+      enable: false
+
+#  show_banner: true
+
+#  fonts:
+#    - name: Open Sans
+#      sizes: [ 300, 400, 600, 700 ]
+#      type: sans_serif
+
+#  logos:
+#    navbar: mezmo-logo-grounded-green.png
+#    hero: grpc-logo.png
+#    footer: grpc-horizontal-white.png
+
+  links:
+    user:
+      - name: User mailing list
+        url: 'https://example.org/mail'
+        icon: fa fa-envelope
+        desc: Discussion and help from your fellow users
+
+      - name: Twitter
+        url: 'https://example.org/mezmodata'
+        icon: fab fa-twitter
+        desc: Follow us on Twitter to get the latest news!
+
+      - name: Stack Overflow
+        url: 'https://example.org/stack'
+        icon: fab fa-stack-overflow
+        desc: Practical questions and curated answers
+
+    developer:
+      - name: GitHub
+        url: 'https://github.com/logdna/mezmo-workshops'
+        icon: fab fa-github
+        desc: Development takes place here!
+
+#      - name: Slack
+#        url: 'https://example.org/slack'
+#        icon: fab fa-slack
+#        desc: Chat with other project developers
+
+#      - name: Developer mailing list
+#        url: 'https://example.org/mail'
+#        icon: fa fa-envelope
+#        desc: Discuss development issues around the project
+
+menus:
+  main:
+    - identifier: Workshops
+      name: Workshops
+      weight: 10
+
+    - name: Java PetClinic
+      parent: Workshops
+      url: /pet-clinic
+      weight: 1
+
+permalinks:
+  blog: '/:section/:year/:month/:day/:slug/'
+
+imaging:
+  resampleFilter: CatmullRom
+  quality: 75
+  anchor: smart
+
+services:
+  googleAnalytics:
+    id: UA-00000000-0
+
+languages:
+  en:
+    title: Mezmo Workshops
+    description: A Docsy example site
+    languageName: English
+    weight: 1
+  'fr':
+    title: Ateliers Mezmo
+    description: Un exemple de site Docsy
+    languageName: French
+    contentDir: content/fr
+    time_format_default: 02.01.2006
+    time_format_blog: 02.01.2006
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+#    style: tango
+    style: native
+
+outputs:
+  section:
+    - HTML
+    - print
+    - RSS
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.75.0
+  imports:
+    - path: github.com/google/docsy
+      disable: false
+    - path: github.com/google/docsy/dependencies
+      disable: false
