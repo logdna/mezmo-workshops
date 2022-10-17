@@ -35,9 +35,13 @@ a > span > .fa-external-link-alt::before {
 //.td-cover-block {
 //  background-image: url("/img/graphic-04.svg");
 //}
-//
-//// NAVBAR
-//
+
+// NAVBAR
+
+.navbar-logo {
+  fill: $chargedyellow;
+}
+
 //// Docsy includes the site name by default. This is in place
 //// to hide the span text, leaving only the logo svg
 ////.td-navbar .navbar-brand span:last-child {

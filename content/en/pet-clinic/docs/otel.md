@@ -45,34 +45,34 @@ Be sure to download the `otelcol-contrib_*` binary that matches your platform.
 
     {{< tabpane >}}
     {{< tab header="config.yaml" lang="yaml" >}}
-    #######################################
-    receivers:
-      otlp:
-        protocols:
-          grpc:
-            endpoint: "0.0.0.0:4317"
-          http:
-            endpoint: "0.0.0.0:4318"
-    
-    #######################################
-    exporters:
-      mezmo:
-        ingest_url: "https://logs.mezmo.com/otel/ingest/rest"
-        ingest_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        timeout: 2s
-    
-      logging:
-        logLevel: debug
-    
-      file:
-        path: /tmp/otelcol.json
-    
-    #######################################
-    service:
-      pipelines:
-        logs:
-          receivers: [ otlp ]
-          exporters: [ mezmo,logging ]
+#######################################
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+
+#######################################
+exporters:
+  mezmo:
+    ingest_url: "https://logs.mezmo.com/otel/ingest/rest"
+    ingest_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    timeout: 2s
+
+  logging:
+    logLevel: debug
+
+  file:
+    path: /tmp/otelcol.json
+
+#######################################
+service:
+  pipelines:
+    logs:
+      receivers: [ otlp ]
+      exporters: [ mezmo,logging ]
     {{< /tab >}}
     {{< /tabpane >}}
    
@@ -135,43 +135,40 @@ sign into https://app.mezmo.com and navigate to **Settings** &rarr; **Organizati
 
 In this section, we'll test out the OTEL Collector to confirm it's working as expected.
 
-1664826579558653000
-1664830800000000000
-
 1. First, we'll create a sample log entry in JSON format. Create a file named `samplelog.json` and add this to the file:
 
     {{< tabpane >}}
     {{< tab header="samplelog.json" lang="json" >}}
-    {
-        "resourceLogs": [
-            {
-                "resource": {},
-                "scopeLogs": [
-                    {
-                        "scope": {},
-                        "logRecords": [
-                            {
-                                "observedTimeUnixNano": "1664830800000000000",
-                                "body": {
-                                    "stringValue": "This is the sample log message."
-                                },
-                                "attributes": [
-                                    {
-                                        "key": "log.file.name",
-                                        "value": {
-                                            "stringValue": "access_log"
-                                        }
+{
+    "resourceLogs": [
+        {
+            "resource": {},
+            "scopeLogs": [
+                {
+                    "scope": {},
+                    "logRecords": [
+                        {
+                            "observedTimeUnixNano": "1664830800000000000",
+                            "body": {
+                                "stringValue": "This is the sample log message."
+                            },
+                            "attributes": [
+                                {
+                                    "key": "log.file.name",
+                                    "value": {
+                                        "stringValue": "access_log"
                                     }
-                                ],
-                                "traceId": "",
-                                "spanId": ""
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
+                                }
+                            ],
+                            "traceId": "",
+                            "spanId": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
     {{< /tab >}}
     {{< /tabpane >}}
 
