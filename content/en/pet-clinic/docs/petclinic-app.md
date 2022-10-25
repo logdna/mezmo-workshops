@@ -86,77 +86,94 @@ The PetClinic app is built using standard **Log4j** formatted log entries.  Thes
    ```shell
    git diff
    ```
-   ```shell
+   
+   {{< highlight shell >}}
    diff --git a/pom.xml b/pom.xml
-   index c67bce2..3888d74 100644
+   index c67bce2..65e9844 100644
    --- a/pom.xml
    +++ b/pom.xml
-   @@ -105,6 +105,32 @@
-        </dependency>
-        <!-- end of webjars -->
-   
-   +    <!-- logback -->
-   +    <dependency>
-   +      <groupId>ch.qos.logback.contrib</groupId>
-   +      <artifactId>logback-json-classic</artifactId>
-   +      <version>0.1.5</version>
-   +    </dependency>
-   +
-   +    <dependency>
-   +      <groupId>ch.qos.logback.contrib</groupId>
-   +      <artifactId>logback-jackson</artifactId>
-   +      <version>0.1.5</version>
-   +    </dependency>
-   +
-   +    <dependency>
-   +      <groupId>com.fasterxml.jackson.core</groupId>
-   +      <artifactId>jackson-databind</artifactId>
-   +      <version>2.14.0-rc1</version>
-   +    </dependency>
-   +
-   +    <dependency>
-   +      <groupId>com.fasterxml.jackson.core</groupId>
-   +      <artifactId>jackson-core</artifactId>
-   +      <version>2.13.4</version>
-   +    </dependency>
-   +    <!-- end of logback -->
-   +
-        <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-devtools</artifactId>
-   ```
+   @@ -105,6 +105,48 @@
+   </dependency>
+     <!-- end of webjars -->
+
++    <!-- logback -->
++    <dependency>
++      <groupId>org.slf4j</groupId>
++      <artifactId>slf4j-api</artifactId>
++      <version>1.7.25</version>
++    </dependency>
++    <dependency>
++      <groupId>ch.qos.logback</groupId>
++      <artifactId>logback-classic</artifactId>
++      <version>1.2.9</version>
++    </dependency>
++    <dependency>
++      <groupId>ch.qos.logback</groupId>
++      <artifactId>logback-core</artifactId>
++      <version>1.2.9</version>
++    </dependency>
++
++    <dependency>
++      <groupId>ch.qos.logback.contrib</groupId>
++      <artifactId>logback-json-classic</artifactId>
++      <version>0.1.5</version>
++    </dependency>
++
++    <dependency>
++      <groupId>ch.qos.logback.contrib</groupId>
++      <artifactId>logback-jackson</artifactId>
++      <version>0.1.5</version>
++    </dependency>
++
++    <dependency>
++      <groupId>com.fasterxml.jackson.core</groupId>
++      <artifactId>jackson-databind</artifactId>
++      <version>2.14.0-rc1</version>
++    </dependency>
++
++    <dependency>
++      <groupId>com.fasterxml.jackson.core</groupId>
++      <artifactId>jackson-core</artifactId>
++      <version>2.13.4</version>
++    </dependency>
++    <!-- end of logback -->
++
+   <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-devtools</artifactId>
+   {{</ highlight >}}
 
 2. The structured logging uses the **Logback** framework, so let's configure it to output as we need.  Create a new file `src/main/resources/logback.xml` and set the contents as:
 
    {{< tabpane >}}
    {{< tab header="src/main/resources/logback.xml" lang="xml" >}}
-   <?xml version="1.0" encoding="UTF-8"?>
-   <configuration scan="true">
-       <appender name="ConsoleLogger" class="ch.qos.logback.core.ConsoleAppender">
-           <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
-               <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                   <prettyPrint>true</prettyPrint>
-               </jsonFormatter>
-               <timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>
-           </layout>
-       </appender>
-   
-       <appender name="FileLogger" class="ch.qos.logback.core.FileAppender">
-           <file>/tmp/petclinic.log</file>
-   
-           <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
-               <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                   <prettyPrint>true</prettyPrint>
-               </jsonFormatter>
-               <timestampFormat>yyyy-MM-dd' 'HH:mm:ss</timestampFormat>
-           </layout>
-       </appender>
-   
-       <root level="DEBUG">
-           <appender-ref ref="ConsoleLogger"/>
-           <appender-ref ref="FileLogger"/>
-       </root>
-   </configuration>
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{MMM dd HH:mm:ss} %-5level petclinic[1]: %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FileLogger" class="ch.qos.logback.core.FileAppender">
+		<file>/tmp/petclinic.json</file>
+		<append>false</append>
+		<immediateFlush>true</immediateFlush>
+
+		<layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+			<jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+				<prettyPrint>false</prettyPrint>
+			</jsonFormatter>
+			<timestampFormat>yyyy-MM-dd' 'HH:mm:ss</timestampFormat>
+			<appendLineSeparator>true</appendLineSeparator>
+		</layout>
+	</appender>
+
+	<root level="DEBUG">
+		<appender-ref ref="FileLogger"/>
+		<appender-ref ref="STDOUT"/>
+	</root>
+</configuration>
    {{< /tab >}}
    {{< /tabpane >}}
 
@@ -174,70 +191,43 @@ The PetClinic app is built using standard **Log4j** formatted log entries.  Thes
    
    After initialization, the remaining output should be JSON format:
 
-   ```shell
-   10:04:41,283 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
-   10:04:41,284 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@464bee09 - Registering current configuration as safe fallback point
-   
-   
-   
-                 |\      _,,,--,,_
-                /,`.-'`'   ._  \-;;,_
-     _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
-    |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
-    |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
-    |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
-    |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
-    |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
-    |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
-    ==================================================================/_/_/_/
-   
-   :: Built with Spring Boot :: 2.7.3
+   {{< highlight text >}}
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
 
+:: Built with Spring Boot :: 2.7.3
 
-   {
-   "timestamp" : "2022-10-07 10:22:53.316",
-   "level" : "INFO",
-   "thread" : "main",
-   "logger" : "org.springframework.samples.petclinic.PetClinicApplication",
-   "message" : "Starting PetClinicApplication v2.7.3 using Java 14.0.2 on mbp1 with PID 48294 (/Users/bmeyer/spring-petclinic/target/spring-petclinic-2.7.3.jar started by bmeyer in /Users/b
-   meyer/spring-petclinic)",
-   "context" : "default"
-   }{
-   "timestamp" : "2022-10-07 10:22:53.262",
-   "level" : "DEBUG",
-   "thread" : "background-preinit",
-   "logger" : "org.jboss.logging",
-   "message" : "Logging Provider: org.jboss.logging.Log4j2LoggerProvider",
-   "context" : "default"
-   }
-   ```
+Oct 24 12:42:22 [background-preinit] DEBUG o.jboss.logging: Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+Oct 24 12:42:22 [main] INFO o.s.s.p.PetClinicApplication: Starting PetClinicApplication v2.7.3 using Java 14.0.2 on mbp1 with PID 88857 (/Users/bmeyer/spring-petclinic/target/spring-petclinic-2.7.3.jar started by bmeyer in /Users/bmeyer/spring-petclinic)
+Oct 24 12:42:22 [background-preinit] INFO  o.h.v.i.u.Version: HV000001: Hibernate Validator 6.2.4.Final
+Oct 24 12:42:22 [main] INFO  o.s.s.p.PetClinicApplication: The following 1 profile is active: "mysql"
+Oct 24 12:42:22 [background-preinit] DEBUG o.h.v.i.x.c.ValidationXmlParser: Trying to load META-INF/validation.xml for XML based Validator configuration.
+   {{< / highlight >}}
 
 5. Our **Logback** configuration includes an entry to write the logs to the file `/tmp/petclinic.log`. Verify logs are being written to it as these will be used in the next section:
 
    ```shell
    more /tmp/petclinic.log
    ```
-   ```json
-   {
-     "timestamp" : "2022-10-07 10:20:03",
-     "level" : "INFO",
-     "thread" : "main",
-     "logger" : "org.springframework.samples.petclinic.PetClinicApplication",
-     "message" : "Starting PetClinicApplication v2.7.3 using Java 14.0.2 on mbp1 with PID 47978 (/Users/bmeyer/spring-petclinic/target/spring-petclinic-2.7.3.jar started by bmeyer in /Users/bmeyer/spring-petclinic)",
-     "context" : "default"
-   }{
-     "timestamp" : "2022-10-07 10:20:03",
-     "level" : "DEBUG",
-     "thread" : "background-preinit",
-     "logger" : "org.jboss.logging",
-     "message" : "Logging Provider: org.jboss.logging.Log4j2LoggerProvider",
-     "context" : "default"
-   }
+   {{< highlight shell >}}
+{"timestamp":"2022-10-24 12:42:22","level":"DEBUG","thread":"background-preinit","logger":"org.jboss.logging","message":"Logging Provider: org.jboss.logging.Log4j2LoggerProvider","context":"default"}
+{"timestamp":"2022-10-24 12:42:22","level":"INFO","thread":"main","logger":"org.springframework.samples.petclinic.PetClinicApplication","message":"Starting PetClinicApplication v2.7.3 using Java 14.0.2 on mbp1 with PID 88857 (/Users/bmeyer/spring-petclinic/target/spring-petclinic-2.7.3.jar started by bmeyer in /Users/bmeyer/spring-petclinic)","context":"default"}
+{"timestamp":"2022-10-24 12:42:22","level":"INFO","thread":"background-preinit","logger":"org.hibernate.validator.internal.util.Version","message":"HV000001: Hibernate Validator 6.2.4.Final","context":"default"}
    ...
+   {{< /highlight >}}
+
+   {{% alert title="NOTE" color="info" %}}
+   To ingest these logs properly, each log entry needs to appear on it's own line followed by an appended line separator.  We configured this in our **Logback** configuration with this line in the `FileLogger`'s `layout` config:
+   ```xml
+   			<appendLineSeparator>true</appendLineSeparator>
    ```
+   {{% /alert %}}
 
-## Connect OpenTelemetry to the PetClinic logs
-
-In this section, we will update the OpenTelemetry Collector's configuration to read the logs output by the PetClinic app and forward them on to Mezmo.
-
-1. 

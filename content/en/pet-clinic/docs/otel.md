@@ -44,7 +44,7 @@ Be sure to download the `otelcol-contrib_*` binary that matches your platform.
 4. Create a file named `config.yaml` in the same directory as the `otelcol-contrib` binary.  Add the following to the file:
 
     {{< tabpane >}}
-    {{< tab header="config.yaml" lang="yaml" >}}
+    {{< tab header="$HOME/otelcol/config.yaml" lang="yaml" >}}
 #######################################
 receivers:
   otlp:
