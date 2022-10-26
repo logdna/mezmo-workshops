@@ -163,3 +163,53 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
+## Reconfigure OTEL 
+
+You may recall when we installed and configured the **OpenTelemetry Collector** that we set it up to send the logs to the Log Analysis endpoint.  We now want to reconfigure the collector to, instead, send logs to our pipeline endpoint.  This will start the flow of logs through the pipeline and the processors we've configured above.
+
+1. In the Pipeline dashboard, click **...** on the **OTEL Ingest** source.  At the bottom of the **HTTP** settings will be the **API key** that we'll need to use to send data to this endpoint:
+
+    {{< figure src="../../images/http-apikey.png" alt="HTTP - API key" width="450">}}
+
+    Click the clipboard button to copy the key to your clipboard.
+
+2. Stop the OTEL Collector if it's running.
+ 
+3. Edit the `$HOME/otelcol/config.yaml` file.
+
+    * Change the `ingest_key` value to the **API key** we just copied from the pipeline.  **NOTE**: when using a **Log Analysis** `ingest_key` in a pipeline, the key ***must*** have the string literal `s_` prepended to it.
+      * For example, if the `ingest_key` from Log Analysis is:
+        * `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+      * the `ingest_key` in pipeline would be:
+        * `s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+    * Change the `ingest_url` value to `https://pipeline.mezmo.com/otel/ingest/rest`.
+   
+    <br/>
+    Save the changes and exit.
+
+4. Restart the collector with:
+
+    ```shell
+    ./otelcol-contrib --config config.yaml
+    ```
+   
+## Testing
+
+At this point, any new log messages output by the PetClinic app will get picked up by the collector and sent to the pipeline.  The pipeline should filter out any messages with `level=DEBUG` set and forward on the rest to Log Analysis.
+
+1.  Head over to **PetClinic App** View we created earlier.  No **new** **DEBUG** messages should be showing up now.
+
+    {{< alert title="NOTE" color="warning" >}}Be sure to check the timestamp on any *existing* messages in the View.  They should have a timestamp that is older than when we changed the flow of messages to the pipeline.
+    {{< /alert >}}
+
+2. One method for generating **INFO** messages in the PetClinic app is to restart the PetClinic app.  Both shutting down as well as starting up the app generate quite a bit of **INFO** and **DEBUG** entries.  Shut down the PetClinic app and you should see only the **INFO** logs show up in the View:
+
+   {{< figure src="../../images/petclinic-shutdown-logs.png" alt="PetClinic Shutdown Logs" width="1200">}}
+
+    likewise, starting the PetClinic app produces similar **INFO**-only logs:
+
+    ```bash
+    java -jar target/spring-petclinic-*.jar --spring.profiles.active=mysql
+    ```
+
+   {{< figure src="../../images/petclinic-startup-logs.png" alt="PetClinic Startup Logs" width="1200">}}

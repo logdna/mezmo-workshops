@@ -1,4 +1,4 @@
 ---
 title: Alerting
-weight: 6
+weight: 7
 ---
