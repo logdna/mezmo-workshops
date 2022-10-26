@@ -4,6 +4,8 @@ enableRobotsTXT: true
 enableGitInfo: true
 enableEmoji: true
 
+googleAnalytics: G-YHBT24XG9S
+
 contentDir: content/en
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
@@ -135,10 +137,6 @@ imaging:
   resampleFilter: CatmullRom
   quality: 75
   anchor: smart
-
-services:
-  googleAnalytics:
-    id: G-YHBT24XG9S
 
 languages:
   en:
