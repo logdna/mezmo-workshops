@@ -41,9 +41,9 @@ params:
   github_project_repo: 'https://github.com/logdna/mezmo-workshops'
   github_branch: master
 
-#  gcs_engine_id: d72aa9b2712488cc3
-  algolia_docsearch: true
-  offlineSearch: true
+  gcs_engine_id: a2205c48fadd341ac
+  algolia_docsearch: false
+  offlineSearch: false
   prism_syntax_highlighting: false
 
   mermaid:
