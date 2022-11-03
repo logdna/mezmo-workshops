@@ -4,17 +4,20 @@ weight: 1
 ---
 
 {{% alert title="Prerequisites" %}}
+Before beginning, you will need the following
+
+* A Mezmo account.  You can snag one for free here.
+* Docker
+* An AWS account with the necessary permission to administer S3 buckets.
 
 ## Overview
 
-In this workshop, we will start by taking an existing Java Application (Spring PetClinic) and perform the following:
+In this workshop, we will be managing signals coming in from many simulated edge devices.
 
-* Show the steps of how to download, compile, package and run the Spring PetClinic application
-* Enable JSON-logging via configuration
-* Stand up an OpenTelemetry Collector to collect the logs output by the application and send them to Mezmo Observability Cloud
-* Configure an Observability Pipeline on Mezmo to filter out data we don't want to collect
-* Define Alerts for conditions that we want notifications for.
+To accomplish this we will
 
-## Reference Architecture
-
-
+* Create a new Pipleline
+* Configure an endpoint to receive the data (ie, a Source (LINK TO DOCS))
+* Filter unneccesary events
+* Encrypt PII in motion
+* Store required data in S3
