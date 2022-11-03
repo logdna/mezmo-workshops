@@ -1,10 +1,43 @@
 ---
-title: Create your Pipeline
+title: Create the Pipeline and Run Simulation
 weight: 2
 ---
 
 ## Step 0: Make sure you have a Mezmo account
 
+In order to complete this workshop, you will need a Mezmo account with Pipeline enabled.  Note that this as a technical preview, Pipeline may not be enabled off the bat.  If you do not have an account, you can sign up for a free trial [here](https://app.mezmo.com/signup) and/or if you don't have Pipeline you can reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com) to get it enabled.
+
 ## Step 1: Create a new Pipeline
 
-The steps...
+Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you will but we will go with `Edge Transaction to S3`.  After creation, you will be taken to the following blank canvas
+
+**BLANK PIPELINE IMAGE**
+
+## Step 2: Run the Simulation
+
+### Get the Docker
+First you will need the Docker to simulate.  You can either use our provided docker [here](docker-link) or use the [GitHub repo](https://github.com/answerbook/SE_demoapps/tree/workshop_cc_encrypt_s3/workshop/PipelineWorkshop_CC_Encrypt_S3).
+
+### Configure the Simulation
+Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  We will snag the key in [the next step](/content/en/transaction-to-s3/docs/sources.md) but for now you can just use something made up like `NADA`.  To do this on MacOS, simply run:
+
+```cmd
+export KEY=NADA
+export NUMBER_DEVICES=25
+```
+
+### Run it
+You could technically skip this part till you have a source to hit, but what the hay.  We will update with an actual key later.  You should see the following output
+
+**SIMULATION OUTPUT IMAGE**
+
+#### From Docker Hub
+```cmd
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it mezmo/transaction-device-sim
+```
+
+#### Local after Building (see GitHub repo for steps)
+```cmd
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim
+```
+
