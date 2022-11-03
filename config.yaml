@@ -130,6 +130,11 @@ menus:
       url: /pet-clinic
       weight: 1
 
+    - name: Edge Financial Transaction to S3
+      parent: Workshops
+      url: /transaction-to-s3
+      weight: 2
+
 permalinks:
   blog: '/:section/:year/:month/:day/:slug/'
 
