@@ -130,6 +130,11 @@ menus:
       url: /pet-clinic
       weight: 1
 
+    - name: S3 to Snowflake
+      parent: Workshops
+      url: /s3-to-snowflake
+      weight: 3
+
 permalinks:
   blog: '/:section/:year/:month/:day/:slug/'
 
