@@ -8,7 +8,7 @@ tags:
 - Pipeline
 ---
 
-With the **PetClinic App** View created, one thing becomes immediately apparent- the PetClinic app is very chatty outputting DEBUG statements related to it's pool stats every 30 seconds.  While it's simple enough to edit the logging configuration for the app itself, it would require changes to the config file, maybe there's additional **DEBUG** info that we _do_ want to see, just not that of the **HikariPool** output.
+With the **PetClinic App** View created, one thing becomes immediately apparent- the PetClinic app is very chatty outputting DEBUG statements related to its pool stats every 30 seconds.  While it's simple enough to edit the logging configuration for the app itself, it would require changes to the config file, maybe there's additional **DEBUG** info that we _do_ want to see, just not that of the **HikariPool** output.
 
 For the purposes of this exercise, we will assume the PetClinic app is a 3rd party app that we don't have control over but we still want to remove the DEBUG output that is cluttering up our Log Analysis.  For that, we can utilize a **Pipeline** that will look for those entries and drop them before passing the non-DEBUG entries on to Log Analysis.
 
@@ -109,7 +109,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
    {{< figure src="../../images/connect2.png" width="500">}}
 
-   With the **Unroll** processor highlighted, release the mouse click and the **HTTP** source will now send it's output to the **Unroll** processor.
+   With the **Unroll** processor highlighted, release the mouse click and the **HTTP** source will now send its output to the **Unroll** processor.
 
    {{< alert title="NOTE" color="info">}}Additional connections from the same **Source** or **Processor** can be made as well.  The output from the one will be sent to **all** the connections there exists a connection for.{{< /alert >}}
 
@@ -160,7 +160,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     {{< figure src="../../images/petclinic-ingest-pipeline4.png" alt="PetClinic Ingest Pipeline - Step 4" width="750">}}
 
-15. Finally, we are ready to take the output of the **Stringify** processor, and send it out of our pipeline and over to Log Analysis.  To do so, we'll add a **Destination**.  The destination will require an **ingest key** as part of it's configuration.  To obtain your ingest key, click **Settings** (<img src="../../images/nav-settings.png" width="30"/>) &rarr; **Organization** &rarr; **API Keys**.
+15. Finally, we are ready to take the output of the **Stringify** processor, and send it out of our pipeline and over to Log Analysis.  To do so, we'll add a **Destination**.  The destination will require an **ingest key** as part of its configuration.  To obtain your ingest key, click **Settings** (<img src="../../images/nav-settings.png" width="30"/>) &rarr; **Organization** &rarr; **API Keys**.
 
     We can use the existing Ingestion Key by simply clicking on the clipboard to copy it:
 

@@ -179,34 +179,53 @@ In this section, we'll test out the OTEL Collector to confirm it's working as ex
 2. With the OTEL Collector running in a separate terminal, run this `curl` command from a new terminal:
 
     ```bash
-    curl -vi http://localhost:4318/v1/logs -X POST -H "Content-Type: application/json" -d @samplelog.json
+    curl -vi http://localhost:4318/v1/logs -H "Content-Type: application/json" -d @samplelog.json
     ```
     ```shell
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-    Date: Fri, 07 Oct 2022 13:55:38 GMT
-    Content-Length: 2
+    *   Trying 127.0.0.1:4318...
+    * Connected to localhost (127.0.0.1) port 4318 (#0)
+    > POST /v1/logs HTTP/1.1
+    > Host: localhost:4318
+    > User-Agent: curl/7.79.1
+    > Accept: */*
+    > Content-Type: application/json
+    > Content-Length: 617
+    >
+    * Mark bundle as not supporting multiuse
+      < HTTP/1.1 200 OK
+      HTTP/1.1 200 OK
+      < Content-Type: application/json
+      Content-Type: application/json
+      < Date: Fri, 04 Nov 2022 19:10:16 GMT
+      Date: Fri, 04 Nov 2022 19:10:16 GMT
+      < Content-Length: 2
+      Content-Length: 2
+    
+    <
+    * Connection #0 to host localhost left intact
     ```
 
 3. Now take a look at the output of the OTEL Collector.  There should be a new entry that looks similar to this:
 
     ```shell
+    2022-11-04T14:10:16.318-0500	info	LogsExporter	{"kind": "exporter", "data_type": "logs", "name": "logging", "#logs": 1}
+    2022-11-04T14:10:16.318-0500	info	ResourceLog #0
     Resource SchemaURL:
     ScopeLogs #0
     ScopeLogs SchemaURL:
     InstrumentationScope
     LogRecord #0
-    ObservedTimestamp: 2022-10-03 19:49:39.558653 +0000 UTC
+    ObservedTimestamp: 2022-10-03 21:00:00 +0000 UTC
     Timestamp: 1970-01-01 00:00:00 +0000 UTC
     SeverityText:
     SeverityNumber: SEVERITY_NUMBER_UNSPECIFIED(0)
-    Body: This is the sample log message.
+    Body: Str(This is the sample log message.)
     Attributes:
-         -> log.file.name: STRING(access_log)
+         -> log.file.name: Str(access_log)
     Trace ID:
     Span ID:
     Flags: 0
-        {"kind": "exporter", "data_type": "logs", "name": "logging"}
+            {"kind": "exporter", "data_type": "logs", "name": "logging"}
     ```
 
 ## Verify Connection to Mezmo

@@ -214,7 +214,7 @@ Oct 24 12:42:22 [background-preinit] DEBUG o.h.v.i.x.c.ValidationXmlParser: Tryi
    {{< /highlight >}}
 
    {{% alert title="NOTE" color="info" %}}
-   To ingest these logs properly, each log entry needs to appear on it's own line followed by an appended line separator.  We configured this in our **Logback** configuration with this line in the `FileLogger`'s `layout` config:
+   To ingest these logs properly, each log entry needs to appear on its own line followed by an appended line separator.  We configured this in our **Logback** configuration with this line in the `FileLogger`'s `layout` config:
 
    ```xml
    			<appendLineSeparator>true</appendLineSeparator>
