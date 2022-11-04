@@ -1,85 +1,91 @@
 ---
 title: Install the OpenTelemetry Collector
 weight: 2
+description: >
+    Install an OpenTelemetry Collector that will be used for collecting logs from the PetClinic app and forwarding to Mezmo.
+tags:
+- OpenTelemetry
 ---
 
-The OpenTelemetry Collector is the core component of instrumenting infrastructure and applications.  Its role is to collect and send:
+## Getting Started
+
+The **OpenTelemetry Collector** is the core component of instrumenting infrastructure and applications.  Its role is to collect and send:
 
 * Infrastructure metrics (disk, cpu, memory, etc)
 * Application Performance Monitoring (APM) traces
 * Host and application logs
 
-For **Mezmo Observability Cloud**, we will be forwarding logs from the PetClinic application to Mezmo.
+In this workshop, we will be forwarding **logs** from the PetClinic application to Mezmo.
 
 1. To get started, download the latest release of the **OpenTelemetry Contrib Collector**.  This can be found at this site:
 
-    [https://github.com/open-telemetry/opentelemetry-collector-releases/releases/latest]()
+    https://github.com/open-telemetry/opentelemetry-collector-releases/releases/latest
 
-{{% alert title="Chose the correct download" color="warning" %}}
+    {{% alert title="Choose the correct download" color="danger" %}} 
 There are two types of collectors available for download:
+
 * `otelcol-contrib_*`
 * `otecol_*`
 
 Be sure to download the `otelcol-contrib_*` binary that matches your platform.
-{{% /alert %}}
+    {{% /alert %}}
 
-2. If your binary has an installer, go ahead and run the installer.  For this example, the *darwin* tarball will be installed in a new directory located off the user home directory:
-    
-    ```sh
-   mkdir $HOME/otelcol
-   cd $HOME/otelcol
-   tar zxvf <location of downloaded file>/otelcol-contrib_0.61.0_darwin_arm64.tar.gz
+2. If your binary has an installer, go ahead and run the installer.  For this example, the **darwin** tarball will be installed in a new directory located off the user home directory: 
+
+    ```bash
+    mkdir $HOME/otelcol
+    cd $HOME/otelcol
+    tar zxvf <location of downloaded file>/otelcol-contrib_0.61.0_darwin_arm64.tar.gz
     ```
 
-3. With the OpenTelemetry Collector installed, verify the contents of the directory:
+3. With the **OpenTelemetry Collector** installed, verify the contents of the directory:
 
-    ```shell
-    $ ls -l
+    ```bash
+    ls -l
+    ```
+    ```bash
     total 389112
     -rw-r--r--@ 1 bmeyer  staff      11357 Sep 28 21:47 LICENSE
     -rw-r--r--@ 1 bmeyer  staff        770 Sep 28 21:47 README.md
     -rwxr-xr-x@ 1 bmeyer  staff  199205762 Sep 28 22:15 otelcol-contrib*
     ```
 
-4. Create a file named `config.yaml` in the same directory as the `otelcol-contrib` binary.  Add the following to the file:
+4. Create a file named `config.yaml` in the same directory as the `otelcol-contrib` binary (e.g., `$HOME/otelcol/config.yaml`).  Add the following to the file:
 
-    {{< tabpane >}}
-    {{< tab header="$HOME/otelcol/config.yaml" lang="yaml" >}}
-#######################################
-receivers:
-  otlp:
-    protocols:
-      grpc:
-        endpoint: "0.0.0.0:4317"
-      http:
-        endpoint: "0.0.0.0:4318"
+    ```yaml
+    #######################################
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: "0.0.0.0:4317"
+          http:
+            endpoint: "0.0.0.0:4318"
+    
+    #######################################
+    exporters:
+      mezmo:
+        ingest_url: "https://logs.mezmo.com/otel/ingest/rest"
+        ingest_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        timeout: 2s
+    
+      logging:
+        logLevel: debug
+    
+      file:
+        path: /tmp/otelcol.json
+    
+    #######################################
+    service:
+      pipelines:
+        logs:
+          receivers: [ otlp ]
+          exporters: [ mezmo,logging ]
+    ```
 
-#######################################
-exporters:
-  mezmo:
-    ingest_url: "https://logs.mezmo.com/otel/ingest/rest"
-    ingest_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    timeout: 2s
-
-  logging:
-    logLevel: debug
-
-  file:
-    path: /tmp/otelcol.json
-
-#######################################
-service:
-  pipelines:
-    logs:
-      receivers: [ otlp ]
-      exporters: [ mezmo,logging ]
-    {{< /tab >}}
-    {{< /tabpane >}}
-   
-{{% alert title="Set your Ingest Key" %}}
-Be sure to change the value of the `exporters` &rarr; `mezmo` &rarr; `ingest_key` key to your own ingest key.  To find your ingest key,
-sign into https://app.mezmo.com and navigate to **Settings** &rarr; **Organization** &rarr; **API Keys**.  
-{{% /alert %}}
+    {{% alert title="Set your Ingest Key" %}}
+Be sure to change the value of the `exporters` &rarr; `mezmo` &rarr; `ingest_key` key to your own ingest key.  To find your ingest key, sign into https://app.mezmo.com and navigate to **Settings** &rarr; **Organization** &rarr; **API Keys**.  
+    {{% /alert %}}
 
 5. **For MacOS users**: when running `otelcol-contrib` for the first time, you may get a security warning from Apple:
 
@@ -87,19 +93,19 @@ sign into https://app.mezmo.com and navigate to **Settings** &rarr; **Organizati
 
     To resolve this, open **System Preferences**, select **Security & Privacy**.  On the **General** tab, you should see a warning at the bottom related to **"otelcol-contrib" was blocked from use because it is not from an identified developer.**:
 
-   ![Identified Developer Warning](../../images/macos-otel-security2.png)
+    ![Identified Developer Warning](../../images/macos-otel-security2.png)
 
     Click the **Allow Anyway** button.
 
-6. Run the OpenTelemetry Collector:
+6. Run the **OpenTelemetry Collector**:
 
-    ```shell
+    ```bash
     ./otelcol-contrib --config config.yaml
     ```
    
     Again, for MacOS users, if this is the first time running `otelcol-contrib`, you may get a popup message as before:
 
-   ![Malicious Software Warning](../../images/macos-otel-security3.png)
+    ![Malicious Software Warning](../../images/macos-otel-security3.png)
 
     but this time you will be able to open it by clicking **Open**.  At this point, MacOS will no longer prompt you with these warnings.
 
@@ -133,48 +139,46 @@ sign into https://app.mezmo.com and navigate to **Settings** &rarr; **Organizati
 
 ## Test the Collector
 
-In this section, we'll test out the OTEL Collector to confirm it's working as expected.
+In this section, we'll test out the OTEL Collector to confirm it's working as expected.  To get started, we'll create a sample log entry in JSON format.
 
-1. First, we'll create a sample log entry in JSON format. Create a file named `samplelog.json` and add this to the file:
+1. Create a file named `samplelog.json` and add this to the file:
 
-    {{< tabpane >}}
-    {{< tab header="samplelog.json" lang="json" >}}
-{
-    "resourceLogs": [
+    ```json
+    {
+      "resourceLogs": [
         {
-            "resource": {},
-            "scopeLogs": [
+          "resource": {},
+          "scopeLogs": [
+            {
+              "scope": {},
+              "logRecords": [
                 {
-                    "scope": {},
-                    "logRecords": [
-                        {
-                            "observedTimeUnixNano": "1664830800000000000",
-                            "body": {
-                                "stringValue": "This is the sample log message."
-                            },
-                            "attributes": [
-                                {
-                                    "key": "log.file.name",
-                                    "value": {
-                                        "stringValue": "access_log"
-                                    }
-                                }
-                            ],
-                            "traceId": "",
-                            "spanId": ""
-                        }
-                    ]
+                  "observedTimeUnixNano": "1664830800000000000",
+                  "body": {
+                    "stringValue": "This is the sample log message."
+                  },
+                  "attributes": [
+                    {
+                      "key": "log.file.name",
+                      "value": {
+                          "stringValue": "access_log"
+                      }
+                    }
+                  ],
+                  "traceId": "",
+                  "spanId": ""
                 }
-            ]
+              ]
+            }
+          ]
         }
-    ]
-}
-    {{< /tab >}}
-    {{< /tabpane >}}
+      ]
+    }
+    ```
 
 2. With the OTEL Collector running in a separate terminal, run this `curl` command from a new terminal:
 
-    ```shell
+    ```bash
     curl -vi http://localhost:4318/v1/logs -X POST -H "Content-Type: application/json" -d @samplelog.json
     ```
     ```shell
@@ -212,7 +216,6 @@ In this section, we'll test out the OTEL Collector to confirm it's working as ex
 
    ![App Search](../../images/search-otel.png)
 
-    and hit the **enter** key.  The results of the `curl` command (step 2) should show up in the results:
+    and hit the **enter** key.  The results of the `curl` command (step 2) should show up in the search results on Mezmo:
 
    ![App Search](../../images/search-otel-results.png)
-

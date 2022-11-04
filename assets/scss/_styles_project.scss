@@ -1,1 +1,109 @@
+@import "clipboard";
 @import "mezmo";
+@import "terminal";
+@import "blocks/hero";
+
+.td-page-meta--view { display: none !important; }
+.td-page-meta--edit { display: none !important; }
+.td-page-meta--child { display: none !important; }
+.td-page-meta--issue { display: none !important; }
+.td-page-meta--project-issue { display: none !important; }
+
+.alert {
+  font-weight: $font-weight-bold;
+  background: $white;
+  color: inherit;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      & .alert-heading {
+        font-weight: $font-weight-bold;
+        background: lighten($value, 40%);
+        margin: 0;
+        padding: 15px;
+      }
+
+      border-style: solid;
+      border-color: $value;
+      border-width: 0 0 0 4px;
+    }
+  }
+}
+
+.alert-body {
+  background: $white;
+  padding: 15px;
+  font-weight: 400;
+}
+
+// Make the top nav bar a bit thinner
+.navbar {
+  padding: 0rem 1rem;
+
+  // Make the search input more visible in the top nav bar
+  .form-control {
+    border:1px solid #ffffff8c;
+  }
+}
+
+// Make the top nav bar a bit thinner
+.td-navbar {
+  min-height: 3em;
+}
+
+////////////////////
+//  Right Navbar  //
+////////////////////
+
+.td-sidebar-toc {
+  // As we use a 3em navbar height, adjust right hand TOC sidebar to suit.
+  top: 3rem;
+  // Make the sidebar go all the way to the bottom
+  height: calc(100vh - 3rem);
+}
+
+///////////////////
+//  Breadcrumbs  //
+///////////////////
+
+// Hide nav breadcrumbs at the top level (i.e. single breadcrumb)
+.td-breadcrumbs__single { display: none !important; }
+
+////////////////////////////
+////  figure shortcode  //
+////////////////////////////
+
+figure {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 3px 0px;
+  display: inline-block;
+  padding: 1em 1em 1em 1em;
+
+  span {
+    font-size: smaller;
+    text-align: center;
+    vertical-align: 0.12em;
+  }
+}
+
+figcaption {
+  color: $groundedgreen;
+  //border-radius: 6px;
+  //border: 1px solid rgba(0, 0, 0, 0.15);
+  //box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 3px 0px;
+  //display: inline-block;
+  padding-left: 1em;
+
+  h4 {
+    font-size: smaller;
+    font-weight: bold;
+    text-align: center;
+    //vertical-align: 0.12em;
+    padding-top: 1em;
+  }
+}

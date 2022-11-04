@@ -1,2 +1,14 @@
-{{ partial "meta.html" . -}}
-{{ partial "favicons.html" . -}}
+<!-- Asciinema -->
+{{ partial "asciinema-head.html" . }}
+
+<!--<script-->
+<!--        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"-->
+<!--        integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="-->
+<!--        crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+
+<!--{{/* $c2cJS := resources.Get "js/click-to-copy.js" | minify |  fingerprint */}}-->
+<!--{{ $c2cJS := resources.Get "js/click-to-copy.js" | fingerprint }}-->
+<!--<script defer src="{{ $c2cJS.RelPermalink }}" integrity="{{ $c2cJS.Data.Integrity }}"></script>-->
+
+{{ $c2cJS := resources.Get "js/clipboard.js" | fingerprint }}
+<script defer src="{{ $c2cJS.RelPermalink }}" integrity="{{ $c2cJS.Data.Integrity }}"></script>
