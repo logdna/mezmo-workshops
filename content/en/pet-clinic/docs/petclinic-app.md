@@ -93,32 +93,16 @@ The PetClinic app is built using standard **Log4j** formatted log entries.  Thes
    git diff
    ```
 
-    ```xml
+    ```diff
     diff --git a/pom.xml b/pom.xml
-    index c67bce2..65e9844 100644
+    index c67bce2..3888d74 100644
     --- a/pom.xml
     +++ b/pom.xml
-    @@ -105,6 +105,48 @@
-        </dependency>
-        <!-- end of webjars -->
+    @@ -105,6 +105,32 @@
+         </dependency>
+         <!-- end of webjars -->
     
     +    <!-- logback -->
-    +    <dependency>
-    +      <groupId>org.slf4j</groupId>
-    +      <artifactId>slf4j-api</artifactId>
-    +      <version>1.7.25</version>
-    +    </dependency>
-    +    <dependency>
-    +      <groupId>ch.qos.logback</groupId>
-    +      <artifactId>logback-classic</artifactId>
-    +      <version>1.2.9</version>
-    +    </dependency>
-    +    <dependency>
-    +      <groupId>ch.qos.logback</groupId>
-    +      <artifactId>logback-core</artifactId>
-    +      <version>1.2.9</version>
-    +    </dependency>
-    +
     +    <dependency>
     +      <groupId>ch.qos.logback.contrib</groupId>
     +      <artifactId>logback-json-classic</artifactId>
@@ -144,9 +128,9 @@ The PetClinic app is built using standard **Log4j** formatted log entries.  Thes
     +    </dependency>
     +    <!-- end of logback -->
     +
-       <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-devtools</artifactId>
+         <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-devtools</artifactId>
     ```
 
 2. The structured logging uses the **Logback** framework, so let's configure it to output as we need.  Create a new file `src/main/resources/logback.xml` and set the contents as:
