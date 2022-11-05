@@ -10,6 +10,8 @@ Before beginning, you will need the following
 * Docker
 * An AWS account with the necessary permission to administer S3 buckets.
 
+{{% /alert %}}
+
 ## Overview
 
 In this workshop, we will be managing signals coming in from many simulated edge devices.
@@ -26,4 +28,4 @@ To accomplish this we will
 
 In the end you are going to build a Pipeline that looks like
 
-** IMAGE OF FINISHED PIPELINE **
+**IMAGE OF FINISHED PIPELINE**

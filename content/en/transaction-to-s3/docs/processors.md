@@ -57,7 +57,12 @@ The other events also contain datetime, device and buffer but transaction is rep
 
 We don't need the buffer, so let's drop it.  We can do this with a simple `drop` processor.  Add a new processor to the pipeline and select `drop` from the list.  You will be prompted to select the fields to drop.  Select `buffer` and click `Save`.
 
+**IMAGE OF DROP PROCESSOR**
+
 Then connect this to the Source processor by hovering over the Source till you see a gray half circle.  Click and drag to the right edge of the Drop processor.  Release the mouse and things are linked up.  Data will now flow from the Source to the Processor.  Also note that things will rearrange themselves as you go.
+
+**IMAGE OF PARTIALLY LINKED PROCESSORS** -> **IMAGE OF FULLY LINKED PROCESSORS**
+
 
 ## Step 2: Encrypt the Device Location
 
@@ -68,6 +73,8 @@ Add an `Encrypt Field` processor and select `.device.location`.  For Encryption 
 Then every encryption processor needs an Initialization vector.  This will be added to the event itself to allow for decryption down the road.  Let's add `.iv_device_location`.
 
 Click `Save`.
+
+**IMAGE OF ENCRYPT PROCESSOR**
 
 Link this processor to the `Drop` processor as you did in the previous step.
 
