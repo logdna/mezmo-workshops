@@ -21,3 +21,9 @@ To accomplish this we will
 * Filter unneccesary events
 * Encrypt PII in motion
 * Store required data in S3
+
+## Final Product
+
+In the end you are going to build a Pipeline that looks like
+
+** IMAGE OF FINISHED PIPELINE **
