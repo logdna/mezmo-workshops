@@ -1,13 +1,6 @@
 ---
 title: Spring PetClinic Application
 weight: 3
-description: >
-    Introduce the PetClinic application which is a Java application that will be used as the test bed for this workshop.
-tags:
-- java
-- log4j
-- structured-logging
-- PetClinic
 ---
 
 For this exercise, we will use the Spring PetClinic application. This is a very popular sample java application built with Spring framework (Spring Boot).
@@ -16,7 +9,7 @@ For this exercise, we will use the Spring PetClinic application. This is a very 
 
 1. To get started, clone the PetClinic repository starting from our home directory:
 
-   ```shell
+   ```sh
    cd $HOME 
    git clone https://github.com/spring-projects/spring-petclinic
    ```
@@ -24,29 +17,29 @@ For this exercise, we will use the Spring PetClinic application. This is a very 
 
 2. Change into the `spring-petclinic` directory:
 
-   ```shell
+   ```sh
    cd spring-petclinic
    ```
 
 3. Start a MySQL database for Pet Clinic to use:
 
-   ```shell
+   ```sh
    docker run -d -e MYSQL_USER=petclinic -e MYSQL_PASSWORD=petclinic -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=petclinic -p 3306:3306 docker.io/mysql:5.7.8
    ```
 
 4. Next, run the maven command to compile/build/package Pet Clinic:
 
-   ```shell
+   ```sh
    ./mvnw package -Dmaven.test.skip=true
    ```
 
-   {{% alert title="Note" color="secondary" %}}
-   This will take a few minutes the first time you run, maven will download a lot of dependencies before it actually compiles the app. Future executions will be a lot shorter.
-   {{% /alert %}}
+{{% alert title="Note" color="secondary" %}}
+This will take a few minutes the first time you run, maven will download a lot of dependencies before it actually compiles the app. Future executions will be a lot shorter.
+{{% /alert %}}
 
 5. Once the compilation is complete, you can run the application with the following command:
 
-   ```shell
+   ```bash
    java -jar target/spring-petclinic-*.jar --spring.profiles.active=mysql
    ```
 
@@ -56,10 +49,10 @@ For this exercise, we will use the Spring PetClinic application. This is a very 
 
 The PetClinic app is built using standard **Log4j** formatted log entries.  These log entries, while easily human readable, are much more difficult to machine parse due to inconsistencies in the log format.  It's easy enough to switch from human-readable logs to structured logs in JSON format.
 
-1. Edit `pom.xml`, and insert the following list of dependencies at the end of the `<dependencies>...</dependencies>` section (around line 107):
+1. Edit `pom.xml`, and insert the following list of dependencies at the end of the `<dependencies>` section (around line 107):
 
-    ```xml {linenos=table, linenostart=107}
-   
+   {{< tabpane >}}
+   {{< tab header="pom.xml" lang="xml" >}}
        <!-- logback -->
        <dependency>
          <groupId>ch.qos.logback.contrib</groupId>
@@ -85,89 +78,108 @@ The PetClinic app is built using standard **Log4j** formatted log entries.  Thes
          <version>2.13.4</version>
        </dependency>
        <!-- end of logback -->
-   ```
+   {{< /tab >}}
+   {{< /tabpane >}}
 
    A `git diff` will look like this:
    
    ```shell
    git diff
    ```
+   
+   {{< highlight shell >}}
+   diff --git a/pom.xml b/pom.xml
+   index c67bce2..65e9844 100644
+   --- a/pom.xml
+   +++ b/pom.xml
+   @@ -105,6 +105,48 @@
+   </dependency>
+     <!-- end of webjars -->
 
-    ```diff
-    diff --git a/pom.xml b/pom.xml
-    index c67bce2..3888d74 100644
-    --- a/pom.xml
-    +++ b/pom.xml
-    @@ -105,6 +105,32 @@
-         </dependency>
-         <!-- end of webjars -->
-    
-    +    <!-- logback -->
-    +    <dependency>
-    +      <groupId>ch.qos.logback.contrib</groupId>
-    +      <artifactId>logback-json-classic</artifactId>
-    +      <version>0.1.5</version>
-    +    </dependency>
-    +
-    +    <dependency>
-    +      <groupId>ch.qos.logback.contrib</groupId>
-    +      <artifactId>logback-jackson</artifactId>
-    +      <version>0.1.5</version>
-    +    </dependency>
-    +
-    +    <dependency>
-    +      <groupId>com.fasterxml.jackson.core</groupId>
-    +      <artifactId>jackson-databind</artifactId>
-    +      <version>2.14.0-rc1</version>
-    +    </dependency>
-    +
-    +    <dependency>
-    +      <groupId>com.fasterxml.jackson.core</groupId>
-    +      <artifactId>jackson-core</artifactId>
-    +      <version>2.13.4</version>
-    +    </dependency>
-    +    <!-- end of logback -->
-    +
-         <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-devtools</artifactId>
-    ```
++    <!-- logback -->
++    <dependency>
++      <groupId>org.slf4j</groupId>
++      <artifactId>slf4j-api</artifactId>
++      <version>1.7.25</version>
++    </dependency>
++    <dependency>
++      <groupId>ch.qos.logback</groupId>
++      <artifactId>logback-classic</artifactId>
++      <version>1.2.9</version>
++    </dependency>
++    <dependency>
++      <groupId>ch.qos.logback</groupId>
++      <artifactId>logback-core</artifactId>
++      <version>1.2.9</version>
++    </dependency>
++
++    <dependency>
++      <groupId>ch.qos.logback.contrib</groupId>
++      <artifactId>logback-json-classic</artifactId>
++      <version>0.1.5</version>
++    </dependency>
++
++    <dependency>
++      <groupId>ch.qos.logback.contrib</groupId>
++      <artifactId>logback-jackson</artifactId>
++      <version>0.1.5</version>
++    </dependency>
++
++    <dependency>
++      <groupId>com.fasterxml.jackson.core</groupId>
++      <artifactId>jackson-databind</artifactId>
++      <version>2.14.0-rc1</version>
++    </dependency>
++
++    <dependency>
++      <groupId>com.fasterxml.jackson.core</groupId>
++      <artifactId>jackson-core</artifactId>
++      <version>2.13.4</version>
++    </dependency>
++    <!-- end of logback -->
++
+   <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-devtools</artifactId>
+   {{</ highlight >}}
 
 2. The structured logging uses the **Logback** framework, so let's configure it to output as we need.  Create a new file `src/main/resources/logback.xml` and set the contents as:
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <configuration scan="true">
-        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-            <encoder>
-                <pattern>%date{MMM dd HH:mm:ss} %-5level petclinic[1]: %msg %n</pattern>
-            </encoder>
-        </appender>
-    
-        <appender name="FileLogger" class="ch.qos.logback.core.FileAppender">
-            <file>/tmp/petclinic.json</file>
-            <append>false</append>
-            <immediateFlush>true</immediateFlush>
-    
-            <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
-                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                    <prettyPrint>false</prettyPrint>
-                </jsonFormatter>
-                <timestampFormat>yyyy-MM-dd' 'HH:mm:ss</timestampFormat>
-                <appendLineSeparator>true</appendLineSeparator>
-            </layout>
-        </appender>
-    
-        <root level="DEBUG">
-            <appender-ref ref="FileLogger"/>
-            <appender-ref ref="STDOUT"/>
-        </root>
-    </configuration>
-    ```
+   {{< tabpane >}}
+   {{< tab header="src/main/resources/logback.xml" lang="xml" >}}
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{MMM dd HH:mm:ss} %-5level petclinic[1]: %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FileLogger" class="ch.qos.logback.core.FileAppender">
+		<file>/tmp/petclinic.json</file>
+		<append>false</append>
+		<immediateFlush>true</immediateFlush>
+
+		<layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+			<jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+				<prettyPrint>false</prettyPrint>
+			</jsonFormatter>
+			<timestampFormat>yyyy-MM-dd' 'HH:mm:ss</timestampFormat>
+			<appendLineSeparator>true</appendLineSeparator>
+		</layout>
+	</appender>
+
+	<root level="DEBUG">
+		<appender-ref ref="FileLogger"/>
+		<appender-ref ref="STDOUT"/>
+	</root>
+</configuration>
+   {{< /tab >}}
+   {{< /tabpane >}}
 
 3. We can now repackage the PetClinic application with:
 
-   ```bash
+   ```sh
    ./mvnw package -Dmaven.test.skip=true
    ```
 
@@ -205,7 +217,6 @@ Oct 24 12:42:22 [background-preinit] DEBUG o.h.v.i.x.c.ValidationXmlParser: Tryi
    ```shell
    more /tmp/petclinic.log
    ```
-   
    {{< highlight shell >}}
 {"timestamp":"2022-10-24 12:42:22","level":"DEBUG","thread":"background-preinit","logger":"org.jboss.logging","message":"Logging Provider: org.jboss.logging.Log4j2LoggerProvider","context":"default"}
 {"timestamp":"2022-10-24 12:42:22","level":"INFO","thread":"main","logger":"org.springframework.samples.petclinic.PetClinicApplication","message":"Starting PetClinicApplication v2.7.3 using Java 14.0.2 on mbp1 with PID 88857 (/Users/bmeyer/spring-petclinic/target/spring-petclinic-2.7.3.jar started by bmeyer in /Users/bmeyer/spring-petclinic)","context":"default"}
@@ -214,8 +225,7 @@ Oct 24 12:42:22 [background-preinit] DEBUG o.h.v.i.x.c.ValidationXmlParser: Tryi
    {{< /highlight >}}
 
    {{% alert title="NOTE" color="info" %}}
-   To ingest these logs properly, each log entry needs to appear on its own line followed by an appended line separator.  We configured this in our **Logback** configuration with this line in the `FileLogger`'s `layout` config:
-
+   To ingest these logs properly, each log entry needs to appear on it's own line followed by an appended line separator.  We configured this in our **Logback** configuration with this line in the `FileLogger`'s `layout` config:
    ```xml
    			<appendLineSeparator>true</appendLineSeparator>
    ```
