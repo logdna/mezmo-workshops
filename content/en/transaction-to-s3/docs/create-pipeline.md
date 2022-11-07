@@ -17,8 +17,10 @@ Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app
 
 ## Step 2: Run the Simulation
 
+***THINKING OF PUTTING THE SIMULATION AFTER SOURCES.  BUT FEEL LIKE NOW MAY BE MORE INLINE WITH CREATION***
+
 ### Get the Docker
-First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/answerbook/https://github.com/answerbook/financialTransactionDeviceSim).  If using the repo, follow the instructions to build with one command.
+First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/answerbook/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/answerbook/financialTransactionDeviceSim/README.md)to build with one command.
 
 ### Configure the Simulation
 Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  We will snag the key in [the next step](/content/en/transaction-to-s3/docs/sources.md) but for now you can just use something made up like `NADA`.  To do this on MacOS, simply run:
@@ -31,7 +33,7 @@ export NUMBER_DEVICES=25
 ### Run it
 You could technically skip this part till you have a source to hit, but what the hay.  We will update with an actual key later.  You should see the following output
 
-**SIMULATION OUTPUT IMAGE**
+![Device Simulation Ouput](../../images/device_simulation_output.png)
 
 #### From Docker Hub (NOT UPLOADED TO DOCKER HUB YET)
 ```cmd

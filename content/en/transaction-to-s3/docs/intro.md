@@ -28,4 +28,6 @@ To accomplish this we will
 
 In the end you are going to build a Pipeline that looks like
 
-**IMAGE OF FINISHED PIPELINE**
+![Final Pipeline](../../images/final_pipeline.png)
+
+This pipeline will drop unnecsary information from events, encrypt a filtered subset and pass data on to S3 for data engineers.
