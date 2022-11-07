@@ -13,7 +13,7 @@ In order to complete this workshop, you will need a Mezmo account with Pipeline 
 
 Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you will but we will go with `Edge Transaction to S3`.  After creation, you will be taken to the following blank canvas
 
-**BLANK PIPELINE IMAGE**
+![Blank Pipeline](../../images/pipeline_blank.png)
 
 ## Step 2: Run the Simulation
 

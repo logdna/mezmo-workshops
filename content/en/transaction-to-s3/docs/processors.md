@@ -61,9 +61,6 @@ We don't need the buffer, so let's drop it.  We can do this with a simple `drop`
 
 Then connect this to the Source processor by hovering over the Source till you see a gray half circle.  Click and drag to the right edge of the Drop processor.  Release the mouse and things are linked up.  Data will now flow from the Source to the Processor.  Also note that things will rearrange themselves as you go.
 
-**IMAGE OF PARTIALLY LINKED PROCESSORS** -> **IMAGE OF FULLY LINKED PROCESSORS**
-
-
 ![Drop Processor Connection Start](../../images/add-processor_connect-start.png)
 
 ![Drop Processor Connection Finish](../../images/add-processor_connect-finish.png)
@@ -73,31 +70,36 @@ Then connect this to the Source processor by hovering over the Source till you s
 
 Now let's encrypt some sensitive data.  First will be the Location.
 
-Add an `Encrypt Field` processor and select `.device.location`.  For Encryption Method, select `AES-256-CFB` and for Encryption Key, enter a 32 character key.  You can use something like [SITE TO GENERATE KEY](#) to generate a key.
+Add an `Encrypt Field` processor witht the title `Encrypt Location` and select `.device.location`.  For Encryption Method, select `AES-256-CFB` and for Encryption Key, enter a 32 character key.  You can use something like [AllKeysGenerator.com](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx) to generate a key.
 
-Then every encryption processor needs an Initialization vector.  This will be added to the event itself to allow for decryption down the road.  Let's add `.iv_device_location`.
+Every encryption processor needs an Initialization vector.  This will be added to the event itself to allow for decryption down the road.  Let's add ours as `.iv_device_location`.
 
 Click `Save`.
 
-**IMAGE OF ENCRYPT PROCESSOR**
+![Local Encryption](../../images/add-processor_encrypt-location.png)
 
-Link this processor to the `Drop` processor as you did in the previous step.
+Link this processor to the `Drop Buffer` processor like you did in the previous step.
 
 ## Step 3: Route to filter transaction data
 
-We want to send only the transaction events to S3.  To do this we can use a `route` processor.  Go ahead and add one with the Title "Filter Transaction Data".
+We want to send only the transaction events to S3.  To do this we can use a `Route` processor.  Go ahead and add one with the Title `Route Transaction`.
 
-We could group successful and failed transactions (`transaction.result`) but let's seperate the routes.  To do this, we will create two `outputs`.
+We could group successful and failed transactions (`transaction.result`) but let's seperate the routes.  To do this, we will create two `Outputs`.
 
-For the first, select an IF and enter `.transaction.result` **equals** `success`.  To weed out any anomalies for later analysis, lets also ensure `.transaction.total_price` is **greater_or_equal** to `0` via an *Added Expresion*.
+For the first, give it a name `Transaction Success`, select an IF and enter `.transaction.result` **equals** `success`.  To weed out any anomalies for later analysis, lets also ensure `.transaction.total_price` is **greater_or_equal** to `0` via an *Added Expresion*.
 
-Similarly, for the second output, select *Add Additional Output* and enter `.transaction.result` **equals** `fail` as well as the same `.transaction.total_price` treatment.
+![Route: Success](../../images/add-processor_route-success.png)
 
-The final result should look similar to this
+Similarly, for the second output, select *Add Additional Output* with the name `Transaction Failed` and enter `.transaction.result` **equals** `fail` as well as the same `.transaction.total_price` treatment.
 
-**IMAGE OF FINAL ROUTE**
+![Route: Failed](../../images/add-processor_route-fail.png)
 
-Connect the Location Encrypt processor from Step 2 to the Route processor you just created.
+Connect the `Encrypt Location` processor from Step 2 to the Route processor you just created.
+
+
+![Route: Connected](../../images/add-processor_route-connected.png)
+
+Note that we will leave the Unmatched route untouched for this workshop but there are many things that could be done with this data (send to Log Analytics, store in a separete S3 for long term storage, etc).
 
 ## Step 4: Encrypt the Credit Card Information
 
@@ -109,12 +111,12 @@ Now, let's encrypt each of the Credit Card fields individually.  The fields we w
 * `transaction.cc.cc_name`
 * `transaction.cc.cc_zip`
 
-Since each are unique fields, order doesn't matter so much here.  However, for each of these, add an Encrypt processor with `AES-256-CFB` and connect them up together so you get something similar to below floating in the top of you canvas.
+Since each are unique fields, order doesn't matter so much here.  However, for each of these, add an Encrypt processor with `AES-256-CFB` which should leave you with 5 floating processors like so
 
-**IMAGE OF ENCRYPT STRING**
+![Encrypt CC: Unconnected](../../images/add-processor_encrypt-cc-unconnected.png)
 
-Now, link the fail and success routes to the first processor in this group in parallel.  The Pipeline should now look like
+Now, connect each one sequentially and then link the fail and success routes to the first processor in this group in parallel.  The Pipeline should now look like
 
-**IMAGE OF DROP, ENCRYPT, ROUTE, ENCRYPTS**
+![Encrypt CC: Connected](../../images/add-processor_encrypt-cc-connected.png)
 
 It's time to sink this up to the S3 and start gathering data.
