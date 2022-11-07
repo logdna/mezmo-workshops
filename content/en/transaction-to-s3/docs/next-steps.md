@@ -7,7 +7,7 @@ weight: 6
 
 We have succesfully connected a fleet of simulated devices to a Mezmo Pipeline to clean, encrypt and route an important subset to S3 for later analysis.  You should have a Pipeline that looks like
 
-**IMAGE OF FINISHED PIPELINE**
+![Final Pipeline](../../images/final_pipeline.png)
 
 ## Next Steps
 

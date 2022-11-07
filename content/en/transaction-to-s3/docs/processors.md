@@ -55,13 +55,18 @@ The other events also contain datetime, device and buffer but transaction is rep
 
 ## Step 1: Drop the unnecessary buffer
 
-We don't need the buffer, so let's drop it.  We can do this with a simple `drop` processor.  Add a new processor to the pipeline and select `drop` from the list.  You will be prompted to select the fields to drop.  Select `buffer` and click `Save`.
+We don't need the buffer, so let's drop it.  We can do this with a simple `drop` processor.  Add a new processor to the pipeline and select `Drop Fields from JSON` from the list.  Give it a title like `Drop buffer` and select the field `.buffer` to drop.  Click `Save`.
 
-**IMAGE OF DROP PROCESSOR**
+![Drop Processor](../../images/add-processor_drop.png)
 
 Then connect this to the Source processor by hovering over the Source till you see a gray half circle.  Click and drag to the right edge of the Drop processor.  Release the mouse and things are linked up.  Data will now flow from the Source to the Processor.  Also note that things will rearrange themselves as you go.
 
 **IMAGE OF PARTIALLY LINKED PROCESSORS** -> **IMAGE OF FULLY LINKED PROCESSORS**
+
+
+![Drop Processor Connection Start](../../images/add-processor_connect-start.png)
+
+![Drop Processor Connection Finish](../../images/add-processor_connect-finish.png)
 
 
 ## Step 2: Encrypt the Device Location
