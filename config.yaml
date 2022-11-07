@@ -1,15 +1,25 @@
 baseURL: /
-title: Mezmo Workshops
+languageCode: 'en-us'
+title: 'Mezmo Workshops'
 enableRobotsTXT: true
 enableGitInfo: true
 enableEmoji: true
-
-googleAnalytics: G-YHBT24XG9S
 
 contentDir: content/en
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 enableMissingTranslationPlaceholders: true
+
+# Highlighting config
+# This one is mutually exclusive with prism_syntax_highlighting
+pygmentsCodeFences: true
+pygmentsUseClasses: false
+pygmentsUseClassic: true
+pygmentsStyle: monokai
+
+services:
+  googleAnalytics:
+    id: G-YHBT24XG9S
 
 taxonomies:
   tag: tags
@@ -26,10 +36,6 @@ params:
     taxonomyPageHeader:
       - tags
       - categories
-    pygmentsCodeFences: true
-    pygmentsUseClasses: false
-    pygmentsUseClassic: false
-    pygmentsStyle: tango
 
   copyright: Mezmo, Inc.
   privacy_policy: 'https://www.mezmo.com/privacy-policy'
@@ -38,15 +44,24 @@ params:
   version: '1.0'
   url_latest_version: 'https://logdna.github.io/mezmo-workshops'
   github_repo: 'https://github.com/logdna/mezmo-workshops'
-  github_project_repo: 'https://github.com/logdna/mezmo-workshops'
-  github_branch: master
+#  github_project_repo: 'https://github.com/logdna/mezmo-workshops'
+  github_branch: main
 
   gcs_engine_id: a2205c48fadd341ac
   algolia_docsearch: false
   offlineSearch: false
+
+  # Enable syntax highlighting and copy buttons on code blocks with Prism
+  # This one is mutually exclusive with pygmentsCodeFences
   prism_syntax_highlighting: false
 
   mermaid:
+    enable: true
+
+  plantuml:
+    enable: true
+
+  markmap:
     enable: true
 
   ui:
@@ -61,6 +76,8 @@ params:
     sidebar_menu_compact: true
     sidebar_menu_foldable: true
     sidebar_menu_truncate: 1000
+    sidebar_cache_limit: 10
+
     # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
     sidebar_search_disable: false
     feedback:
@@ -72,7 +89,7 @@ params:
         Sorry to hear that. Please <a
         href="https://github.com/logdna/mezmo-workshops/issues/new">tell us how we can improve</a>.
     readingtime:
-      enable: false
+      enable: true
 
 #  show_banner: true
 
@@ -81,31 +98,26 @@ params:
 #      sizes: [ 300, 400, 600, 700 ]
 #      type: sans_serif
 
-#  logos:
-#    navbar: mezmo-logo-grounded-green.png
-#    hero: grpc-logo.png
-#    footer: grpc-horizontal-white.png
-
   links:
     user:
-      - name: User mailing list
-        url: 'https://example.org/mail'
-        icon: fa fa-envelope
+      - name: Instagram
+        url: 'https://instagram.com/mezmodata'
+        icon: fab fa-instagram
         desc: Discussion and help from your fellow users
 
       - name: Twitter
-        url: 'https://example.org/mezmodata'
+        url: 'https://twitter.com/mezmodata'
         icon: fab fa-twitter
         desc: Follow us on Twitter to get the latest news!
 
-      - name: Stack Overflow
-        url: 'https://example.org/stack'
-        icon: fab fa-stack-overflow
+      - name: Linkedin
+        url: 'https://www.linkedin.com/company/mezmo'
+        icon: fab fa-linkedin
         desc: Practical questions and curated answers
 
     developer:
       - name: GitHub
-        url: 'https://github.com/logdna/mezmo-workshops'
+        url: 'https://github.com/logdna'
         icon: fab fa-github
         desc: Development takes place here!
 
@@ -130,10 +142,17 @@ menus:
       url: /pet-clinic
       weight: 1
 
+
     - name: Edge Financial Transaction to S3
       parent: Workshops
       url: /transaction-to-s3
       weight: 2
+      
+#    - name: Examples
+#      url: "/examples/"
+#      pre: "<i class='fas fa-certificate'></i>"
+#      weight: 13
+
 
 permalinks:
   blog: '/:section/:year/:month/:day/:slug/'
@@ -146,25 +165,43 @@ imaging:
 languages:
   en:
     title: Mezmo Workshops
-    description: A Docsy example site
+    description: Workshops for understanding Mezmo Observability Cloud
     languageName: English
     weight: 1
-  'fr':
-    title: Ateliers Mezmo
-    description: Un exemple de site Docsy
-    languageName: French
-    contentDir: content/fr
-    time_format_default: 02.01.2006
-    time_format_blog: 02.01.2006
 
 markup:
   goldmark:
     renderer:
       unsafe: true
   highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+    style: monokai
+    tabWidth: 4
+
     # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+    # https://atelierbram.github.io/syntax-highlighting/prism/demo/
 #    style: tango
-    style: native
+#    style: native
+#    style: manni
+#    style: monokai
+#    style: ghcolors
+#    style: hopscotch
+
+  # Control the depth of the right hand TOC
+  tableOfContents:
+    endLevel: 4
+    ordered: false
+    startLevel: 2
 
 outputs:
   section:

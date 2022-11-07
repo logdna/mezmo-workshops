@@ -5,12 +5,12 @@
 
 <script defer type="text/javascript">
     $(function() {
-        if (window.matchMedia("(min-width: 992px)").matches) {
+        // if (window.matchMedia("(min-width: 992px)").matches) {
             $('head').append( $('<link rel="stylesheet"/>').attr('href', "{{ $css.RelPermalink }}").attr('integrity', "{{ $css.Data.Integrity }}"));
             $('head').append( $('<script defer/>').attr('src', "{{ $js.RelPermalink }}").attr('integrity', "{{ $js.Data.Integrity }}"));
-        } else {
-            console.log($('.col-terminal'));
-            $('.col-terminal').remove();
-        }
+        // } else {
+        //     console.log($('.col-terminal'));
+        //     $('.col-terminal').remove();
+        // }
     });
 </script>
