@@ -26,8 +26,23 @@ Then, connect up the last Encryption Processor for the CC data to this destinati
 
 ![S3 Destination Connected](../../images/s3_connected.png)
 
-**CONNECT THE UNMATCHED TO LA TO DEPLOY.**
+## Add Destination for Unmatched route
 
-Now, simply Deploy your Pipeline and watch as data comes into S3.  Looking at your bucket, you should begin seeing files like so
+The last step before deploying is to connect that unmatched route.  Let's throw the rest of the data into Mezmo's Log Analysis.
+
+First you need to grab the LA API Key.  To do this
+open `Settings -> Organization -> API Keys` (or follow [this link](https://app.mezmo.com/manage/api-keys)).  Then Generate an Ingestion Key and copy it to your clipboard.  We will need this shortly
+
+Now, go back to your Pipeline and add a new Destination.  This time, select `Mezmo Log Analysis`.  Give it a title like `LA`.  Specify a `Hostname` of your choice and paste that API Key into `Ingestion Key`.  Click `Save`.
+
+![Mezmo Log Analysis Dialog](../../images/la_dialog.png)
+
+It's time to connect up that `Destination` to the `Unmatched Route` from earlier.  You should end up with something like this
+
+![Final Connected Pipeline](../../images/la_connected.png)
+
+## Deploy
+
+Now, simply Deploy your Pipeline and watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
 
 ![S3 Data in AWS](../../images/s3_final.png)
