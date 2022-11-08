@@ -188,6 +188,14 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
+18. With the pipeline finalized, the last step is to deploy the pipeline so it is active.  Click the **Deploy pipeline** button:
+
+    {{< figure src="../../images/deploy-pipeline.png" alt="Add Log Analysis" width="150">}}
+
+    When the deployment completes, a blue checkmark will appear next to the pipeline name indicating the pipeline is now active:
+
+    {{< figure src="../../images/deploy-complete.png" alt="Add Log Analysis" width="250">}}
+
 ## Reconfigure OTEL 
 
 You may recall when we installed and configured the **OpenTelemetry Collector** that we set it up to send the logs to the Log Analysis endpoint.  We now want to reconfigure the collector to, instead, send logs to our pipeline endpoint.  This will start the flow of logs through the pipeline and the processors we've configured above.
