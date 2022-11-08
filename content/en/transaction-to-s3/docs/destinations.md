@@ -3,7 +3,7 @@ title: Route to S3
 weight: 5
 ---
 
-## Add the S3 Destination
+## Step 1: Add the S3 Destination
 
 Now that all our data is cleaned, let's get the transactional data into an S3 bucket for later use. 
 
@@ -26,7 +26,7 @@ Then, connect up the last Encryption Processor for the CC data to this destinati
 
 ![S3 Destination Connected](../../images/s3_connected.png)
 
-## Add Destination for Unmatched route
+## Step 2: Add Destination for Unmatched route
 
 The last step before deploying is to connect that unmatched route.  Let's throw the rest of the data into Mezmo's Log Analysis.
 
@@ -41,7 +41,7 @@ It's time to connect up that `Destination` to the `Unmatched Route` from earlier
 
 ![Final Connected Pipeline](../../images/la_connected.png)
 
-## Deploy
+## Step 3: Deploy
 
 Now, simply Deploy your Pipeline and watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
 
