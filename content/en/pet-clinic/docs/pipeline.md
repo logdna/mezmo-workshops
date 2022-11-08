@@ -192,7 +192,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
 You may recall when we installed and configured the **OpenTelemetry Collector** that we set it up to send the logs to the Log Analysis endpoint.  We now want to reconfigure the collector to, instead, send logs to our pipeline endpoint.  This will start the flow of logs through the pipeline and the processors we've configured above.
 
-1. In the Pipeline dashboard, click **...** on the **OTEL Ingest** source.  At the bottom of the **HTTP** settings will be the **API key** that we'll need to use to send data to this endpoint:
+1. In the **Pipeline** dashboard, click **...** on the **OTEL Ingest** source.  At the bottom of the **HTTP** settings will be the **API key** that we'll need to use to send data to this endpoint:
 
     {{< figure src="../../images/http-apikey.png" alt="HTTP - API key" width="450">}}
 

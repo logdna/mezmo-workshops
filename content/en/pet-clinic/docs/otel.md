@@ -27,16 +27,20 @@ There are two types of collectors available for download:
 * `otelcol-contrib_*`
 * `otecol_*`
 
-Be sure to download the `otelcol-contrib_*` binary that matches your platform.
+Be sure to download the **`otelcol-contrib_*`** binary that matches your platform.
     {{% /alert %}}
 
-2. If your binary has an installer, go ahead and run the installer.  For this example, the **darwin** tarball will be installed in a new directory located off the user home directory: 
+2. If your binary has an installer, go ahead and run the installer.  For this example, the **darwin** tarball (`otelcol-contrib_0.61.0_darwin_arm64.tar.gz`) will be installed in a new directory located off the user home directory:
 
     ```bash
     mkdir $HOME/otelcol
     cd $HOME/otelcol
     tar zxvf <location of downloaded file>/otelcol-contrib_0.61.0_darwin_arm64.tar.gz
     ```
+
+   {{% alert title="Use the correct download name" color="warning" %}}
+   NOTE: Be sure to replace **`otelcol-contrib_0.61.0_darwin_arm64.tar.gz`** above with the filename you downloaded.
+   {{% /alert %}}
 
 3. With the **OpenTelemetry Collector** installed, verify the contents of the directory:
 
