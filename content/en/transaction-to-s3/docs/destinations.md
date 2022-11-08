@@ -11,7 +11,7 @@ You will need some information from you AWS account here.  Specifically, you wil
 
 * `AWS Access Key ID`
 * `AWS Secret Access Key`
-* `AWS Bucket name`
+* `AWS Bucket Name`
 * `AWS Region`
 
 With those in hand, add a new Destination and select `AWS S3`.
