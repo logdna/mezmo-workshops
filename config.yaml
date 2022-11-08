@@ -47,9 +47,9 @@ params:
 #  github_project_repo: 'https://github.com/logdna/mezmo-workshops'
   github_branch: main
 
-  gcs_engine_id: a2205c48fadd341ac
+#  gcs_engine_id: a2205c48fadd341ac
   algolia_docsearch: false
-  offlineSearch: false
+  offlineSearch: true
 
   # Enable syntax highlighting and copy buttons on code blocks with Prism
   # This one is mutually exclusive with pygmentsCodeFences

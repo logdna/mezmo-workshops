@@ -203,7 +203,7 @@ Oct 24 12:42:22 [background-preinit] DEBUG o.h.v.i.x.c.ValidationXmlParser: Tryi
 5. Our **Logback** configuration includes an entry to write the logs to the file `/tmp/petclinic.log`. Verify logs are being written to it as these will be used in the next section:
 
    ```shell
-   more /tmp/petclinic.log
+   more /tmp/petclinic.json
    ```
    
    {{< highlight shell >}}
