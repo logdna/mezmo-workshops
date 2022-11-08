@@ -26,7 +26,8 @@ Then, connect up the last Encryption Processor for the CC data to this destinati
 
 ![S3 Destination Connected](../../images/s3_connected.png)
 
-Now, simply Deploy your Pipeline and watch as data comes into S3.  Looking at your bucket, you should begin seeing files like so
+**CONNECT THE UNMATCHED TO LA TO DEPLOY.**
 
+Now, simply Deploy your Pipeline and watch as data comes into S3.  Looking at your bucket, you should begin seeing files like so
 
 ![S3 Data in AWS](../../images/s3_final.png)
