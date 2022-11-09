@@ -1,4 +1,4 @@
-baseURL: /mezmo-workshops
+baseURL: https://logdna.github.io/mezmo-workshops
 languageCode: 'en-us'
 title: 'Mezmo Workshops'
 enableRobotsTXT: true
