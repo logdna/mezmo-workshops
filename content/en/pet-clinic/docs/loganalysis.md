@@ -14,9 +14,10 @@ In this section, we will update the **OpenTelemetry Collector**'s configuration 
 
 To get started, we'll need to modify the `receivers` section of the **OpenTelemetry** configuration to add a **filelog** receiver.  This receiver will be responsible for reading the `/tmp/petclinic.json` file into the running collector.
 
-1. Edit `$HOME/otelcol/config.yaml` and add this configuration under the `receivers` section:
+1. Edit `$HOME/otelcol/config.yaml` and add the highlighted lines to the configuration under the `receivers` section:
 
-    ```yaml
+    ```yaml {linenos=table, linenostart=1 hl_lines=["3-15"]}
+    #######################################
     receivers:
       filelog:
         include:
