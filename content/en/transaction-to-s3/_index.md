@@ -8,3 +8,9 @@ description: >
 ---
 
 **Time to complete: 15 minutes**
+
+{{% alert title="Support" %}}
+
+If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com).
+
+{{% /alert %}}

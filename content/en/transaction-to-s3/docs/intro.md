@@ -28,6 +28,6 @@ To accomplish this we will
 
 In the end you are going to build a Pipeline that looks like
 
-![Final Pipeline](../../images/final_pipeline.png)
+![Final Pipeline](../../images/pipeline_final.png)
 
-This pipeline will drop unnecsary information from events, encrypt a filtered subset to pass those on to S3 for data engineers, and pass the rest on to Mezmo's Log Analysis.
+This pipeline will drop unnecsary information from events, encrypt a filtered subset to pass those on to S3 for data engineers, and pass the rest on to [Mezmo's Log Analysis](https://www.mezmo.com/log-analysis).
