@@ -129,7 +129,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
     * add a meaningful **Description** such as `Allow non-DEBUG messages to pass`
     * set the **Field** value to `.lines.level` 
     * set the **Operator** to `not_equal`
-    * set the **Value** to `debug` (case is not important)
+    * set the **Value** to `DEBUG` (the value **is case-sensitive**)
 
     <br/>
     {{< figure src="../../images/configured-filter.png" alt="Configured - Filter" width="450">}}
