@@ -13,24 +13,24 @@ In order to complete this workshop, you will need a Mezmo account with Pipeline 
 
 Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you will but we will go with `Snowflake-Integration`.  After creation, you will be taken to the following blank canvas
 
-![Blank Pipeline](../../images/pipeline_blank.png)
+![Blank Pipeline](../images/pipeline_blank.png)
 
 
 ## Step 2: Add the Source
 
 This parts easy.  Go to the pipeline you created previously and click *Add Source*
 
-![Add Source](../../images/add_sources_1.png)
+![Add Source](../images/add_sources_1.png)
 
 From there, just select `HTTP`, give it a *Title* like `Edge Devices`, set *Decoding Method* to `JSON` and click *Save*.
 
-![Add Source](../../images/add_sources_2.png)
+![Add Source](../images/add_sources_2.png)
 
 You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/pet-clinic/) to learn how to utilize the sytem to it's fullest.
 
 Make sure to grab the API key from the HTTP Source after adding it.
 
-![Add Source](../../images/add_sources_3.png)
+![Add Source](../images/add_sources_3.png)
 
 ## Step 3: Add the S3 Destination
 
@@ -49,10 +49,10 @@ Give this Destination the title `Snowflake Bucket`. Then, enter your `Access Key
 
 *Note: Make sure messages going to this S3 destination contain the dynamic field as part of the path.  Any events that do not have the fields will not go to S3.*
 
-![S3 Destination Definition](../../images/add_destination_1.png)
+![S3 Destination Definition](../images/add_destination_1.png)
 
 Now lets connect the `Edge Device` Source to the `Snowflake Bucket` Destination.  For this example, we are not going to use any processors, but feel free to experiment adding additional processors.
 
-![S3 Destination Connected](../../images/s3_connected.png)
+![S3 Destination Connected](../images/s3_connected.png)
 
 Now, simply Deploy your Pipeline.
