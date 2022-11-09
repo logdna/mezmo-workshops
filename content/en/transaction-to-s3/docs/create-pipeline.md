@@ -5,7 +5,9 @@ weight: 2
 
 {{% alert title="Make sure you have a Mezmo account" %}}
 
-In order to complete this workshop, you will need a Mezmo account with Pipeline enabled.  Note that this as a technical preview, Pipeline may not be enabled off the bat.  If you do not have an account, you can sign up for a free trial [here](https://app.mezmo.com/signup) and/or if you don't have Pipeline you can reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com) to get it enabled.
+In order to complete this workshop, you will need a Mezmo account with Pipeline enabled.  Note that this as a technical preview, Pipeline may not be enabled off the bat.  If you do not have an account, you can sign up for a free trial [here](https://mezmo.com/signup) and/or if you don't have Pipeline enabled you can reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com) to get it set up.
+
+If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com).
 
 {{% /alert %}}
 
@@ -17,10 +19,8 @@ Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app
 
 ## Step 2: Run the Simulation
 
-***THINKING OF PUTTING THE SIMULATION AFTER SOURCES.  BUT FEEL LIKE NOW MAY BE MORE INLINE WITH CREATION***
-
 ### Get the Docker
-First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/answerbook/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/answerbook/financialTransactionDeviceSim/README.md)to build with one command.
+First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/logdna/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/logdna/financialTransactionDeviceSim/blob/main/README.md)to build with one command.
 
 ### Configure the Simulation
 Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  We will snag the key in [the next step](/content/en/transaction-to-s3/docs/sources.md) but for now you can just use something made up like `NADA`.  To do this on MacOS, simply run:
