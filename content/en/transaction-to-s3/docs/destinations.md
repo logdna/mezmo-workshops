@@ -20,8 +20,6 @@ We can get fancy with how we route information here (see the [workshop on S3 to 
 
 Give this Destination the title `S3 Fin Transactions`. Then, enter your `Access Key ID` and `Secret Access Key` along with the `Bucket` (we will go with `mezmo-pipeline-financial-transactions` and no `Prefix`).  Next, chose `JSON` for the `Encoding`, no compression and select the `Region` (we will go with `us-east-1`).  Click `Save` when yours looks similar to the image below.
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
 ![S3 Destination Definition](../../images/s3_definition.png)
 
 Then, connect up the last Encryption Processor for the CC data to this destination like so

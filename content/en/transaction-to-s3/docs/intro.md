@@ -3,6 +3,8 @@ title: Getting Started
 weight: 1
 ---
 
+{{% alert title="Support" %}} If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com). {{% /alert %}}
+
 {{% alert title="Prerequisites" %}}
 Before beginning, you will need the following
 
