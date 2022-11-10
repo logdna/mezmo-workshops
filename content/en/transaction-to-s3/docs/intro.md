@@ -9,7 +9,7 @@ weight: 1
 Before beginning, you will need the following
 
 * A Mezmo account with Pipeline enabled.
-* Docker
+* [Docker](https://www.docker.com/)
 * An AWS account with the necessary permission to administer S3 buckets.
 
 {{% /alert %}}
