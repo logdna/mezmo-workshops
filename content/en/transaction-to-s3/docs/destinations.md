@@ -14,13 +14,18 @@ You will need the following information from you AWS account:
 * `AWS Bucket Name`
 * `AWS Region`
 
-With those in hand, add a new Destination and select `AWS S3`.
+{{% alert title="Note" color="danger" %}}
+* The `IAM User` associated with that `Access Key ID` needs to have at least the `PutObject` privlege in AWS.
+* You must have created the `AWS Bucket` with that `Name`.
+
+For more details you can check out the [IAM and S3 section](/mezmo-workshops/s3-to-snowflake/create-s3-bucket-and-user/#step-1-create-a-new-s3-bucket) of the S3 to Snowflake workshop.
+{{% /alert %}}
+
+With those in hand, add a new `Destination` and select `AWS S3`.
 
 We can get fancy with how we route information here (see the [workshop on S3 to Snowflake](/mezmo-workshops/s3-to-snowflake/) to learn more), but we will keep it simple for now.  Let's dump all this data into a single bucket for safe keeping.
 
-Give this Destination the title `S3 Fin Transactions`. Then, enter your `Access Key ID` and `Secret Access Key` along with the `Bucket` (we will go with `mezmo-pipeline-financial-transactions` and no `Prefix`).  Next, chose `JSON` for the `Encoding`, no compression and select the `Region` (we will go with `us-east-1`).  Click `Save` when yours looks similar to the image below.
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Give this `Destination` the title `S3 Fin Transactions`. Then, enter your `Access Key ID` and `Secret Access Key` along with the `Bucket` (we will go with `mezmo-pipeline-financial-transactions` and no `Prefix`).  Next, chose `JSON` for the `Encoding`, no compression and select the `Region` (we will go with `us-east-1`).  Click `Save` when yours looks similar to the image below.
 
 ![S3 Destination Definition](../../images/s3_definition.png)
 

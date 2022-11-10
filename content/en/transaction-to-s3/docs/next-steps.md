@@ -3,6 +3,10 @@ title: Next Steps
 weight: 6
 ---
 
+{{% alert title="Survey" %}}
+We are offering $X to the first N people to complete a short survey on Mezmo Pipeline and the workshop you just completed.  If you have 7 min, head on over **[here](#)**.
+{{% /alert %}}
+
 ## Recap
 
 We have succesfully connected a fleet of simulated devices to a Mezmo Pipeline to clean, encrypt and route an important subset to S3 for later analysis.  You should have a Pipeline that looks like
