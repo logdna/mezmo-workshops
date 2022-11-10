@@ -33,7 +33,7 @@ Then, restart the simulation by either running the docker you built or use our D
 
 ### From Mezmo's DockerHub image
 ```cmd
-docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it braxtonj/transaction-device-sim:0.1
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it logdna/transaction-device-sim:0.1.0
 ```
 
 ### From local Docker image
