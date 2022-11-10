@@ -31,7 +31,7 @@ export NUMBER_DEVICES=25
 ### Run it
 You could technically skip this part till you have a source to hit, but what the hay.  We will update with an actual key later.  In a terminal, run one of the following commands:
 
-#### From Docker Hub
+#### Mezmo's Docker Hub
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it logdna/transaction-device-sim:0.1.0
 ```
