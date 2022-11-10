@@ -3,7 +3,7 @@ title: Next Steps
 weight: 6
 ---
 
-{{% alert title="Survey" %}}
+{{% alert title="Survey" color="warning" %}}
 We are offering $X to the first N people to complete a short survey on Mezmo Pipeline and the workshop you just completed.  If you have 7 min, head on over **[here](#)**.
 {{% /alert %}}
 
