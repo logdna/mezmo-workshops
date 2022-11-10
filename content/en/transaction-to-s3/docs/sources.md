@@ -29,7 +29,7 @@ If you previously started the simulation, terminate the docker (*ctrl-c* in the 
 export KEY=s_c66132d6-5ad5-11ed-bc9d-1a5310034e7d
 ```
 
-Then, restart the simulation by either running the docker you built (see [README.md](https://github.com/answerbook/financialTransactionDeviceSim/README.md) on the repo to learn how to build) or use our DockerHub image.
+Then, restart the simulation by either running the docker you built (see [README.md](https://github.com/answerbook/financialTransactionDeviceSim/blob/main/README.md) on the repo to learn how to build) or use our DockerHub image.
 
 ***NOTE YOU MUST BUILD FROM THE GITHUB FOR NOW.  SORRY :)***
 
