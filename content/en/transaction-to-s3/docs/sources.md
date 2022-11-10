@@ -31,12 +31,13 @@ export KEY=s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 Then, restart the simulation by either running the docker you built or use our DockerHub image.
 
+### From Mezmo's DockerHub image
+```cmd
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it braxtonj/transaction-device-sim:0.1
+```
+
 ### From local Docker image
 See [GitHub repo for steps](https://github.com/logdna/financialTransactionDeviceSim#build-the-docker-image) to build the docker image.
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim
 ```
-
-### From Mezmo's DockerHub image
-***Note you must build this locally for now.***
-

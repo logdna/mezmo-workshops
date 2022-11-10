@@ -18,7 +18,7 @@ Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app
 ## Step 2: Run the Simulation
 
 ### Get the Docker
-First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/logdna/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/logdna/financialTransactionDeviceSim/blob/main/README.md)to build with one command.
+First you will need the Docker to simulate.  You can either use our [DockerHub image](https://hub.docker.com/repository/docker/braxtonj/transaction-device-sim) or clone the [GitHub repo](https://github.com/logdna/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/logdna/financialTransactionDeviceSim/blob/main/README.md)to build with one command.
 
 ### Configure the Simulation
 Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  We will snag the key in [the next step](/mezmo-workshops/transaction-to-s3/docs/sources.md) but for now you can just use something made up like `NADA`.  To do this on MacOS Terminal, simply run:
@@ -31,14 +31,16 @@ export NUMBER_DEVICES=25
 ### Run it
 You could technically skip this part till you have a source to hit, but what the hay.  We will update with an actual key later.  In a terminal, run one of the following commands:
 
+#### From Docker Hub
+```cmd
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it braxtonj/transaction-device-sim:0.1
+```
+
 #### Local after Building
 See [GitHub repo for steps](https://github.com/logdna/financialTransactionDeviceSim#build-the-docker-image) to build the docker image.
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim
 ```
-
-#### From Docker Hub
-***Note you must build this locally for now.***
 
 #### Output
 When running by default, you should see data like the following streaming through in that terminal.
