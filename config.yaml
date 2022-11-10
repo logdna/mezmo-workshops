@@ -137,7 +137,7 @@ menus:
       name: Workshops
       weight: 10
 
-    - name: Java PetClinic
+    - name: Mezmo Platform
       parent: Workshops
       url: /pet-clinic
       weight: 1
@@ -165,7 +165,7 @@ imaging:
 languages:
   en:
     title: Mezmo Workshops
-    description: Workshops for understanding Mezmo Observability Cloud
+    description: Workshops for understanding Mezmo Platform
     languageName: English
     weight: 1
 
