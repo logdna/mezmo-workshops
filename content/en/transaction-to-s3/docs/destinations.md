@@ -20,6 +20,8 @@ We can get fancy with how we route information here (see the [workshop on S3 to 
 
 Give this Destination the title `S3 Fin Transactions`. Then, enter your `Access Key ID` and `Secret Access Key` along with the `Bucket` (we will go with `mezmo-pipeline-financial-transactions` and no `Prefix`).  Next, chose `JSON` for the `Encoding`, no compression and select the `Region` (we will go with `us-east-1`).  Click `Save` when yours looks similar to the image below.
 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 ![S3 Destination Definition](../../images/s3_definition.png)
 
 Then, connect up the last Encryption Processor for the CC data to this destination like so
@@ -43,6 +45,10 @@ It's time to connect up that `Destination` to the `Unmatched Route` from earlier
 
 ## Step 3: Deploy
 
-Now, simply Deploy your Pipeline and watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
+Now, simply `Deploy pipeline` in the top right.  After the Pipeline should no longer be a draft and look like this
 
 ![S3 Data in AWS](../../images/pipeline_deployed.png)
+
+Watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
+
+![S3 Data in AWS](../../images/aws_s3_data_final.png)

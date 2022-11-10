@@ -86,7 +86,7 @@ Note that we will leave the `Unmatched` route untouched for this workshop.  But 
 
 ## Step 3: Encrypt the Credit Card Information
 
-Now, let's encrypt each of the Credit Card fields individually to ensure security.  The fields we want to encrypt are
+Now, let's encrypt each of the Credit Card fields individually to ensure security and compliance.  The fields we want to encrypt are
 
 * `transaction.cc.cc_number`
 * `transaction.cc.cc_exp`
@@ -94,7 +94,13 @@ Now, let's encrypt each of the Credit Card fields individually to ensure securit
 * `transaction.cc.cc_name`
 * `transaction.cc.cc_zip`
 
-Since each are unique, order doesn't matter so much here.  For each of these, add an Encrypt processor with `AES-256-CFB` which should leave you with 5 floating processors like so
+Since each are unique, order doesn't matter so much here.  For each, add an `Encrypt Field` processor using the `AES-256-CFB` algorithm with a 32 character `Encryption Key` (checkout [AllKeysGenerator.com](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx)to generate each key).  Note that every encryption processor also needs an `Initialization Vector` which will be added to the event itself to allow for decryption down the road.
+
+Click `Save`.
+
+![Encrypt CC Number Dialog](../../images/add-processor_encrypt-cc-number.png)
+
+Once you do this for each of the above fields, you should have 5 floating processors like so
 
 ![Encrypt CC: Unconnected](../../images/add-processor_encrypt-cc-unconnected.png)
 
