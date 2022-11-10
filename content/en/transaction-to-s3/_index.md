@@ -7,4 +7,8 @@ description: >
   In this workshop, you will collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the Mezmo Platform.
 ---
 
-**Time to complete: 15 minutes**
+**Time to complete: 20 minutes**
+
+{{% alert title="Support" %}}
+If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com).
+{{% /alert %}}
