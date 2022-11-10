@@ -5,7 +5,7 @@ weight: 1
 
 {{% alert title="Support" %}} If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com). {{% /alert %}}
 
-{{% alert title="Prerequisites" %}}
+{{% alert title="Prerequisites" color="danger" %}}
 Before beginning, you will need the following
 
 * A Mezmo account with Pipeline enabled.
