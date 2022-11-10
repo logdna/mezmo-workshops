@@ -29,14 +29,14 @@ If you previously started the simulation, terminate the docker (*ctrl-c* in the 
 export KEY=s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Then, restart the simulation by either running the docker you built or use our DockerHub image.
+Then, end the simulation (via `ctrl-c` if it's already running) and run the Docker you built or use our DockerHub image with that new `KEY` via one of the two terminal commands below:
 
-### From Mezmo's DockerHub image
+### Mezmo's DockerHub image
 ```cmd
-docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it braxtonj/transaction-device-sim:0.1
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it logdna/transaction-device-sim:0.1.0
 ```
 
-### From local Docker image
+### Local Docker image
 See [GitHub repo for steps](https://github.com/logdna/financialTransactionDeviceSim#build-the-docker-image) to build the docker image.
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim

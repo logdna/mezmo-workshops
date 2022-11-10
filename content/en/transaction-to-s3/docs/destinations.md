@@ -16,7 +16,7 @@ You will need the following information from you AWS account:
 
 {{% alert title="Note" color="danger" %}}
 * The `IAM User` associated with that `Access Key ID` needs to have at least the `PutObject` privlege in AWS.
-* You must have created the `AWS Bucket` with that `Name`.
+* You must create the `Bucket` with that `Name` in AWS yourself.
 
 For more details you can check out the [IAM and S3 section](/mezmo-workshops/s3-to-snowflake/create-s3-bucket-and-user/#step-1-create-a-new-s3-bucket) of the S3 to Snowflake workshop.
 {{% /alert %}}
