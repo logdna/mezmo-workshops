@@ -5,6 +5,8 @@ description: >
     Start the workshop here.
 ---
 
+{{% alert title="Questions?" color="danger" %}}For issues or questions related to this Workshop, **please reach out to us** at [pipeline@mezmo.com](mailto:pipeline@mezmo.com).  Feel free to share any feedback as well!{{% /alert %}}
+
 ## Overview
 
 In this workshop, we will start by taking an existing Java Application (Spring PetClinic) and perform the following:
