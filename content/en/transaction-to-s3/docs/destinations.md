@@ -5,9 +5,9 @@ weight: 5
 
 ## Step 1: Add the S3 Destination
 
-Now that all our data is cleaned, let's get the transactional data into an S3 bucket for later use. 
+With our data cleaned, let's get the financial transactions into an S3 bucket for later use. 
 
-You will need some information from you AWS account here.  Specifically, you will need
+You will need the following information from you AWS account:
 
 * `AWS Access Key ID`
 * `AWS Secret Access Key`
@@ -30,10 +30,10 @@ Then, connect up the last Encryption Processor for the CC data to this destinati
 
 The last step before deploying is to connect that unmatched route.  Let's throw the rest of the data into Mezmo's Log Analysis.
 
-First you need to grab the LA API Key.  To do this
-open `Settings -> Organization -> API Keys` (or follow [this link](https://app.mezmo.com/manage/api-keys)).  Then Generate an Ingestion Key and copy it to your clipboard.  We will need this shortly
+First you need to grab the LA API Key.  To do this,
+open `Settings -> Organization -> API Keys` (or follow [this link](https://app.mezmo.com/manage/api-keys)).  Then Generate an Ingestion Key and copy it to your clipboard.  We will need this shortly.
 
-Now, go back to your Pipeline and add a new Destination.  This time, select `Mezmo Log Analysis`.  Give it a title like `LA`.  Specify a `Hostname` of your choice and paste that API Key into `Ingestion Key`.  Click `Save`.
+Now, go back to your Pipeline and add a new Destination.  This time select `Mezmo Log Analysis`.  Give it a title like `LA`, specify a `Hostname` of your choice and paste that API Key into `Ingestion Key`.  Click `Save`.
 
 ![Mezmo Log Analysis Dialog](../../images/la_dialog.png)
 
@@ -45,4 +45,4 @@ It's time to connect up that `Destination` to the `Unmatched Route` from earlier
 
 Now, simply Deploy your Pipeline and watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
 
-![S3 Data in AWS](../../images/s3_final.png)
+![S3 Data in AWS](../../images/pipeline_deployed.png)

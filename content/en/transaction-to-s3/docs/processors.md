@@ -66,7 +66,7 @@ Then connect this to the Source processor by hovering over the Source till you s
 
 ## Step 2: Route to filter transaction data
 
-We want to send only the transaction events to S3.  To do this we can use a `Route` processor.  Go ahead and add one with the Title `Route Transaction`.
+We want to send only the transaction events to S3, to do this we can use a `Route` processor.  Go ahead and add one with the Title `Route Transaction`.
 
 We could group successful and failed transactions (`transaction.result`) but let's seperate the routes.  To do this, we will create two `Outputs`.
 
@@ -82,11 +82,11 @@ Connect the `Drop Buffer` processor from Step 1 to the Route processor you just 
 
 ![Route: Connected](../../images/add-processor_route-connected.png)
 
-Note that we will leave the Unmatched route untouched for this workshop but there are many things that could be done with this data (send to Log Analytics, store in a separete S3 for long term storage, etc).
+Note that we will leave the `Unmatched` route untouched for this workshop.  But there are many things that could be done with this data: send to Log Analytics, send to a SIEM, etc.
 
 ## Step 3: Encrypt the Credit Card Information
 
-Now, let's encrypt each of the Credit Card fields individually.  The fields we want to encrypt are
+Now, let's encrypt each of the Credit Card fields individually to ensure security.  The fields we want to encrypt are
 
 * `transaction.cc.cc_number`
 * `transaction.cc.cc_exp`
@@ -94,12 +94,12 @@ Now, let's encrypt each of the Credit Card fields individually.  The fields we w
 * `transaction.cc.cc_name`
 * `transaction.cc.cc_zip`
 
-Since each are unique fields, order doesn't matter so much here.  However, for each of these, add an Encrypt processor with `AES-256-CFB` which should leave you with 5 floating processors like so
+Since each are unique, order doesn't matter so much here.  For each of these, add an Encrypt processor with `AES-256-CFB` which should leave you with 5 floating processors like so
 
 ![Encrypt CC: Unconnected](../../images/add-processor_encrypt-cc-unconnected.png)
 
-Now, connect each one sequentially and then link the fail and success routes to the first processor in this group in parallel.  The Pipeline should now look like
+Now, connect each one sequentially and then link the fail and success routes to the first processor in this group in parallel.  The Pipeline should now look similar to
 
 ![Encrypt CC: Connected](../../images/add-processor_encrypt-cc-connected.png)
 
-It's time to sink this up to the S3 and start gathering data.
+Now that the transformations have been defined, it's time to sink this up to the S3 and start gathering data.

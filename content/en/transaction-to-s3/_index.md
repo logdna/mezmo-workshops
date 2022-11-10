@@ -10,7 +10,9 @@ description: >
 **Time to complete: 15 minutes**
 
 {{% alert title="Support" %}}
-
 If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com).
+{{% /alert %}}
 
+{{% alert title="Survey" %}}
+We are offering $X to the first N people to complete a short survey on Mezmo Pipeline and the workshop you just completed.  If you have 7 min, head on over **[here](#)**.
 {{% /alert %}}
