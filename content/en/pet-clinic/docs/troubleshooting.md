@@ -19,7 +19,7 @@ Webhook.site is a free website that can be used to make HTTP requests to and see
 
     {{< figure src="../../images/webhook.site-url.png" alt="Webhook.site URL" width="800">}}
 
-3. Open the **PetClinic Preprocess** pipeline and click **Destinations** &arr; **Add**.
+3. Open the **PetClinic Preprocess** pipeline and click **Destinations** &rarr; **Add**.
 
 4. Select the **HTTP** destination.
 
@@ -46,5 +46,5 @@ Webhook.site is a free website that can be used to make HTTP requests to and see
    {{< figure src="../../images/webhook.site-example.png" alt="Pipeline with Webhook.site" width="1200">}}
 
    {{< alert title="NOTE" color="danger" >}}
-   Future releases of Pipeline will incorporate diagnostics tooling from within the **Mezmo Observability Cloud** such that a 3rd party tool will **not** be necessary.
+   Future releases of Pipeline will incorporate diagnostics tooling from within the Mezmo platform such that a 3rd party tool will **not** be necessary.
    {{< /alert >}}
