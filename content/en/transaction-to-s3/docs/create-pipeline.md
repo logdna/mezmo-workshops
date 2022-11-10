@@ -3,7 +3,7 @@ title: Create the Pipeline and Run Simulation
 weight: 2
 ---
 
-{{% alert title="Make sure you have a Mezmo account" %}}
+{{% alert title="Make sure you have a Mezmo account" color="danger" %}}
 
 In order to complete this workshop, you will need a Mezmo account with Pipeline enabled.  Note that this as a technical preview, Pipeline may not be enabled off the bat.  If you do not have an account, you can sign up for a free trial [here](https://mezmo.com/signup) and/or if you don't have Pipeline enabled you can reach out to us at [pipeline@mezmo.com](mailto:pipeline@mezmo.com) to get it set up.
 
