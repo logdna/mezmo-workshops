@@ -1,6 +1,6 @@
 ---
-title: Edge Financial Transaction to S3
-linkTitle: EdgeTransactionToS3
+title: "Encrypt, Drop and Route to S3: Edge Financial Transactions"
+linkTitle: Encrypt, Drop and Route to S3
 cascade:
   type: docs
 description: >
