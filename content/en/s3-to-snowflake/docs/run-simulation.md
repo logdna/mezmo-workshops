@@ -19,7 +19,7 @@ export NUMBER_DEVICES=25
 ### Run it
 You should see the following output.
 
-![Device Simulation Ouput](../images/device_simulation_output.png)
+![Device Simulation Ouput](../../images/device_simulation_output.png)
 
 #### From Docker Hub (NOT UPLOADED TO DOCKER HUB YET)
 ```cmd
@@ -35,4 +35,4 @@ docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-dev
 
 Now let's verify data is flowing to S3.  It may take a few minutes for new data to show up as data is `buffered` in the pipeline for a few seconds before writing to S3.
 
-![S3 Data](../images/s3_data.png)
+![S3 Data](../../images/s3_data.png)

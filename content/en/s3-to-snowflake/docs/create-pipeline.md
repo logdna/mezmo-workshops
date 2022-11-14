@@ -30,7 +30,7 @@ You now have an endpoint defined that can recieve any data.  If you run into tro
 
 Make sure to grab the API key from the HTTP Source after adding it.
 
-![Add Source](../images/add_sources_3.png)
+![Add Source](../../images/add_sources_3.png)
 
 ## Step 3: Add the S3 Destination
 
@@ -57,10 +57,10 @@ Your destination should look similar to the image below.
 
 *Note: Make sure messages going to this S3 destination contain the dynamic field as part of the path.  Any events that do not have the fields will not go to S3.*
 
-![S3 Destination Definition](../images/add_destination_1.png)
+![S3 Destination Definition](../../images/add_destination_1.png)
 
 Now let's connect the `Edge Device` Source to the `Snowflake Bucket` Destination.  For this example, we are not going to use any processors.
 
-![S3 Destination Connected](../images/s3_connected.png)
+![S3 Destination Connected](../../images/s3_connected.png)
 
 Now, simply Deploy your Pipeline.

@@ -53,7 +53,7 @@ from MEZMO_DEMO.DEVICE_DEMO.EVENT_EXT where event_date = '<date>' and event_name
 GROUP BY event_date, VALUE:transaction.result;
 ```
 
-![External Table Select](../images/snowflake_sql_1.png)
+![External Table Select](../../images/snowflake_sql_1.png)
 
 
 ## Create Snowpipe Internal Table
@@ -99,13 +99,13 @@ SHOW PIPES;
 
 Copy the SQS arn from the notification_channel field.
 
-![Show Pipes](../images/snowflake_notification_channel.png)
+![Show Pipes](../../images/snowflake_notification_channel.png)
 
 With the SQS arn in hand, navigate back to your S3 bucket and add a new Event Notification.  This can be found on the properties tab of the bucket.
 
 When creating the event give it an event name (we are using `Snowpipe S3 Event`) and a Prefix (we are using `device-sim/`).  Be sure to select the `All object create events` under event type.  Under the Destinations section, select `SQS queue` and `Enter SQS queue ARN`.  Provide the arn from the `SHOW PIPES` command in snowflake.
 
-![S3 Event](../images/s3_event.png)
+![S3 Event](../../images/s3_event.png)
 
 Make sure the simulation is running and data is flowing through as only new files will be loaded via Snowpipe.
 
@@ -117,4 +117,4 @@ Select * from MEZMO_DEMO.DEVICE_DEMO.EVENT_PIPE;
 
 You should see data in the table like the following.
 
-![Snowpipe Select](../images/snowpipe_select.png)
+![Snowpipe Select](../../images/snowpipe_select.png)
