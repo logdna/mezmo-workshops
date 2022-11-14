@@ -9,10 +9,10 @@ weight: 4
 First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/answerbook/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/answerbook/financialTransactionDeviceSim/README.md)to build with one command.
 
 ### Configure the Simulation
-Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  We will snag the key in [the next step](/content/en/transaction-to-s3/docs/sources.md) but for now you can just use something made up like `NADA`.  To do this on MacOS, simply run:
+Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  Utilize the http authorization key created in [Step 2: Add the Source](/content/en/s3-to-snowflake/docs/create-pipeline.md).  To do this on MacOS, simply run:
 
 ```cmd
-export KEY=NADA
+export KEY=<http_secret_key>
 export NUMBER_DEVICES=25
 ```
 
