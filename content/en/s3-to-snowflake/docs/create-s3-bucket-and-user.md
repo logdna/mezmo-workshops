@@ -59,35 +59,3 @@ The attached policy will need access to List the files in S3 as well are read ac
 ![Pipeline User Policy](../images/snowflake_user_policy.png)
 
 Remember to copy the Access Keys as we will need them later on when setting up the Snowflake integration.
-
-
-
-
-
-
-### Get the Docker
-First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/answerbook/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/answerbook/financialTransactionDeviceSim/README.md)to build with one command.
-
-### Configure the Simulation
-Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  We will snag the key in [the next step](/content/en/transaction-to-s3/docs/sources.md) but for now you can just use something made up like `NADA`.  To do this on MacOS, simply run:
-
-```cmd
-export KEY=NADA
-export NUMBER_DEVICES=25
-```
-
-### Run it
-You could technically skip this part till you have a source to hit, but what the hay.  We will update with an actual key later.  You should see the following output
-
-![Device Simulation Ouput](../images/device_simulation_output.png)
-
-#### From Docker Hub (NOT UPLOADED TO DOCKER HUB YET)
-```cmd
-docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it mezmo/transaction-device-sim
-```
-
-#### Local after Building (see GitHub repo for steps)
-```cmd
-docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim
-```
-

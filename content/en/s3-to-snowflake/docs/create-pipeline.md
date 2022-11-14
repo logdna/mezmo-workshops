@@ -36,22 +36,30 @@ Make sure to grab the API key from the HTTP Source after adding it.
 
 Next we will add S3 as a destination. 
 
-You will need some information from you AWS account here.  Specifically, you will need
+You will need some information from you AWS account here.  Specifically, you will need the following you created during [step 2](/content/en/s3-to-snowflake/docs/create-s3-bucket-and-user.md) of the previous section.
 
 * `AWS Access Key ID`
 * `AWS Secret Access Key`
 * `AWS Bucket name`
 * `AWS Region`
 
-With those in hand, add a new Destination and select `AWS S3`.
+With access information in hand
+* Add a new Destination and select `AWS S3`
+* Give this Destination the title `Snowflake Bucket`
+* Enter your `Access Key ID` and `Secret Access Key`
+* Enter `Bucket` name (we will go with `mezmo-use1-snowflake-demo`)
+* Enter the prefix of `device-sim/event_date=%F/event_name={{ .message.event }}/`.  This prefix allows for dynamic location routing and will store data including date and event name coming from the event field.  Example `device-sim/event_date=2022-11-09/event_name=transaction/`
+* Chose `text` for the `Encoding`, with a compression of `gzip`
+* Select the `Region` where you created your bucket (in this example we use `us-east-1`)
+* Click the `save` button
 
-Give this Destination the title `Snowflake Bucket`. Then, enter your `Access Key ID` and `Secret Access Key` along with the `Bucket` (we will go with `mezmo-use1-snowflake-demo`).  We also want to give a prefix that allows for dynamic location routing, so enter in `device-sim/event_date=%F/event_name={{ .message.event }}/`.  This prefix will store data under a path that includes the date and event name, coming from the event field on the message.  Next, chose `text` for the `Encoding`, with a compression of `gzip` and select the `Region` where you created your bucket (in this example we use `us-east-1`).  Click `Save` when yours looks similar to the image below.
+Your destination should look similar to the image below.
 
 *Note: Make sure messages going to this S3 destination contain the dynamic field as part of the path.  Any events that do not have the fields will not go to S3.*
 
 ![S3 Destination Definition](../images/add_destination_1.png)
 
-Now lets connect the `Edge Device` Source to the `Snowflake Bucket` Destination.  For this example, we are not going to use any processors, but feel free to experiment adding additional processors.
+Now let's connect the `Edge Device` Source to the `Snowflake Bucket` Destination.  For this example, we are not going to use any processors.
 
 ![S3 Destination Connected](../images/s3_connected.png)
 
