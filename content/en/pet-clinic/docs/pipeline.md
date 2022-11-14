@@ -129,7 +129,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
     * add a meaningful **Description** such as `Allow non-DEBUG messages to pass`
     * set the **Field** value to `.lines.level` 
     * set the **Operator** to `not_equal`
-    * set the **Value** to `debug` (case is not important)
+    * set the **Value** to `DEBUG` (the value **is case-sensitive**)
 
     <br/>
     {{< figure src="../../images/configured-filter.png" alt="Configured - Filter" width="450">}}
@@ -188,11 +188,19 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
+18. With the pipeline finalized, the last step is to deploy the pipeline so it is active.  Click the **Deploy pipeline** button:
+
+    {{< figure src="../../images/deploy-pipeline.png" alt="Add Log Analysis" width="150">}}
+
+    When the deployment completes, a blue checkmark will appear next to the pipeline name indicating the pipeline is now active:
+
+    {{< figure src="../../images/deploy-complete.png" alt="Add Log Analysis" width="250">}}
+
 ## Reconfigure OTEL 
 
 You may recall when we installed and configured the **OpenTelemetry Collector** that we set it up to send the logs to the Log Analysis endpoint.  We now want to reconfigure the collector to, instead, send logs to our pipeline endpoint.  This will start the flow of logs through the pipeline and the processors we've configured above.
 
-1. In the Pipeline dashboard, click **...** on the **OTEL Ingest** source.  At the bottom of the **HTTP** settings will be the **API key** that we'll need to use to send data to this endpoint:
+1. In the **Pipeline** dashboard, click **...** on the **OTEL Ingest** source.  At the bottom of the **HTTP** settings will be the **API key** that we'll need to use to send data to this endpoint:
 
     {{< figure src="../../images/http-apikey.png" alt="HTTP - API key" width="450">}}
 

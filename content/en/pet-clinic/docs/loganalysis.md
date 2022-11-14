@@ -2,7 +2,7 @@
 title: Log Analysis
 weight: 4
 description: >
-    With the ability to collect the logs from the PetClinic app, we can browse the logs on the Mezmo Observability Cloud.
+    With the ability to collect the logs from the PetClinic app, we can browse the logs on Mezmo.
 tags:
 - OpenTelemetry
 - PetClinic
@@ -14,9 +14,10 @@ In this section, we will update the **OpenTelemetry Collector**'s configuration 
 
 To get started, we'll need to modify the `receivers` section of the **OpenTelemetry** configuration to add a **filelog** receiver.  This receiver will be responsible for reading the `/tmp/petclinic.json` file into the running collector.
 
-1. Edit `$HOME/otelcol/config.yaml` and add this configuration under the `receivers` section:
+1. Edit `$HOME/otelcol/config.yaml` and add the highlighted lines to the configuration under the `receivers` section:
 
-    ```yaml
+    ```yaml {linenos=table, linenostart=1 hl_lines=["3-15"]}
+    #######################################
     receivers:
       filelog:
         include:
@@ -50,7 +51,7 @@ To get started, we'll need to modify the `receivers` section of the **OpenTeleme
     ./otelcol-contrib --config config.yaml
     ```
 
-## Browse PetClinic logs in **Mezmo Observability Cloud**
+## Browse PetClinic logs in Mezmo
 
 1. Restart the PetClinic app:
 
@@ -76,7 +77,7 @@ To get started, we'll need to modify the `receivers` section of the **OpenTeleme
     Oct 24 15:06:59 [HikariPool-1 housekeeper] DEBUG c.z.h.p.HikariPool: HikariPool-1 - Fill pool skipped, pool is at sufficient level.
     ```
 
-2. Navigate to the **Mezmo Observability Cloud** at https://app.mezmo.com.  In the dashboard, click the **Views** button (<img src="../../images/views.png" width="40px"/>) &rarr; **Everything** (<img src="../../images/everything.png" width="175px"/>).  You should see the same log entries appear at the bottom of the dashboard:
+2. Navigate to **Mezmo** at https://app.mezmo.com.  In the dashboard, click the **Views** button (<img src="../../images/views.png" width="40px"/>) &rarr; **Everything** (<img src="../../images/everything.png" width="175px"/>).  You should see the same log entries appear at the bottom of the dashboard:
 
     {{< figure src="../../images/petclinic-logs.png">}}
 
@@ -84,7 +85,7 @@ To get started, we'll need to modify the `receivers` section of the **OpenTeleme
    
     {{< figure src="../../images/log-details-1.png">}}
 
-    You'll notice that the additional metadata information being output by the PetClinic app like `context`, `level`, `logger`, and `thread` appears in the `_meta` portion of the log entry. We can query on this information by entring it as a search string field.  For example, if we wanted to find all entries where the `logger` is `HikariPool`, we could enter this search string:
+    You'll notice that the additional metadata information being output by the PetClinic app like `context`, `level`, `logger`, and `thread` appears in the `_meta` portion of the log entry. We can query on this information by entering it as a search string field.  For example, if we wanted to find all entries where the `logger` is `HikariPool`, we could enter this search string:
 
     ```bash
     _meta.logger:com.zaxxer.hikari.pool.HikariPool
@@ -104,7 +105,7 @@ To get started, we'll need to modify the `receivers` section of the **OpenTeleme
 
    Click **Save View**.
 
-6. The new is saved under the **Uncategorized** group of views on the list:
+6. The new **View** is saved under the **Uncategorized** group of views on the list:
 
    {{< figure src="../../images/petclinic-app-view.png" alt="PetClinic App View" width="250">}}
 

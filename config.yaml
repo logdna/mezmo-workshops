@@ -1,4 +1,4 @@
-baseURL: /
+baseURL: https://logdna.github.io/mezmo-workshops
 languageCode: 'en-us'
 title: 'Mezmo Workshops'
 enableRobotsTXT: true
@@ -47,9 +47,9 @@ params:
 #  github_project_repo: 'https://github.com/logdna/mezmo-workshops'
   github_branch: main
 
-  gcs_engine_id: a2205c48fadd341ac
+#  gcs_engine_id: a2205c48fadd341ac
   algolia_docsearch: false
-  offlineSearch: false
+  offlineSearch: true
 
   # Enable syntax highlighting and copy buttons on code blocks with Prism
   # This one is mutually exclusive with pygmentsCodeFences
@@ -137,13 +137,13 @@ menus:
       name: Workshops
       weight: 10
 
-    - name: Java PetClinic
+    - name: Mezmo Platform
       parent: Workshops
       url: /pet-clinic
       weight: 1
 
 
-    - name: Edge Financial Transaction to S3
+    - name: "Encrypt, Drop and Route to S3: Financial Transactions"
       parent: Workshops
       url: /transaction-to-s3
       weight: 2
@@ -170,7 +170,7 @@ imaging:
 languages:
   en:
     title: Mezmo Workshops
-    description: Workshops for understanding Mezmo Observability Cloud
+    description: Workshops for understanding Mezmo Platform
     languageName: English
     weight: 1
 

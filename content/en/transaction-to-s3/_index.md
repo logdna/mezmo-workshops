@@ -1,10 +1,17 @@
 ---
-title: Edge Financial Transaction to S3
-linkTitle: EdgeTransactionToS3
+title: "Encrypt, Drop and Route to S3: Edge Financial Transactions"
+linkTitle: Encrypt, Drop and Route to S3
 cascade:
   type: docs
 description: >
   In this workshop, you will collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the Mezmo Platform.
 ---
 
-**Time to complete: 15 minutes (NEED TO TEST)**
+**Time to complete: 15 minutes**
+<!--
+{{% alert title="Survey" color="warning" %}}
+We are offering $X to the first N people to complete a short survey on Mezmo Pipeline and the workshop you just completed.  If you have 7 min, head on over **[here](#)**.
+{{% /alert %}}
+-->
+
+{{% alert title="Support" %}} If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [workshop-support@mezmo.com](mailto:workshop-support@mezmo.com). {{% /alert %}}

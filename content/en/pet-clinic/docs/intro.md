@@ -5,13 +5,15 @@ description: >
     Start the workshop here.
 ---
 
+{{% alert title="Questions?" color="danger" %}}For issues or questions related to this Workshop, **please reach out to us** at [workshop-support@mezmo.com](mailto:workshop-support@mezmo.com).  Feel free to share any feedback as well!{{% /alert %}}
+
 ## Overview
 
 In this workshop, we will start by taking an existing Java Application (Spring PetClinic) and perform the following:
 
 * Show the steps of how to download, compile, package and run the Spring PetClinic application
 * Enable JSON-logging via configuration
-* Stand up an **OpenTelemetry Collector** to collect the logs output by the application and send them to Mezmo Observability Cloud
+* Stand up an **OpenTelemetry Collector** to collect the logs output by the application and send them to the Mezmo platform
 * Configure an Observability Pipeline on Mezmo to filter out data we don't want to collect
 * Define Alerts for conditions that we want notifications for.
 
@@ -22,13 +24,13 @@ To get started, please install the required 3rd party software.
 {{% alert title="Prerequisites" %}}
 For this workshop, you will need the following installed on your machine:
 
-1. JDK 11 or greater installed
+1. Java Development Kit (JDK) 11 or greater installed
 2. Docker Desktop
-3. Port 8080 open inbound/outbound
 {{% /alert %}}
 
-1. This workshop utilizes the [**PetClinic**](https://spring-petclinic.github.io/) java app from the Spring Project.  To run it, it requires **JDK 11** or greater to be installed.  The **JDK** can be downloaded from https://www.java.com/en/.  Download and install it locally.  Verify your Java installation by running the following:
+1. This workshop utilizes the [**PetClinic**](https://spring-petclinic.github.io/) java app from the Spring Project.  To run it, it requires **JDK 11** or greater to be installed.  The **JDK** can be downloaded from https://www.oracle.com/java/technologies/downloads/.  Download and install it locally.  Verify your Java installation by running the following:
 
+    {{% alert title="Note" color="warning" %}}Be sure to install the **Java SE Development Kit** (JDK), not the Java Runtime Engine (JRE){{% /alert %}}
 
     ```bash
     java -version
