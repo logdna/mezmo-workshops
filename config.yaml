@@ -147,6 +147,11 @@ menus:
       parent: Workshops
       url: /transaction-to-s3
       weight: 2
+
+    - name: S3 to Snowflake
+      parent: Workshops
+      url: /s3-to-snowflake
+      weight: 3
       
 #    - name: Examples
 #      url: "/examples/"
