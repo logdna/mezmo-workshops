@@ -11,7 +11,7 @@ In order to complete this workshop, you will need a Mezmo account with Pipeline 
 
 ## Step 1: Create a new Pipeline
 
-Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you will but we will go with `Snowflake-Integration`.  After creation, you will be taken to the following blank canvas
+Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you willbut we will go with `Snowflake-Integration`.  After creation, you will be taken to the following blank canvas
 
 ![Blank Pipeline](../../images/pipeline_blank.png)
 
