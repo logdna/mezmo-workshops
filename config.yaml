@@ -143,7 +143,7 @@ menus:
       weight: 1
 
 
-    - name: Edge Financial Transaction to S3
+    - name: "Encrypt, Drop and Route to S3: Financial Transactions"
       parent: Workshops
       url: /transaction-to-s3
       weight: 2

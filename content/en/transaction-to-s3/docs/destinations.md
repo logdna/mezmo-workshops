@@ -57,3 +57,5 @@ Now, simply `Deploy pipeline` in the top right.  After the Pipeline should no lo
 Watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
 
 ![S3 Data in AWS](../../images/aws_s3_data_final.png)
+
+**Note that it will take up to 5 min to first see data flowing in to S3.** This is because we have batching, no data will be dropped.
