@@ -2,11 +2,6 @@
 title: Next Steps
 weight: 6
 ---
-<!--
-{{% alert title="Survey" color="warning" %}}
-We are offering $25 Starbucks giftcards to the first 50 people to complete a short survey on Mezmo Pipeline and the workshop you just completed.  If you have 7 min, head on over **[here](#)**.
-{{% /alert %}}
--->
 
 ## Recap
 
