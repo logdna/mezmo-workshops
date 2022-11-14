@@ -5,7 +5,7 @@ description: >
     Start the workshop here.
 ---
 
-{{% alert title="Questions?" color="danger" %}}For issues or questions related to this Workshop, **please reach out to us** at [pipeline@mezmo.com](mailto:pipeline@mezmo.com).  Feel free to share any feedback as well!{{% /alert %}}
+{{% alert title="Questions?" color="danger" %}}For issues or questions related to this Workshop, **please reach out to us** at [workshop-support@mezmo.com](mailto:workshop-support@mezmo.com).  Feel free to share any feedback as well!{{% /alert %}}
 
 ## Overview
 
