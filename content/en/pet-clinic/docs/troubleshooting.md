@@ -13,7 +13,7 @@ This section will highlight some techniques for troubleshooting and collecting i
 
 Webhook.site is a free website that can be used to make HTTP requests to and see the full HTTP payload to verify its contents.  By creating a **Destination** in pipeline and connecting the output of a **Processor** to it, you can view the data on **Webhook.site** as it appeared at that stage of the pipeline.
 
-1.  Visit [https://webhook.site/]() in a browser.
+1.  Visit https://webhook.site/ in a browser.
 
 2.  Copy your unique URL to the clipboard:
 
