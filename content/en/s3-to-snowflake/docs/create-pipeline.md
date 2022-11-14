@@ -26,7 +26,7 @@ From there, just select `HTTP`, give it a *Title* like `Edge Devices`, set *Deco
 
 ![Add Source](../../images/add_sources_2.png)
 
-You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/pet-clinic/) to learn how to utilize the sytem to it's fullest.
+You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/mezmo-workshops/pet-clinic/) to learn how to utilize the sytem to it's fullest.
 
 Make sure to grab the API key from the HTTP Source after adding it.
 
@@ -36,7 +36,7 @@ Make sure to grab the API key from the HTTP Source after adding it.
 
 Next we will add S3 as a destination. 
 
-You will need some information from you AWS account here.  Specifically, you will need the following you created during [step 2](/s3-to-snowflake/docs/create-s3-bucket-and-user/#step-2-create-aws-mezmo-pipeline-user) of the previous section.
+You will need some information from you AWS account here.  Specifically, you will need the following you created during [step 2](/mezmo-workshops/s3-to-snowflake/docs/create-s3-bucket-and-user/#step-2-create-aws-mezmo-pipeline-user) of the previous section.
 
 * `AWS Access Key ID`
 * `AWS Secret Access Key`

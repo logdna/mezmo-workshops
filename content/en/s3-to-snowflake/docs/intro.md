@@ -16,7 +16,7 @@ For this workshop, you will need access to the following:
 
 ## Overview
 
-In this workshop, we will be taking signals coming from multiple edge nodes and loading them into Snowflake.
+In this workshop, we will be taking signals coming from multiple edge nodes and loading them into Snowflake.  We will utilize dynamic S3 location routing and ingesting the data into Snowflake using an external table and snowpipe.  You will need access to your own Snowflake account to complete this workshop.
 
 To accomplish this, we will
 * Create a new Pipeline

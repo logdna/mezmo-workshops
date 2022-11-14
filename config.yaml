@@ -148,7 +148,7 @@ menus:
       url: /transaction-to-s3
       weight: 2
 
-    - name: S3 to Snowflake
+    - name: Dynamic S3 Snowflake Ingestion
       parent: Workshops
       url: /s3-to-snowflake
       weight: 3

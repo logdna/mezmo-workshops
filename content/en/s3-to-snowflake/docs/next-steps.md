@@ -11,4 +11,4 @@ We have now succesfully connected a fleet of simulated devices to a Mezmo Pipeli
 
 ## Next Steps
 
-To experience more of what pipeline can do for you, take a peak at our [Pet Clinic](/pet-clinic/) workshop to utilize [Open Telemetry](https://opentelemetry.io/) and find other ways you can take advantage of events holistically on the Mezmo Platform or feel free to explore our other workshops at [Mezmo Pipeline Workshops](#).
+To experience more of what pipeline can do for you, take a peak at our [Pet Clinic](/mezmo-workshops/pet-clinic/) workshop to utilize [Open Telemetry](https://opentelemetry.io/) and find other ways you can take advantage of events holistically on the Mezmo Platform or feel free to explore our other workshops at [Mezmo Pipeline Workshops](/mezmo-workshops/).

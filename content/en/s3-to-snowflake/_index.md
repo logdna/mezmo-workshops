@@ -1,10 +1,10 @@
 ---
-title: S3 to Snowflake
-linkTitle: S3ToSnowflake
+title: Dynamic S3 Snowflake Ingestion
+linkTitle: Dynamic S3 Snowflake Ingestion
 cascade:
   type: docs
 description: >
-  In this workshop you will blah...
+  In this workshop, we will be taking signals coming from multiple edge nodes and loading them into Snowflake.  We will utilize dynamic S3 location routing and ingesting the data into Snowflake using an external table and snowpipe.  You will need access to your own Snowflake account to complete this workshop.
 ---
 
 {{% alert title="Survey" color="warning" %}}
