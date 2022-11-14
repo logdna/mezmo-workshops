@@ -33,7 +33,7 @@ Then, end the simulation (via `ctrl-c` if it's already running) and run the Dock
 
 ### Mezmo's DockerHub image
 ```cmd
-docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it logdna/transaction-device-sim:0.1.0
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it mezmo/transaction-device-sim:0.1.0
 ```
 
 ### Local Docker image
