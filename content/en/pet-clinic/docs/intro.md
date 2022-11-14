@@ -24,12 +24,13 @@ To get started, please install the required 3rd party software.
 {{% alert title="Prerequisites" %}}
 For this workshop, you will need the following installed on your machine:
 
-1. JDK 11 or greater installed
+1. Java Development Kit (JDK) 11 or greater installed
 2. Docker Desktop
 {{% /alert %}}
 
-1. This workshop utilizes the [**PetClinic**](https://spring-petclinic.github.io/) java app from the Spring Project.  To run it, it requires **JDK 11** or greater to be installed.  The **JDK** can be downloaded from https://www.java.com/en/.  Download and install it locally.  Verify your Java installation by running the following:
+1. This workshop utilizes the [**PetClinic**](https://spring-petclinic.github.io/) java app from the Spring Project.  To run it, it requires **JDK 11** or greater to be installed.  The **JDK** can be downloaded from https://www.oracle.com/java/technologies/downloads/.  Download and install it locally.  Verify your Java installation by running the following:
 
+    {{% alert title="Note" color="warning" %}}Be sure to install the **Java SE Development Kit** (JDK), not the Java Runtime Engine (JRE){{% /alert %}}
 
     ```bash
     java -version
