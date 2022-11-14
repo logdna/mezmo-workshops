@@ -13,18 +13,18 @@ In order to complete this workshop, you will need a Mezmo account with Pipeline 
 
 Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you will but we will go with `Snowflake-Integration`.  After creation, you will be taken to the following blank canvas
 
-![Blank Pipeline](../images/pipeline_blank.png)
+![Blank Pipeline](../../images/pipeline_blank.png)
 
 
 ## Step 2: Add the Source
 
 This parts easy.  Go to the pipeline you created previously and click *Add Source*
 
-![Add Source](../images/add_sources_1.png)
+![Add Source](../../images/add_sources_1.png)
 
 From there, just select `HTTP`, give it a *Title* like `Edge Devices`, set *Decoding Method* to `JSON` and click *Save*.
 
-![Add Source](../images/add_sources_2.png)
+![Add Source](../../images/add_sources_2.png)
 
 You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/pet-clinic/) to learn how to utilize the sytem to it's fullest.
 
