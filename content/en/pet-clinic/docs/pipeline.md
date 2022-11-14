@@ -188,7 +188,11 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
-18. With the pipeline finalized, the last step is to deploy the pipeline so it is active.  Click the **Deploy pipeline** button:
+18. Lastly, connect the output of the **Stringify** processor to the **Send to LA** destination.  The final pipeline should appear as:
+
+    {{< figure src="../../images/completed-pipeline.png" alt="Completed Pipeline" width="950">}}
+
+19. With the pipeline finalized, the last step is to deploy the pipeline so it is active.  Click the **Deploy pipeline** button:
 
     {{< figure src="../../images/deploy-pipeline.png" alt="Add Log Analysis" width="150">}}
 
