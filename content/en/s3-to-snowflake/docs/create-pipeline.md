@@ -36,7 +36,7 @@ Make sure to grab the API key from the HTTP Source after adding it.
 
 Next we will add S3 as a destination. 
 
-You will need some information from you AWS account here.  Specifically, you will need the following you created during [step 2](/content/en/s3-to-snowflake/docs/create-s3-bucket-and-user.md) of the previous section.
+You will need some information from you AWS account here.  Specifically, you will need the following you created during [step 2](/s3-to-snowflake/docs/create-s3-bucket-and-user/#step-2-create-aws-mezmo-pipeline-user) of the previous section.
 
 * `AWS Access Key ID`
 * `AWS Secret Access Key`
@@ -46,7 +46,7 @@ You will need some information from you AWS account here.  Specifically, you wil
 With access information in hand
 * Add a new Destination and select `AWS S3`
 * Give this Destination the title `Snowflake Bucket`
-* Enter your `Access Key ID` and `Secret Access Key` (the one with `PutObject` you created [earlier](/s3-to-snowflake/docs/create-s3-bucket-and-user/#step-2-create-aws-mezmo-pipeline-user))
+* Enter your `Access Key ID` and `Secret Access Key`
 * Enter `Bucket` name (we will go with `mezmo-use1-snowflake-demo`)
 * Enter the prefix of `device-sim/event_date=%F/event_name={{ .message.event }}/`.  This prefix allows for dynamic location routing and will store data including date and event name coming from the event field.  Example `device-sim/event_date=2022-11-09/event_name=transaction/`
 * Chose `text` for the `Encoding`, with a compression of `gzip`
