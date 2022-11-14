@@ -21,12 +21,12 @@ You should see the following output.
 
 ![Device Simulation Ouput](../images/device_simulation_output.png)
 
-#### From Docker Hub (NOT UPLOADED TO DOCKER HUB YET)
+#### From Docker Hub
 ```cmd
-docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it mezmo/transaction-device-sim
+docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it mezmo/transaction-device-sim:0.1.0
 ```
 
-#### Local after Building (see GitHub repo for steps)
+#### Local after Building (see [GitHub repo](https://github.com/logdna/financialTransactionDeviceSim#build-the-docker-image) for steps)
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim
 ```
