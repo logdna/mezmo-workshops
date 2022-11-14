@@ -17,7 +17,7 @@ The below SQL will
 1. Create a new schema.
 2. Create a new file format.  This file format indicates the data is JSON and compressed with GZIP.
 3. Create a new stage.  This is a pointer to an S3 location with access credentials and the file format the data is.  You will need to substitute the S3 bucket name we created previously and the Snowflake User AWS Access Key and Secret Key.
-4. Create a new external table.  This external table utilizes partitioning so it does not have to read all the data in when given a partition in the where clause of the select.
+4. Create a new external table.  This external table utilizes partitioning, so it does not have to read all the data in when given a partition in the where clause of the select.
 
 ``` sql
 USE DATABASE MEZMO_DEMO;
