@@ -1,6 +1,8 @@
 ---
 title: Create the Pipeline and Run Simulation
 weight: 2
+tags:
+  - Mezmo Pipeline
 ---
 
 {{% alert title="Make sure you have a Mezmo account" color="danger" %}}

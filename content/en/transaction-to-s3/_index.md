@@ -4,9 +4,16 @@ linkTitle: Encrypt, Drop and Route to S3
 cascade:
   type: docs
 description: >
-  In this workshop, you will collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the Mezmo Platform.
+  In this workshop, you will collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the Mezmo Pipeline (Tech Preview).
 tags:
-  - S3
+  - Mezmo Pipeline
+  - HTTP Source
+  - Drop Processor
+  - Route Processor
+  - Encrypt Field Processor
+  - S3 Destination
+  - Mezmo Log Analysis Destination
+  - Financial Transactions
 ---
 
 **Time to complete: 15 minutes**

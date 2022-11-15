@@ -2,7 +2,8 @@
 title: Route to S3
 weight: 5
 tags:
-- S3 Destination
+  - S3 Destination
+  - Mezmo Log Analysis Destination
 ---
 
 ## Step 1: Add the S3 Destination
@@ -20,7 +21,7 @@ You will need the following information from you AWS account:
 * The `IAM User` associated with that `Access Key ID` needs to have at least the `PutObject` privlege in AWS.
 * You must create the `Bucket` with that `Name` in AWS yourself.
 
-For more details you can check out the [IAM and S3 section](/mezmo-workshops/s3-to-snowflake/create-s3-bucket-and-user/#step-1-create-a-new-s3-bucket) of the S3 to Snowflake workshop.
+For more details you can check out the [IAM and S3 section](/mezmo-workshops/s3-to-snowflake/docs/create-s3-bucket-and-user/#step-2-create-aws-mezmo-pipeline-user) of the S3 to Snowflake workshop.
 {{% /alert %}}
 
 With those in hand, add a new `Destination` and select `AWS S3`.

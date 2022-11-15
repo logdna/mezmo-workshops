@@ -13,13 +13,6 @@ For this workshop, you will need the following installed on your machine:
 
 ## Overview
 
-In this workshop, we will blah
+In this workshop, we will..
 
-* step 1
-* step n
-
-## Reference Architecture
-
-Blah
-
-
+* 
