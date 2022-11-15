@@ -1,6 +1,10 @@
 ---
 title: Encrypt and Filter
 weight: 4
+tags:
+  - Encrypt Field Processor
+  - Drop Processor
+  - Route Processor
 ---
 
 ## Overview
