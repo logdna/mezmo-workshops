@@ -219,14 +219,24 @@ You may recall when we installed and configured the **OpenTelemetry Collector** 
  
 3. Edit the `$HOME/otelcol/config.yaml` file.
 
-    * Change the `ingest_key` value to the **API key** we just copied from the pipeline.  **NOTE**: when using a **Log Analysis** `ingest_key` in a pipeline, the key ***must*** have the string literal `s_` prepended to it.
-      * For example, if the `ingest_key` from Log Analysis is:
-        * `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-      * the `ingest_key` in pipeline would be:
-        * `s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+    * Change the `ingest_key` value to the **API key** we just copied from the pipeline.  
+
+        {{< alert title="NOTE" color="warning" >}}
+When posting data to an **HTTP Source**, the **API Key** must be prepended with the string literal `s_`.
+
+For example, if the **API Key** from the **HTTP Source** is: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`,
+the `ingest_key` in the **OpenTelemetry** `config.yaml` would be: 
+
+```yaml
+#######################################
+exporters:
+  mezmo:
+    ingest_key: "s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+        {{< /alert >}}
+        
     * Change the `ingest_url` value to `https://pipeline.mezmo.com/otel/ingest/rest`.
    
-    <br/>
     Save the changes and exit.
 
 4. Restart the collector with:
