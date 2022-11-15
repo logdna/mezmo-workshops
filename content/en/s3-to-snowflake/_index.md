@@ -1,8 +1,8 @@
 ---
-title: Dynamic S3 to Snowflake Ingestion
-linkTitle: Dynamic S3 to Snowflake Ingestion
+title: S3 to Snowflake
+linkTitle: S3ToSnowflake
 cascade:
   type: docs
 description: >
-  Coming soon.
+  In this workshop you will blah...
 ---
