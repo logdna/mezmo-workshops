@@ -9,7 +9,7 @@ tags:
 
 ## Overview
 
-There is a lot we may want to do with the data.  At a high level, we are going to encrypt PII, drop useless information from events and then route the financial transaction data to S3 while leaving the rest for something else (here we used the [Mezmo Log Analysis](https://www.mezmo.com/log-analysis) but we won't get into that, to learn more check out our [Pet Clinic](/mezmo-workshops/pet-clinic/) workshop).
+There is a lot we may want to do with the data.  At a high level, we are going to encrypt PII, drop useless information from events and then route the financial transaction data to S3 while leaving the rest for something else (here we used the [Mezmo Log Analysis](https://www.mezmo.com/log-analysis) but we won't get into that, to learn more check out our [Mezmo Platform](/mezmo-workshops/pet-clinic/) workshop).
 
 But, let's take this one step at a time.
 
