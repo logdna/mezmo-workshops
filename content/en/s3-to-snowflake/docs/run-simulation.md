@@ -1,6 +1,8 @@
 ---
 title: Run Simulation
 weight: 4
+tags:
+  - Financial Transactions
 ---
 
 ## Run the Simulation

@@ -6,7 +6,7 @@ cascade:
 description: >
   In this workshop, we will be taking signals coming from multiple edge nodes and loading them into Snowflake.  We will utilize dynamic S3 location routing and ingesting the data into Snowflake using an external table and snowpipe.  You will need access to your own Snowflake account to complete this workshop.
 tags:
-  - Snowflake Destination
+  - Snowflake
   - S3 Destination
   - Mezmo Pipeline
   - HTTP Source

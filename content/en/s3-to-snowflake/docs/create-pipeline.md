@@ -5,7 +5,6 @@ tags:
   - Mezmo Pipeline
   - HTTP Source
   - S3 Destination
-  - Financial Transactions
 ---
 
 {{% alert title="Make sure you have a Mezmo account" %}}
