@@ -1,12 +1,12 @@
 ---
-title: Route to S3
+title: Connect to S3 and Deploy
 weight: 5
 tags:
   - S3 Destination
   - Mezmo Log Analysis Destination
 ---
 
-## Step 1: Add the S3 Destination
+## Step 1: Add S3 Destination
 
 With our data cleaned, let's get the financial transactions into an S3 bucket for later use. 
 
@@ -36,7 +36,7 @@ Then, connect up the last Encryption Processor for the CC data to this destinati
 
 ![S3 Destination Connected](../../images/s3_connected.png)
 
-## Step 2: Add Destination for Unmatched route
+## Step 2: Add Destination for Unmatched Route
 
 The last step before deploying is to connect that unmatched route.  Let's throw the rest of the data into Mezmo's Log Analysis.
 

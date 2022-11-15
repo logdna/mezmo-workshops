@@ -20,7 +20,7 @@ In this workshop, we will be taking signals coming from multiple edge nodes and 
 
 To accomplish this, we will
 * Create a new Pipeline
-* Configure an endpoint to receive the data (ie, a Source (LINK TO DOCS))
+* Configure an endpoint to receive the data (ie, a Source)
 * Send data to S3 Destination, utilizing dynamic pathing
 * Create external table in Snowflake accessing S3 directly
 * Create Snowpipe in Snowflake that automatically loads data into an internal table.

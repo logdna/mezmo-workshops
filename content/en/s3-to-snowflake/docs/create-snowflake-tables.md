@@ -1,6 +1,8 @@
 ---
 title: Create Snowflake Tables
 weight: 5
+tags:
+  - Snowflake
 ---
 
 ## Snowflake Integration

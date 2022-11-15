@@ -9,7 +9,7 @@ We have succesfully connected a fleet of simulated devices to a Mezmo Pipeline t
 
 ![Final Pipeline](../../images/pipeline_final.png)
 
-## Next Steps
+## Learn More
 
 So we have the data encrypted and only the relevant events are in our S3.  But now what?
 

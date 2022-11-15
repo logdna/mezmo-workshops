@@ -1,6 +1,10 @@
 ---
 title: Create the Pipeline
 weight: 3
+tags:
+  - Mezmo Pipeline
+  - HTTP Source
+  - S3 Destination
 ---
 
 {{% alert title="Make sure you have a Mezmo account" %}}

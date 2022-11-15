@@ -1,6 +1,9 @@
 ---
 title: Create AWS S3 Bucket and Snowflake User
 weight: 2
+tags:
+  - AWS S3 Buckets
+  - AWS IAM
 ---
 
 {{% alert title="Make sure you have a AWS account" %}}
