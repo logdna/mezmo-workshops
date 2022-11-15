@@ -6,7 +6,7 @@ weight: 4
 ## Run the Simulation
 
 ### Get the Docker
-First you will need the Docker to simulate.  You can either use our provided docker [NOT_UPLOADED_YET](#) or clone the [GitHub repo](https://github.com/answerbook/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/answerbook/financialTransactionDeviceSim/README.md)to build with one command.
+First you will need the Docker to simulate.  You can either use our [DockerHub image](https://hub.docker.com/repository/docker/mezmo/transaction-device-sim) or clone the [GitHub repo](https://github.com/logdna/financialTransactionDeviceSim).  If using the repo, follow the instructions in [README.md](https://github.com/logdna/financialTransactionDeviceSim/blob/main/README.md)to build with one command.  To learn more about using docker, check out [their brief overview](https://docs.docker.com/get-started/overview/).
 
 ### Configure the Simulation
 Next you need to configure the devices via environment variables.  All you need is your Mezmo Pipeline Source Key (`KEY`) and the number of devices to run (`NUMBER_DEVICES`).  Utilize the http authorization key created in [Step 2: Add the Source](/mezmo-workshops/s3-to-snowflake/docs/create-pipeline.md#step-2-add-the-source).  To do this on MacOS, simply run:
@@ -17,19 +17,22 @@ export NUMBER_DEVICES=25
 ```
 
 ### Run it
-You should see the following output.
+In a terminal, run one of the following commands:
 
-![Device Simulation Ouput](../../images/device_simulation_output.png)
-
-#### From Docker Hub
+#### Mezmo's Docker Hub
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it mezmo/transaction-device-sim:0.1.0
 ```
 
-#### Local after Building (see [GitHub repo](https://github.com/logdna/financialTransactionDeviceSim#build-the-docker-image) for steps)
+#### Local after Building
+See [GitHub repo for steps](https://github.com/logdna/financialTransactionDeviceSim#build-the-docker-image) to build the docker image.
 ```cmd
 docker run -e KEY=${KEY} -e NUMBER_DEVICES=${NUMBER_DEVICES} -it transaction-device-sim
 ```
+
+#### Output
+When running by default, you should see data like the following streaming through in that terminal.
+![Device Simulation Ouput](../../images/device_simulation_output.png)
 
 ## Verify data is flowing into S3
 
