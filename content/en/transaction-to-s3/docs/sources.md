@@ -1,13 +1,27 @@
 ---
-title: Add a Source
+title: Create the Pipeline and Add a Source
 weight: 3
 tags:
+  - Mezmo Pipeline
   - HTTP Source
 ---
 
-## Step 1: Add the Source
+{{% alert title="Make sure you have a Mezmo account" color="danger" %}}
 
-This parts easy.  Go to the pipeline you created [previously](/mezmo-workshops/transaction-to-s3/docs/create-pipeline) and click *Add Source*
+In order to complete this workshop, you will need a Mezmo account with Pipeline enabled.  Note that this is a technical preview, Pipeline may not be enabled off the bat.  If you do not have an account, you can sign up for a free trial [here](https://mezmo.com/signup) and/or if you don't have Pipeline enabled you can reach out to us at [workshop-support@mezmo.com](mailto:workshop-support@mezmo.com) to get it set up.
+
+{{% /alert %}}
+
+## Step 1: Create a new Pipeline
+
+Once you have Pipeline enabled, go ahead and [Create a new Pipeline](https://app.mezmo.com/pipelines/pipeline/new).  You will be prompted to name your Pipeline, call it what you will but we will go with `Edge Transaction to S3`.  After creation, you will be taken to the following blank canvas
+
+![Blank Pipeline](../../images/pipeline_blank.png)
+
+
+## Step 2: Add the Source
+
+This parts easy, click *Add Source*
 
 ![Add Source](../../images/add-source_1.png)
 
@@ -17,7 +31,7 @@ From there, just select `HTTP`, give it a *Title* like `Edge Devices`, set *Deco
 
 You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/mezmo-workshops/pet-clinic/) to learn how to utilize the sytem in depth.
 
-## Step 2: Configure the Simulation
+## Step 3: Configure the Simulation
 
 Now let's point the simulation at the Pipeline.  To do this, we just need the proper `API Key`.  You can get this by opening the Source we just created via the epsilon in the top right of the node and copying the `API Key`.  Click Cancel or Update to back out.
 
@@ -25,13 +39,13 @@ Now let's point the simulation at the Pipeline.  To do this, we just need the pr
 
 Note that you will need to prefix `s_` to the `API Key` when you authenticate to your Pipeline.  See below for an example.
 
-If you previously started the simulation, terminate the docker (*ctrl-c* in the terminal) and then add the `API Key` from above to the envrionemt variable `KEY`.  For example:
+If you [previously started the simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/), terminate the docker (*ctrl-c* in the terminal) and then add the `API Key` from above to the envrionemt variable `KEY`.  For example:
 
 ```cmd
 export KEY=s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Then, end the simulation (via `ctrl-c` if it's already running) and run the Docker you built or use our DockerHub image with that new `KEY` via one of the two terminal commands below:
+Then, run the Docker you built or use our DockerHub image with that new `KEY` via one of the two terminal commands below:
 
 ### Mezmo's DockerHub image
 ```cmd

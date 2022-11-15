@@ -13,9 +13,9 @@ There is a lot we may want to do with the data.  At a high level, we are going t
 
 But, let's take this one step at a time.
 
-## Step 0: Understand your data
+## Step 1: Understand your data
 
-You can see the general structure from the terminal output running the [Docker simulation](/mezmo-workshops/transaction-to-s3/docs/create-pipeline/#run-it).  We have a couple types of logs flowing through via the devices but the ones we care about contain financial transaction information and are of the form
+You can see the general structure from the terminal output running the [Docker simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/#step-3-run-it).  We have a couple types of logs flowing through via the devices but the ones we care about contain financial transaction information and are of the form
 
 ```json
 {
@@ -58,7 +58,7 @@ You can see the general structure from the terminal output running the [Docker s
 
 The other events also contain `datetime`, `device` and `buffer` but `transaction` is replaced by other event details.
 
-## Step 1: Drop the unnecessary buffer
+## Step 2: Drop the Unnecessary Buffer
 
 We don't need the buffer, so let's drop it.  We can do this with a simple `drop` processor.  Add a new processor to the pipeline and select `Drop Fields from JSON` from the list.  Give it a title like `Drop buffer` and select the field `.buffer` to drop.  Click `Save`.
 
@@ -68,7 +68,7 @@ Then connect this to the Source processor by hovering over the Source till you s
 
 ![Drop Processor Connection](../../images/add-processor_connect.gif)
 
-## Step 2: Route to filter transaction data
+## Step 3: Route Transaction Data
 
 We want to send only the transaction events to S3, to do this we can use a `Route` processor.  Go ahead and add one with the Title `Route Transaction`.
 
@@ -78,7 +78,7 @@ For the first, give it a name `Transaction Success`, select an IF and enter `.tr
 
 ![Route: Success](../../images/add-processor_route-success.png)
 
-Similarly, for the second output, select *Add Additional Output* with the name `Transaction Failed` and enter `.transaction.result` **equals** `fail` as well as the same `.transaction.total_price` treatment.
+Similarly, for the second output, select *Add route* with the name `Transaction Failed` and enter `.transaction.result` **equals** `fail` as well as the same `.transaction.total_price` treatment.  Click `Save`.
 
 ![Route: Failed](../../images/add-processor_route-fail.png)
 
@@ -88,7 +88,7 @@ Connect the `Drop Buffer` processor from Step 1 to the Route processor you just 
 
 Note that we will leave the `Unmatched` route untouched for this workshop.  But there are many things that could be done with this data: send to Log Analytics, send to a SIEM, etc.
 
-## Step 3: Encrypt the Credit Card Information
+## Step 4: Encrypt the Credit Card Information
 
 Now, let's encrypt each of the Credit Card fields individually to ensure security and compliance.  The fields we want to encrypt are
 
