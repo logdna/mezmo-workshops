@@ -1,6 +1,8 @@
 ---
 title: Route to S3
 weight: 5
+tags:
+- S3 Destination
 ---
 
 ## Step 1: Add the S3 Destination

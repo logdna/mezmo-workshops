@@ -6,6 +6,11 @@ description: >
 tags:
 - PetClinic
 - Pipeline
+- HTTP Source
+- Unroll Processor
+- Stringify Processor
+- Filter Processor
+- Mezmo Log Analysis Destination
 ---
 
 With the **PetClinic App** View created, one thing becomes immediately apparent- the PetClinic app is very chatty outputting DEBUG statements related to its pool stats every 30 seconds.  While it's simple enough to edit the logging configuration for the app itself, it would require changes to the config file, maybe there's additional **DEBUG** info that we _do_ want to see, just not that of the **HikariPool** output.

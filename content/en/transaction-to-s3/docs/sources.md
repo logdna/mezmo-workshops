@@ -1,6 +1,11 @@
 ---
 title: Add a Source
 weight: 3
+tags:
+- HTTP Source
+- Drop Filter
+- Route Processor
+- Encrypt Field Processor
 ---
 
 ## Step 1: Add the Source

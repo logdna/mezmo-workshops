@@ -4,9 +4,9 @@ weight: 3
 description: >
     Introduce the PetClinic application which is a Java application that will be used as the test bed for this workshop.
 tags:
-- java
-- log4j
-- structured-logging
+- Java
+- Log4j
+- Structured Logging
 - PetClinic
 ---
 
