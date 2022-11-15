@@ -18,7 +18,7 @@ tags:
 
 **Time to complete: 15 minutes**
 
-{{% alert title="Survey" color="warning" %}}
+{{% alert title="Survey, $25 for your thoughts?" color="warning" %}}
 We are offering $25 Starbucks giftcards to the first 50 people to complete one of the workshops and fill out a short survey on their experience with the Mezmo Pipeline Tech Preview.  If you have 7 min, head on over **[here](https://go.mezmo.com/fy22q4-survey-workshop-platform)**.
 {{% /alert %}}
 
