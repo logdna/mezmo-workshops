@@ -2,28 +2,19 @@
 title = "Mezmo Workshops"
 +++
 
-{{< blocks/cover title="Welcome to the Mezmo Workshops!" image_anchor="center" height="full" color="primary" >}}
-<div class="mx-auto">
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/pet-clinic" >}}">
-		Get Started <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-	</a>
-</div>
+{{< blocks/cover title="Welcome to the Mezmo Workshops!" image_anchor="center" height="auto" color="primary" >}}
 {{< /blocks/cover >}}
 
-{{< blocks/section color="dark" >}}
-{{% blocks/feature icon="fa-lightbulb" title="New Mezmo Platform Workshop!" %}}
-Mezmo Workshops has added the Mezmo Platform Workshop!  This workshop showcases the full end to end offering of the Mezmo Platform.
-
-Check it out [now]({{< relref "/pet-clinic" >}})
+{{< blocks/section color="100" >}}
+{{% blocks/feature icon="fa-file-import" title="Mezmo Platform" url="/mezmo-workshops/pet-clinic"%}}
+Follow a hands-on guide showcasing how to take an open source Java application ([PetClinic](https://spring-petclinic.github.io/) from Sprint Boot) and enable collection of its log output to be aggregated and managed on the Mezmo Platform.  Furthermore, Alert conditions will be defined, data transformation and reduction will be used to demonstrate how to control costs associated with collecting Observability data.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/logdna/mezmo-workshops" %}}
-We do a [Pull Request](https://github.com/logdna/mezmo-workshops/pulls) contributions workflow on **GitHub**. New users are always welcome!
+{{% blocks/feature icon="fa-code-branch" title="Encrypt, Drop and Route to S3 Workshop" url="/mezmo-workshops/transaction-to-s3"%}}
+Collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the Mezmo Pipeline (Tech Preview).
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/mezmodata" %}}
-For announcement of latest features etc.
+{{% blocks/feature icon="fa-snowflake" title="Dynamic S3 Snowflake Ingestion" url="/mezmo-workshops/s3-to-snowflake"%}}
+Take signals coming from multiple edge nodes and load them into Snowflake.  We will utilize dynamic S3 location routing and ingesting the data into Snowflake using an external table and snowpipe.
 {{% /blocks/feature %}}
-
 {{< /blocks/section >}}
