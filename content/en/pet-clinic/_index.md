@@ -4,7 +4,7 @@ linkTitle: PetClinic
 cascade:
   type: docs
 description: >
-  In this workshop, you will follow a hands-on guide showcasing how to take an open source Java application ([PetClinic](https://spring-petclinic.github.io/) from Sprint Boot) and enable collection of its log output to be aggregated and managed on the Mezmo Platform.  Furthermore, Alert conditions will be defined, data transformation and reduction will be used to demonstrate how to control costs associated with collecting Observability data.
+  In this workshop, you will follow a hands-on guide showcasing how to take an open source Java application ([PetClinic](https://spring-petclinic.github.io/) from Spring Boot) and enable collection of its log output to be aggregated and managed on the Mezmo Platform.  Furthermore, Alert conditions will be defined, data transformation and reduction will be used to demonstrate how to control costs associated with collecting Observability data.
 ---
 
 {{% alert title="Survey, $25 for your thoughts?" color="warning" %}}
