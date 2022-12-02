@@ -52,7 +52,7 @@ With access information in hand
 * Give this Destination the title `Snowflake Bucket`
 * Enter your `Access Key ID` and `Secret Access Key`
 * Enter `Bucket` name (we will go with `mezmo-use1-snowflake-demo`)
-* Enter the prefix of `device-sim/event_date=%F/event_name={{ .message.event }}/`.  This prefix allows for dynamic location routing and will store data including date and event name coming from the event field.  Example `device-sim/event_date=2022-11-09/event_name=transaction/`
+* Enter the prefix of `device-sim/event_date=%F/event_name={{ .event }}/`.  This prefix allows for dynamic location routing and will store data including date and event name coming from the event field.  Example `device-sim/event_date=2022-11-09/event_name=transaction/`
 * Chose `text` for the `Encoding`, with a compression of `gzip`
 * Select the `Region` where you created your bucket (in this example we use `us-east-1`)
 * Click the `save` button
