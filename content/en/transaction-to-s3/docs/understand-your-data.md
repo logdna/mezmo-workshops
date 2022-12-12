@@ -1,8 +1,8 @@
 ---
-title: Understand Your Data
+title: "Tapping: Understand Your Data"
 weight: 4
 tags:
-  - Pipeline Tap
+  - Tap
   - Monitor View
 ---
 
