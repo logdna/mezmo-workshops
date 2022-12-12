@@ -15,7 +15,25 @@ But, let's take this one step at a time.
 
 ## Step 1: Understand your data
 
-You can see the general structure from the terminal output running the [Docker simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/#step-3-run-it).  We have a couple types of logs flowing through via the devices but the ones we care about contain financial transaction information and are of the form
+Knowing the data you have to work with is fundamental most any task team's need to deliver on.  While you can see the general structure from the terminal output running the [Docker simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/#step-3-run-it).  You can also explore the strucutre of these events in [Mezmo](https://mezmo.com).
+
+This is accomplished by looking at flowing data in a `Deployed` pipeline via Tapping.  To take advantage of this, we just need to connect up a dummy destination, deploy and then tap in the Montiored Pipeline view.  Let's do that now.
+
+### Step 1.1: Add a Dummy Destination
+
+Click `Add Destination` and select `HTTP`.  Give it the title "Stub HTTP", add `http://localhost:nada` as the `URL` and click `Save`.
+
+### Step 1.2: Deploy the Pipeline
+
+To make this Pipeline live for tapping, we need to `Deploy` it.  In the top right corner, select `Deploy pipeline` and accept the popup by selecting `Deploy`.  This will take you to the Pipeline Monitoring view where you can see high level statistics and information on the data passing through.
+
+### Step 1.3: Tap the Pipeline
+
+Select the edge between the Source and the Destination and click `Insert data tap`.  A sidebar will slide out where you can select the number of events you are interested in.  Leave it at `20` and select the `blue play` button.
+
+You should begin to events piling up in the sidebar.  Clicking on any line lets you expand and explore the event's structure.
+
+As you can see, we have a couple types of logs flowing through via the devices.  But, for this workshop, the ones we care about contain financial transaction information and are of the form
 
 ```json
 {
@@ -56,7 +74,7 @@ You can see the general structure from the terminal output running the [Docker s
 }
 ```
 
-The other events also contain `datetime`, `device` and `buffer` but `transaction` is replaced by other event details.
+The other events also contain `datetime`, `device`, `event` and `buffer` but `transaction` is replaced by other event details.
 
 ## Step 2: Drop the Unnecessary Buffer
 
