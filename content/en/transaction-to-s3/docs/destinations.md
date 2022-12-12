@@ -1,6 +1,6 @@
 ---
 title: Connect to S3 and Deploy
-weight: 5
+weight: 6
 tags:
   - S3 Destination
   - Mezmo Log Analysis Destination
