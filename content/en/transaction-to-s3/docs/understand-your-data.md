@@ -40,11 +40,11 @@ This will take you to the Pipeline Monitoring view where you can see high level 
 
 Select the edge between the Source and the Destination and click `Insert data tap`.
 
-![Insert Data Tap](../../images/understand-data_insert-data-tap.gif)
+![Insert Data Tap](../../images/understand-data_insert-data-tap.png)
 
-A sidebar will slide out where you can select the number of events to be grabbed.  Leave it at `20` and select the `blue play` button.
+A sidebar will slide out where you can select the number of events to be grabbed.  Leave it at `20` and select the blue `Start Tap` button to the right.
 
-![Tap Play Button](../../images/understand-data_tap-play-button.gif)
+![Tap Play Button](../../images/understand-data_tap-play-button.png)
 
 You should begin to events piling up in the sidebar.  Clicking on any line lets you expand and explore the event's structure.
 
