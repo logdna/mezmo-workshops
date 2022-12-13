@@ -15,7 +15,11 @@ For this workshop we are going to encrypt PII, drop useless information from eve
 
 But, let's take this one step at a time.
 
-## Step 1: Drop the Unnecessary Buffer
+{{% alert title="Note on Editing a Deployed Pipeline" color="warning" %}}
+If you previously `Deployed` your pipeline in [Tapping: Understand Your Data](/mezmo-workshops/transaction-to-s3/docs/understand-your-data/), then you need to go into Edit mode on your Pipeline.  You can do this by selecting `Edit pipeline` in the top right corner of the Pipeline view.
+{{% /alert %}}
+
+## Step 1: Drop the Unnecessary Buffer 
 
 We don't need the buffer, so let's drop it.  We can do this with a simple `drop` processor.  Add a new processor to the pipeline and select `Drop Fields from JSON` from the list.  Give it a title like `Drop buffer` and select the field `.buffer` to drop.  Click `Save`.
 

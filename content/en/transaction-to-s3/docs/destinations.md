@@ -51,7 +51,13 @@ It's time to connect up that `Destination` to the `Unmatched Route` from earlier
 
 ![Final Connected Pipeline](../../images/la_connected.png)
 
-## Step 3: Deploy
+## Step 3: Remove Dummy Destination
+
+If you previously created the Dummy `Destination` in [Tapping: Understand Your Data](/mezmo-workshops/transaction-to-s3/docs/understand-your-data/), then you can remove it or leave it now.  Up to you.
+
+To delete a destination (or any node), simply select node and a modal will pop up with it's configuration.  In the bottom left is a red `Delete` button, select that to remove the Destination and any edges connected to it.
+
+## Step 4: Deploy
 
 Now, simply `Deploy pipeline` in the top right.  After the Pipeline should no longer be a draft and look like this
 
