@@ -42,13 +42,11 @@ Select the edge between the Source and the Destination and click `Insert data ta
 
 ![Insert Data Tap](../../images/understand-data_insert-data-tap.png)
 
-A sidebar will slide out where you can select the number of events to be grabbed.  Leave it at `20` and select the blue `Start Tap` button to the right.
+A sidebar will slide out where you can select the number of events to be grabbed.  Leave it at `20` and select the blue `Start Tap` button to the right.  You should begin to events piling up like below.
 
 ![Tap Play Button](../../images/understand-data_tap-play-button.png)
 
-You should begin to events piling up in the sidebar.  Clicking on any line lets you expand and explore the event's structure.
-
-As you can see, we have a couple types of logs flowing through via the devices.  But, for this workshop, the ones we care about contain financial transaction information and are of the form
+You can expand and explore any event's structure by clicking on the triangle to the left of the event.  As you can see, we have a couple types of logs flowing through via the devices.  But, for this workshop, the ones we care about contain financial transaction information and are of the form
 
 ![Tap Structure Exploration](../../images/understand-data_tap-structure-exploration.png)
 
