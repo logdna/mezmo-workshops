@@ -34,11 +34,11 @@ To make this Pipeline live for tapping, we need to `Deploy` it.  In the top righ
 
 This will take you to the Pipeline Monitoring view where you can see high level statistics and information on the data passing through.  Note that it will take a couple minutes to update the information so at first it will look empty.  But eventually it should look something like this:
 
-![Monitoring View](../../images/understand-data_monitoring-view.gif)
+![Monitoring View](../../images/understand-data_monitoring-view.png)
 
 ## Step 4: Tap the Pipeline
 
-Select the edge between the Source and the Destination and click `Insert data tap`.
+Select the edge between the Source and the Destination and click `Insert data tap`.  This can only be done on a `Deployed` pipeline in the `Monitoring` view.
 
 ![Insert Data Tap](../../images/understand-data_insert-data-tap.png)
 
