@@ -18,33 +18,39 @@ Let's do that now.
 
 Click `Add Destination` and select `HTTP`.  Give it the title "Stub HTTP", add `http://localhost:nada` as the `URL` and click `Save`.
 
-![HTTP Dummy Destination Configuration](../../images/add-processor_http-dest-config.gif)
+![HTTP Dummy Destination Configuration](../../images/understand-data_http-dest-config.gif)
 
-## Step 2: Deploy the Pipeline
+## Step 2: Connect the Source to the Destination
+
+Now we need to wire the `Source` you created before to the new Dummy `Destination`.  Hover over the right side of the `Source` till you see a gray half circle.  Click that and drap it over top of the `Destination` until it is highlighted blue and simply release.  These two nodes are now connected and data will flow from left to right.
+
+![Source Destination Connection](../../images/understand-data_source-destination-connect.gif)
+
+## Step 3: Deploy the Pipeline
 
 To make this Pipeline live for tapping, we need to `Deploy` it.  In the top right corner of the Pipeline view, select `Deploy pipeline` and accept the popup by selecting `Deploy`.
 
-![Deploy Pipeline](../../images/add-processor_deploy-pipeline.gif)
+![Deploy Pipeline](../../images/understand-data_deploy-pipeline.gif)
 
 This will take you to the Pipeline Monitoring view where you can see high level statistics and information on the data passing through.
 
-![Monitoring View](../../images/add-processor_monitoring-view.gif)
+![Monitoring View](../../images/understand-data_monitoring-view.gif)
 
-## Step 3: Tap the Pipeline
+## Step 4: Tap the Pipeline
 
 Select the edge between the Source and the Destination and click `Insert data tap`.
 
-![Insert Data Tap](../../images/add-processor_insert-data-tap.gif)
+![Insert Data Tap](../../images/understand-data_insert-data-tap.gif)
 
 A sidebar will slide out where you can select the number of events to be grabbed.  Leave it at `20` and select the `blue play` button.
 
-![Tap Play Button](../../images/add-processor_tap-play-button.gif)
+![Tap Play Button](../../images/understand-data_tap-play-button.gif)
 
 You should begin to events piling up in the sidebar.  Clicking on any line lets you expand and explore the event's structure.
 
 As you can see, we have a couple types of logs flowing through via the devices.  But, for this workshop, the ones we care about contain financial transaction information and are of the form
 
-![Tap Structure Exploration](../../images/add-processor_tap-structure-exploration.gif)
+![Tap Structure Exploration](../../images/understand-data_tap-structure-exploration.gif)
 
 
 **WILL BE THIS**
