@@ -1,6 +1,6 @@
 ---
 title: Encrypt and Filter
-weight: 4
+weight: 5
 tags:
   - Encrypt Field Processor
   - Drop Processor
@@ -9,56 +9,17 @@ tags:
 
 ## Overview
 
-There is a lot we may want to do with the data.  At a high level, we are going to encrypt PII, drop useless information from events and then route the financial transaction data to S3 while leaving the rest for something else (here we used the [Mezmo Log Analysis](https://www.mezmo.com/log-analysis) but we won't get into that, to learn more check out our [Mezmo Platform](/mezmo-workshops/pet-clinic/) workshop).
+There is a lot we may want to do with the data as you may have saw [while looking at live data](/mezmo-workshops/transaction-to-s3/docs/understand-your-data/).
+
+For this workshop we are going to encrypt PII, drop useless information from events and then route the financial transaction data to S3. Leaving the rest for something else (here we used the [Mezmo Log Analysis](https://www.mezmo.com/log-analysis) but we won't get into that, to learn more check out our [Mezmo Platform](/mezmo-workshops/pet-clinic/) workshop).
 
 But, let's take this one step at a time.
 
-## Step 1: Understand your data
+{{% alert title="Note on Editing a Deployed Pipeline" color="warning" %}}
+If you previously `Deployed` your pipeline in [Tapping: Understand Your Data](/mezmo-workshops/transaction-to-s3/docs/understand-your-data/), then you need to go into Edit mode on your Pipeline.  You can do this by selecting `Edit pipeline` in the top right corner of the Pipeline view.
+{{% /alert %}}
 
-You can see the general structure from the terminal output running the [Docker simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/#step-3-run-it).  We have a couple types of logs flowing through via the devices but the ones we care about contain financial transaction information and are of the form
-
-```json
-{
-   "device": {
-      "id": "bed2209a-7acd-41c8-9e7d-1a10064b0d51",
-      "name": "/dev/vdz",
-      "vrs": "1.4.0",
-      "location": [
-         "41.54566",
-         "-71.29144",
-         "Middletown",
-         "US",
-         "America/New_York"
-      ],
-      "status": "active"
-   },
-   "buffer": "b812e703-ca7b-452f-8170-d1e9baa9fa40",
-   "datetime": "2022-11-09T21:00:39.852667",
-   "transaction": {
-      "product_id": "3b1fd6e5-d9c6-494c-b8d4-6f78b6d4555a",
-      "customer_id": "e36fa5e3-8dde-4818-95b9-912f87c3bd74",
-      "quantity": 20,
-      "unit_price": 158.75,
-      "net_price": 3175.0,
-      "tax": 0.06,
-      "total_price": 3365.5,
-      "cc": {
-         "cc_number": "30147640131796",
-         "cc_exp": "01/25",
-         "cc_cvv": "1765",
-         "cc_name": "Michelle Watts",
-         "cc_zip": "03398"
-      },
-      "result": "success",
-      "result_reason": "card_accepted"
-   },
-   "event": "transaction"
-}
-```
-
-The other events also contain `datetime`, `device` and `buffer` but `transaction` is replaced by other event details.
-
-## Step 2: Drop the Unnecessary Buffer
+## Step 1: Drop the Unnecessary Buffer 
 
 We don't need the buffer, so let's drop it.  We can do this with a simple `drop` processor.  Add a new processor to the pipeline and select `Drop Fields from JSON` from the list.  Give it a title like `Drop buffer` and select the field `.buffer` to drop.  Click `Save`.
 

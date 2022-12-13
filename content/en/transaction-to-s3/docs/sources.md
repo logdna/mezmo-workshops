@@ -37,8 +37,6 @@ Now let's point the simulation at the Pipeline.  To do this, we just need the pr
 
 ![Source API Key](../../images/add-source_3.png)
 
-Note that you will need to prefix `s_` to the `API Key` when you authenticate to your Pipeline.  See below for an example.
-
 If you [previously started the simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/), terminate the docker (*ctrl-c* in the terminal) and then add the `API Key` from above to the envrionemt variable `KEY`.  For example:
 
 ```cmd
