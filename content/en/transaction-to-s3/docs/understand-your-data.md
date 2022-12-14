@@ -6,7 +6,7 @@ tags:
   - Monitor View
 ---
 
-## Why it's important
+## Why It's Important
 
 Fundamental to any task on flowing data is knowing the structure.  While you can see the general format from the edge (in this case, the terminal output running the [Docker simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/#step-3-run-it)) or by digging into the [the code](https://github.com/logdna/financialTransactionDeviceSim),  you can now explore the strucutre of disparate events at scale in [Mezmo](https://mezmo.com).
 
@@ -16,9 +16,15 @@ Let's do that now.
 
 ## Step 1: Add a Dummy Destination
 
-Click `Add Destination` and select `HTTP`.  Give it the title `Stub HTTP`, add `localhost.site:4242` as the `URL`, select `JSON` for `Encoding` and click `Save`.  Note that for this the `URL` is not important, we just need a dummy destination to tap.
+Click `Add Destination` and select `HTTP`.  Configure it with the following:
+* Title: `Stub HTTP`
+* Uncheck `End-to-end Acknowledgement` (as the sent request will fail)
+* URI: `localhost.site:4242` (unimportant, we just need a dummy destination to tap)
+* Encoding: `JSON` 
 
 ![HTTP Dummy Destination Configuration](../../images/understand-data_http-dest-config.png)
+
+`Save` the new `Destination`.
 
 ## Step 2: Connect the Source to the Destination
 
