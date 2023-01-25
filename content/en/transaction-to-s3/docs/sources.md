@@ -29,18 +29,29 @@ From there, just select `HTTP`, give it a *Title* like `Edge Devices`, set *Deco
 
 ![Added Source](../../images/add-source_2.png)
 
+Now, we need to create an access key corresponding to the new `HTTP` source.  Click on the `HTTP` source to bring up the following panel.
+
+![Added Source](../../images/add-source_4.png)
+
+Go ahead and click the `Create new key` button in the `Access Key Management` section.  Here you can give the new access key a name of `Edge Device Key` and click the `Create` button.
+
+![Added Source](../../images/add-source_5.png)
+
+A new key will be generated for you to use and is displayed on the source details, as well as the HTTP address to send the data to.  Be sure to copy this Access Key somewhere safe for later reference as you will not be able to view it again once the source node is updated.  Click `Update` to save your changes.
+
+![Added Source](../../images/add-source_6.png)
+
 You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/mezmo-workshops/pet-clinic/) to learn how to utilize the sytem in depth.
+
 
 ## Step 3: Configure the Simulation
 
-Now let's point the simulation at the Pipeline.  To do this, we just need the proper `API Key`.  You can get this by opening the Source we just created via the epsilon in the top right of the node and copying the `API Key`.  Click Cancel or Update to back out.
-
-![Source API Key](../../images/add-source_3.png)
+Now let's point the simulation at the Pipeline.  To do this, we can use the `API Key` we created in the previous step.
 
 If you [previously started the simulation](/mezmo-workshops/transaction-to-s3/docs/run-simulation/), terminate the docker (*ctrl-c* in the terminal) and then add the `API Key` from above to the envrionemt variable `KEY`.  For example:
 
 ```cmd
-export KEY=s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+export KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Then, run the Docker you built or use our DockerHub image with that new `KEY` via one of the two terminal commands below:
