@@ -41,7 +41,7 @@ A new key will be generated for you to use and is displayed on the source detail
 
 ![Added Source](../../images/add-source_6.png)
 
-You now have an endpoint defined that can recieve any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/mezmo-workshops/pet-clinic/) to learn how to utilize the sytem in depth.
+You now have an endpoint defined that can receive any data.  If you run into trouble here, please checkout out our comprehensive [Mezmo Platform workshop](/mezmo-workshops/pet-clinic/) to learn how to utilize the sytem in depth.
 
 
 ## Step 3: Configure the Simulation
