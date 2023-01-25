@@ -54,11 +54,30 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
    Click **Save**.
 
+6. With the `OTEL Ingest` endpoint created, we need to edit its configuration to create a new **Access Key**.  Click on `OTEL Ingest` endpoint and then click the `Create new key` button.
+
+   {{< figure src="../../images/http-createnewkey.png" alt="HTTP - Create new key" width="450">}}
+
+7. For the **Title**, enter `Ingest Key` and click **Create**.
+
+8. Be sure to copy and save the value of the new key as well as the URL to this specific endpoint 
+    as we will need to use them in a later step:
+
+   {{< figure src="../../images/http-configured-key.png" alt="HTTP - Configured key" width="450">}}
+
+    In this example:
+
+    * the value of **Ingest Key** is `+19opdnwjWmDUD302J2jsT9xCF87Ibu0rk2t95jC/ps=` and 
+    * the URL is `https://pipeline.mezmo.com/v1/b745ce28-546e-11ed-a64b-d233826e7531`.
+
+    Click **Update**.
+
+9.
    Our pipeline is starting to take shape as:
 
    {{< figure src="../../images/petclinic-ingest-pipeline1.png" alt="PetClinic Ingest Pipeline - Step 1" width="600">}}
 
-6. Next, the log data received from OTEL follows the format specified in the [**Send Log Lines** API](https://docs.mezmo.com/log-analysis-api/ref#ingest).  An example of a JSON payload with two log entries is sent as:
+10. Next, the log data received from OTEL follows the format specified in the [**Send Log Lines** API](https://docs.mezmo.com/log-analysis-api/ref#ingest).  An example of a JSON payload with two log entries is sent as:
 
    ```json
    {
@@ -89,7 +108,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
    Click on the **Unroll** processor.
 
-7. Configure the following:
+11. Configure the following:
 
     * **Title** as `Unroll Logs`
     * add a meaningful **Description** such as `Convert logs array to individual logs for processing`
@@ -106,7 +125,7 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
    {{< alert title="NOTE" color="info">}}You'll notice there is nothing connecting the output of the **HTTP** source and the **Unroll** processor.  Let's correct that in the next step.{{< /alert >}}
 
-8. Hover your mouse over the right edge of the **HTTP** source we configured (`OTEL Ingest`).  An attach anchor will appear:
+12. Hover your mouse over the right edge of the **HTTP** source we configured (`OTEL Ingest`).  An attach anchor will appear:
 
    {{< figure src="../../images/connect1.png" width="200">}}
 
@@ -122,13 +141,13 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
    {{< figure src="../../images/petclinic-ingest-pipeline2.png" alt="PetClinic Ingest Pipeline - Step 2" width="600">}}
 
-9. With the logs converted to individual entries, we can accomplish what we set out to do- remove the `DEBUG` entries.  To accomplish this, we'll add a **Filter** processor.
+13. With the logs converted to individual entries, we can accomplish what we set out to do- remove the `DEBUG` entries.  To accomplish this, we'll add a **Filter** processor.
 
    Click **Processors** &rarr; **Add**.  In the **Processor** list, filter on `filter` and select the **Filter Processor**:
 
    Click on the **Filter** processor.
 
-10. Configure the following:
+14. Configure the following:
 
     * **Title** as `Discard DEBUG Msgs`
     * add a meaningful **Description** such as `Allow non-DEBUG messages to pass`
@@ -141,17 +160,17 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
-11. Connect the output from the **Unroll** processor to the input of the **Filter** processor similar to Step 8.  Our pipeline now appears as:
+15. Connect the output from the **Unroll** processor to the input of the **Filter** processor similar to Step 8.  Our pipeline now appears as:
 
     {{< figure src="../../images/petclinic-ingest-pipeline3.png" alt="PetClinic Ingest Pipeline - Step 3" width="750">}}
 
-12. To prepare to send our log entries from our pipeline to Log Analysis, we must first convert the JSON format to a string format.  For this, we use the **Stringify** processor.  Click **Processors** &rarr; **Add**.  In the **Processor** list, filter on `stringify` and select the **Stringify Processor**:
+16. To prepare to send our log entries from our pipeline to Log Analysis, we must first convert the JSON format to a string format.  For this, we use the **Stringify** processor.  Click **Processors** &rarr; **Add**.  In the **Processor** list, filter on `stringify` and select the **Stringify Processor**:
 
     {{< figure src="../../images/add-stringify.png" alt="Add Stringify Processor" width="600">}}
 
     Click on the **Stringify** processor.
 
-13. Configure the following:
+17. Configure the following:
      
     * **Title** as `Stringify`
     * add a meaningful **Description** such as `Convert JSON to text`
@@ -161,11 +180,11 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
-14. Connect the output from the **Filter** processor to the input of the **Stringify** processor similar to Step 8.  Our pipeline now appears as:
+18. Connect the output from the **Filter** processor to the input of the **Stringify** processor similar to Step 8.  Our pipeline now appears as:
 
     {{< figure src="../../images/petclinic-ingest-pipeline4.png" alt="PetClinic Ingest Pipeline - Step 4" width="750">}}
 
-15. Finally, we are ready to take the output of the **Stringify** processor, and send it out of our pipeline and over to Log Analysis.  To do so, we'll add a **Destination**.  The destination will require an **ingest key** as part of its configuration.  To obtain your ingest key, click **Settings** (<img src="../../images/nav-settings.png" width="30"/>) &rarr; **Organization** &rarr; **API Keys**.
+19. Finally, we are ready to take the output of the **Stringify** processor, and send it out of our pipeline and over to Log Analysis.  To do so, we'll add a **Destination**.  The destination will require an **ingest key** as part of its configuration.  To obtain your ingest key, click **Settings** (<img src="../../images/nav-settings.png" width="30"/>) &rarr; **Organization** &rarr; **API Keys**.
 
     We can use the existing Ingestion Key by simply clicking on the clipboard to copy it:
 
@@ -173,13 +192,13 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     We will paste this value into the **Destination** that will be configured next.
 
-16. Click **Destinations** &rarr; **Add**.  In the **Destinations** list, filter on `log analysis` and select the **Mezmo Log Analysis** destination:
+20. Click **Destinations** &rarr; **Add**.  In the **Destinations** list, filter on `log analysis` and select the **Mezmo Log Analysis** destination:
 
     {{< figure src="../../images/add-log-analysis.png" alt="Add Log Analysis" width="500">}}
 
     Click on the **Mezmo Log Analysis** destination.
 
-17. Configure the following:
+21. Configure the following:
 
     * **Title** as `Send to LA` 
     * add a meaningful **Description** such as `Send logs to Log Analysis` 
@@ -193,11 +212,11 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
     Click **Save**.
 
-18. Lastly, connect the output of the **Stringify** processor to the **Send to LA** destination.  The final pipeline should appear as:
+22. Lastly, connect the output of the **Stringify** processor to the **Send to LA** destination.  The final pipeline should appear as:
 
     {{< figure src="../../images/completed-pipeline.png" alt="Completed Pipeline" width="950">}}
 
-19. With the pipeline finalized, the last step is to deploy the pipeline so it is active.  Click the **Deploy pipeline** button:
+23. With the pipeline finalized, the last step is to deploy the pipeline so it is active.  Click the **Deploy pipeline** button:
 
     {{< figure src="../../images/deploy-pipeline.png" alt="Add Log Analysis" width="150">}}
 
@@ -209,33 +228,22 @@ For the purposes of this exercise, we will assume the PetClinic app is a 3rd par
 
 You may recall when we installed and configured the **OpenTelemetry Collector** that we set it up to send the logs to the Log Analysis endpoint.  We now want to reconfigure the collector to, instead, send logs to our pipeline endpoint.  This will start the flow of logs through the pipeline and the processors we've configured above.
 
-1. In the **Pipeline** dashboard, click **...** on the **OTEL Ingest** source.  At the bottom of the **HTTP** settings will be the **API key** that we'll need to use to send data to this endpoint:
-
-    {{< figure src="../../images/http-apikey.png" alt="HTTP - API key" width="450">}}
-
-    Click the clipboard button to copy the key to your clipboard.
-
-2. Stop the OTEL Collector if it's running.
+1. Stop the OTEL Collector if it's running.
  
-3. Edit the `$HOME/otelcol/config.yaml` file.
+2. Edit the `$HOME/otelcol/config.yaml` file.
 
-    * Change the `ingest_key` value to the **API key** we just copied from the pipeline.  
+      * Change the value of `ingest_url` to the URL we saved from Step 8 in the previous section **with the string `/otel/ingest/rest` appended to the end.**
+      * Change the value of `ingest_key` to the **Ingest Key** value we saved from **Step 8** in the previous section.
 
-        {{< alert title="NOTE" color="warning" >}}
-When posting data to an **HTTP Source**, the **API Key** must be prepended with the string literal `s_`.
-
-For example, if the **API Key** from the **HTTP Source** is: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`,
-the `ingest_key` in the **OpenTelemetry** `config.yaml` would be: 
+    The `mezmo` section will look similar to this:
 
 ```yaml
 #######################################
 exporters:
   mezmo:
-    ingest_key: "s_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ingest_url: "https://pipeline.mezmo.com/v1/b745ce28-546e-11ed-a64b-d233826e7531/otel/ingest/rest"
+    ingest_key: "+19opdnwjWmDUD302J2jsT9xCF87Ibu0rk2t95jC/ps="
 ```
-        {{< /alert >}}
-        
-    * Change the `ingest_url` value to `https://pipeline.mezmo.com/otel/ingest/rest`.
    
     Save the changes and exit.
 
