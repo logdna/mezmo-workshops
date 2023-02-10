@@ -232,7 +232,7 @@ You may recall when we installed and configured the **OpenTelemetry Collector** 
  
 2. Edit the `$HOME/otelcol/config.yaml` file.
 
-      * Change the value of `ingest_url` to the URL we saved from Step 8 in the previous section **with the string `/otel/ingest/rest` appended to the end.**
+      * Change the value of `ingest_url` to the URL we saved from **Step 8** in the previous section.
       * Change the value of `ingest_key` to the **Ingest Key** value we saved from **Step 8** in the previous section.
 
     The `mezmo` section will look similar to this:
@@ -241,7 +241,7 @@ You may recall when we installed and configured the **OpenTelemetry Collector** 
 #######################################
 exporters:
   mezmo:
-    ingest_url: "https://pipeline.mezmo.com/v1/b745ce28-546e-11ed-a64b-d233826e7531/otel/ingest/rest"
+    ingest_url: "https://pipeline.mezmo.com/v1/b745ce28-546e-11ed-a64b-d233826e7531"
     ingest_key: "+19opdnwjWmDUD302J2jsT9xCF87Ibu0rk2t95jC/ps="
 ```
    
