@@ -237,13 +237,13 @@ You may recall when we installed and configured the **OpenTelemetry Collector** 
 
     The `mezmo` section will look similar to this:
 
-```yaml
-#######################################
-exporters:
-  mezmo:
-    ingest_url: "https://pipeline.mezmo.com/v1/b745ce28-546e-11ed-a64b-d233826e7531"
-    ingest_key: "+19opdnwjWmDUD302J2jsT9xCF87Ibu0rk2t95jC/ps="
-```
+    ```yaml
+    #######################################
+    exporters:
+      mezmo:
+        ingest_url: "https://pipeline.mezmo.com/v1/b745ce28-546e-11ed-a64b-d233826e7531"
+        ingest_key: "+19opdnwjWmDUD302J2jsT9xCF87Ibu0rk2t95jC/ps="
+    ```
    
     Save the changes and exit.
 

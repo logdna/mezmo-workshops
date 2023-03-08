@@ -38,10 +38,10 @@ To get started, we'll need to modify the `receivers` section of the **OpenTeleme
 
     ```yaml
     service:
-       pipelines:
-           logs:
-               receivers: [ otlp, filelog ]
-               exporters: [ logging, mezmo ]
+      pipelines:
+        logs:
+          receivers: [ otlp, filelog ]
+          exporters: [ logging, mezmo ]
     ```
 
 3. Save the configuration.
