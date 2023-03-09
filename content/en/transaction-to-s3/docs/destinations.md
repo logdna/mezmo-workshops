@@ -1,12 +1,12 @@
 ---
 title: Connect to S3 and Deploy
-weight: 6
+weight: 5
 tags:
   - S3 Destination
-  - Mezmo Log Analysis Destination
+  - Deploy
 ---
 
-## Step 1: Add S3 Destination
+## Step 1: Add S3 Financial Destination
 
 With our data cleaned, let's get the financial transactions into an S3 bucket for later use. 
 
@@ -36,35 +36,24 @@ Then, connect up the last Encryption Processor for the CC data to this destinati
 
 ![S3 Destination Connected](../../images/s3_connected.png)
 
-## Step 2: Add Destination for Unmatched Route
+## Step 2: Add S3 General Destination
 
-The last step before deploying is to connect that unmatched route.  Let's throw the rest of the data into Mezmo's Log Analysis.
+The last step before deploying is to funnel the cleaned data and those that were `unmatched` to the teams general S3 bucket.
 
-First you need to grab the LA API Key.  To do this,
-open `Settings -> Organization -> API Keys` (or follow [this link](https://app.mezmo.com/manage/api-keys)).  Then Generate an Ingestion Key and copy it to your clipboard.  We will need this shortly.
+Follow a similar procedure to step one, but this time create it using a new bucket (say `mezmo-pipeline-financial-all`) and a new name of `S3 General`.
 
-Now, go back to your Pipeline and add a new Destination.  This time select `Mezmo Log Analysis`.  Give it a title like `LA`, specify a `Hostname` of your choice and paste that API Key into `Ingestion Key`.  Click `Save`.
-
-![Mezmo Log Analysis Dialog](../../images/la_dialog.png)
-
-It's time to connect up that `Destination` to the `Unmatched Route` from earlier.  You should end up with something like this
+Once done, connect up that `Destination` to the same final Encryption Processor from Step 1 as well as the `Unmatched Route` from earlier.  You should end up with something like this
 
 ![Final Connected Pipeline](../../images/la_connected.png)
 
-## Step 3: Remove Dummy Destination
+## Step 3: Deploy
 
-If you previously created the Dummy `Destination` in [Tapping: Understand Your Data](/mezmo-workshops/transaction-to-s3/docs/understand-your-data/), then you can remove it or leave it now.  Up to you.
-
-To delete a destination (or any node), simply select node and a modal will pop up with it's configuration.  In the bottom left is a red `Delete` button, select that to remove the Destination and any edges connected to it.
-
-## Step 4: Deploy
-
-Now, simply `Deploy pipeline` in the top right.  After the Pipeline should no longer be a draft and look like this
+Now, simply `Deploy pipeline` in the top right.  After the Pipeline should no longer be a draft (if you hadn't deployed earlier) and look like this
 
 ![S3 Data in AWS](../../images/pipeline_deployed.png)
 
-Watch as data comes into both S3 and Log Analysis.  Looking at your bucket, you should begin seeing files like so
+Watch as data comes into both S3 buckets.  Looking at the bucket connected to `S3 Fin Transactions`, you should begin seeing files like so
 
 ![S3 Data in AWS](../../images/aws_s3_data_final.png)
 
-**Note that it will take up to 5 min to first see data flowing in to S3.** This is due to batching, no data will be dropped.
+**Note that it will take up to 5 min to first see data flowing in to S3.** This is due to batching and our durable queues, no data will be dropped.
