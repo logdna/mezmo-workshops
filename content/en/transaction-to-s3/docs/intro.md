@@ -20,11 +20,11 @@ In this workshop, we will be managing signals coming in from many simulated edge
 To accomplish this we will
 
 * Create a new Pipleline
-* Configure an endpoint (ie, Source) to receive the data
+* Configure a Source to receive the data
 * Drop useless information from events
 * Filter unneccesary events
 * Encrypt PII in motion
-* Store required data in S3
+* Store required data in S3 by type
 
 ## Final Product
 

@@ -19,27 +19,23 @@ Let's do that now.
 
 To make this Pipeline live for tapping, we need to `Deploy` it.  In the top right corner of the Pipeline view, select `Deploy pipeline` and accept the popup by selecting `Deploy`.
 
-UPDATE
 ![Deploy Pipeline](../../images/understand-data_deploy-pipeline.png)
 
-This will take you to the Pipeline Monitoring view where you can see high level statistics and information on the data passing through.  Note that it will take a couple minutes to update the information so at first it will look empty.  But eventually it should look something like this:
+Accept the output about unconnected nodes and it will take you to the `Pipeline Monitoring` view where you can see high level statistics and information on the data passing through.  Note that it will take a couple minutes to update the information so at first it will look empty.  But eventually it should look something like this:
 
-UPDATE
 ![Monitoring View](../../images/understand-data_monitoring-view.png)
 
 ## Step 2: Tap the Pipeline
 
 To tap any node, we simply hover over the righthand side of the node and click the blue column that overlays.  This can only be done on a `Deployed` pipeline in the `Monitoring` view.
 
-UPDATE
-![Insert Data Tap](../../images/understand-data_insert-data-tap.png)
+![Insert Data Tap](../../images/understand-data_tap-hover.png)
 
 A sidebar will slide out where you can select the number of events to be grabbed.  Leave it at `10` and select the blue `Start Tap` button to the right.  You should begin to events piling up like below.
 
-UPDATE
 ![Tap Play Button](../../images/understand-data_tap-play-button.png)
 
-You can expand and explore any event's structure by clicking on the triangle to the left of the event.  As you can see, we have a couple types of logs flowing through via different devices.  But, for this workshop, the ones we care about contain financial transaction information and are of the form
+You can expand and explore any event's structure by clicking on the triangle to the left of the event.  As you can see, we have a couple types of logs flowing through via different devices.  But, for this workshop, the ones we care about contain financial transaction information (fear not, these aren't real CC numbers) and are of the form
 
 ![Tap Structure Exploration](../../images/understand-data_tap-structure-exploration.png)
 
