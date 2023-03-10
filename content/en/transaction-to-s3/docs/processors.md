@@ -27,7 +27,7 @@ We don't need the buffer, so let's drop it.  First select *Add Processor* which 
 
 ![Add Processor List](../../images/processors_add-processor-list.png)
 
-* Select `Remove Fields` from the list
+* Select `Remove Fields` from the list ([docs](https://docs.mezmo.com/telemetry-pipelines/remove-fields-processor))
 * Give it a title like `Drop buffer`
 * Enter the field `.buffer` to drop it
 * Click `Save`.
@@ -38,9 +38,11 @@ Then connect this to the Source processor by hovering over the Source till you s
 
 ![Drop Processor Connection](../../images/processors_connect.gif)
 
+You may have noticed we are referencing the `buffer` key via `.buffer`.  This is syntax is slightly different than you may be used to but its very straight forward.  To learn more, check out our docs [here](https://docs.mezmo.com/telemetry-pipelines/syntax-for-editing-pipeline-component-configuration-values).
+
 ## Step 3: Route Transaction Data
 
-We want to send only the transaction events to S3, to do this we can use a `Route` processor.  Go ahead and add one with the Title `Transactions`.
+We want to send only the transaction events to S3, to do this we can use a `Route` processor ([docs](https://docs.mezmo.com/telemetry-pipelines/route-processor)).  Go ahead and add one with the Title `Transactions`.
 
 We could group successful and failed transactions (`.transaction.result`) but let's seperate the routes.  To do this, we will create two `Outputs`.
 
@@ -77,7 +79,7 @@ Now, let's encrypt each of the credit card fields individually to ensure securit
 * `.transaction.cc.cc_name`
 
 Since each are unique, order doesn't matter so much here.  For each:
-* Add an `Encrypt Field` processor
+* Add an `Encrypt Field` processor ([docs](https://docs.mezmo.com/telemetry-pipelines/encrypt-field-processor))
 * Choose the `AES-256-CFB` algorithm with a 32 character `Encryption Key` (checkout [AllKeysGenerator.com](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx)to generate each key)
 * Add an `Initialization Vector` and name it whatever you like.  Note that every encryption processor needs to add a key like this to the event itself for `decryption` down the road.
 * Click `Save`.

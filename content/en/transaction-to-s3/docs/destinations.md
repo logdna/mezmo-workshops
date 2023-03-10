@@ -24,7 +24,7 @@ You will need the following information from you AWS account:
 For more details you can check out the [IAM and S3 section](/mezmo-workshops/s3-to-snowflake/docs/create-s3-bucket-and-user/#step-2-create-aws-mezmo-pipeline-user) of the S3 to Snowflake workshop.
 {{% /alert %}}
 
-With those in hand, add a new `Destination` and select `AWS S3`
+With those in hand, add a new `Destination` and select `AWS S3` ([docs](https://docs.mezmo.com/telemetry-pipelines/amazon-s3-storage))
 * Give the title `S3 Fin Transactions`
 * Enter your `Access Key ID`
 * Enter your `Secret Access Key`

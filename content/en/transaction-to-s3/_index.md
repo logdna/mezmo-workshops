@@ -4,7 +4,7 @@ linkTitle: Encrypt, Drop and Route to S3
 cascade:
   type: docs
 description: >
-  In this workshop, you will collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the Mezmo Pipeline (Tech Preview).
+  In this workshop, you will collect incoming financial transactions from edge devices, encrypt them in motion, filter, reduce and pass the information downstream to S3.  This is a common scenario in retail, banking and other industries with many complexities to consider.  A simplified version is presented to illustrate the fundamentals of the [Mezmo Telemtry Pipeline](https://www.mezmo.com/telemetry-pipeline) (Tech Preview).
 tags:
   - Mezmo Pipeline
   - Demo Logs Source
@@ -20,4 +20,4 @@ tags:
 
 **Time to complete: 15 minutes**
 
-{{% alert title="Support" %}} If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [workshop-support@mezmo.com](mailto:workshop-support@mezmo.com). {{% /alert %}}
+{{% alert title="Support" %}} If you run into any issues or have feedback on either the workshop or Pipeline, please reach out to us at [support@mezmo.com](mailto:support@mezmo.com). {{% /alert %}}
