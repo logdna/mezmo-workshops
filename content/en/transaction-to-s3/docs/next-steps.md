@@ -1,7 +1,11 @@
 ---
 title: Next Steps
-weight: 7
+weight: 6
 ---
+
+{{% alert title="Survey, $25 for your thoughts?" color="warning" %}}
+We are offering $25 Amazon giftcards for completing one of the workshops and filling out a short survey on your experience with the Mezmo Pipeline Tech Preview.  If you have 7 min, head on over **[here](https://go.mezmo.com/fy22q4-survey-workshop-platform)**.
+{{% /alert %}}
 
 ## Recap
 
@@ -11,6 +15,6 @@ We have succesfully connected a fleet of simulated devices to a Mezmo Pipeline t
 
 ## Learn More
 
-So we have the data encrypted and only the relevant events are in our S3.  But now what?
+So we have the data encrypted and the relevant events are separated in our S3.  But now what?
 
-Check out our [Dynamic S3 to Snowflake Ingestion](/mezmo-workshops/s3-to-snowflake/) workshop to learn how to organize dynamically and get the transactions into a data warehouse for further analysis.  Or take a peak at our [Mezmo Platform](/mezmo-workshops/pet-clinic/) workshop to utilize [Open Telemetry](https://opentelemetry.io/) and find other ways you can take advantage of events holistically on the Mezmo Platform.
+Always recommend peaking at [the docs](https://docs.mezmo.com/telemetry-pipelines), but if you feel like exploring more through workshops check out our [Dynamic S3 to Snowflake Ingestion](/mezmo-workshops/s3-to-snowflake/) workshop to learn how to organize dynamically and get the transactions into a data warehouse for further analysis.  Or take a peak at our [Mezmo Platform](/mezmo-workshops/pet-clinic/) workshop to utilize [Open Telemetry](https://opentelemetry.io/) and find other ways you can take advantage of events holistically on the Mezmo Platform through our Log Analysis add-on.
