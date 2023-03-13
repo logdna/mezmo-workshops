@@ -84,7 +84,7 @@ Since each are unique, order doesn't matter so much here.  For each:
 * Add an `Initialization Vector` and name it whatever you like.  Note that every encryption processor needs to add a key like this to the event itself for `decryption` down the road.
 * Click `Save`.
 
-![Encrypt CC Number Dialog](../../images/add-processor_encrypt-cc-number.png)
+![Encrypt CC Number Dialog](../../images/processors_encrypt-cc-number.png)
 
 Once you do this for each of the above fields (or don't, it's just a demo pipeline afterall), you should have 5 floating processors like so
 
