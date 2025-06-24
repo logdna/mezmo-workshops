@@ -21,6 +21,8 @@ Click `Add Source` and select your OpenTelemetry Metric source from the `Shared 
 
 ## Step 4: Route Based on State
 
+![OpenTelemetry State Router](../../images/pipeline_metric_state_route_config.png)
+
 ## Step 5: Aggregate in Normal State
 
 ## Step 6: Sending Data Downstream Systems
