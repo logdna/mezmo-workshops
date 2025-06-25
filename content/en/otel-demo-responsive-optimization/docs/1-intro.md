@@ -30,10 +30,14 @@ To accomplish this we will:
 
 In the end you are going to build four Pipelines that looks like
 
-* ![Final Pipeline: Log Exploration](../../images/pipelines_final_log_exploration.png)
-* ![Final Pipeline: Log Handler](../../images/pipelines_final_log_handler.png)
-* ![Final Pipeline: Metric Handler](../../images/pipelines_final_metric_handler.png)
-* ![Final Pipeline: Trace Handler](../../images/pipelines_final_trace_handler.png)
+* Log Profiling Pipeline
+![Final Pipeline: Log Exploration](../../images/pipelines_final_log_exploration.png)
+* Log Handler Pipeline
+![Final Pipeline: Log Handler](../../images/pipelines_final_log_handler.png)
+* Metric Handler Pipeline
+![Final Pipeline: Metric Handler](../../images/pipelines_final_metric_handler.png)
+* Trace Handler Pipeline
+![Final Pipeline: Trace Handler](../../images/pipelines_final_trace_handler.png)
 
 These pipelines will optimize your OpenTelemetry data by aggregating, better parsing and configuring data flow responsively. By allowing for easy, granular control you can ensure the right data ends up where it belongs.
 
