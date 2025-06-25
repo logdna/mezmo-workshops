@@ -13,10 +13,9 @@ Before beginning, you will need the following
 
 ## Overview
 
-In this workshop, we will be exploring telemetry data from the [OpenTelemetry Demo](https://github.com/braxtonj/opentelemetry-demo) and optimizing it for both MTTR and cost.
+In this workshop, we will be exploring telemetry data produced with the [OpenTelemetry Demo](https://github.com/braxtonj/opentelemetry-demo) while optimizing it for both MTTR and cost.
 
-To accomplish this we will
-
+To accomplish this we will:
 * Create a OpenTelemetry Log, Metric and Trace [Shared Sources](https://docs.mezmo.com/telemetry-pipelines/shared-sources) in Mezmo
 * [Configure OpenTelemetry collector](https://github.com/braxtonj/opentelemetry-demo/mezmo-otel-config-extras.yml) with Mezmo Shared Source credentials
 * Explore the OpenTelemetry Logs via [Data Profiling](https://docs.mezmo.com/telemetry-pipelines/data-profiling)
