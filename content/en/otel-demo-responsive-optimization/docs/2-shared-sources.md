@@ -10,7 +10,7 @@ tags:
 {{% alert title="Make sure you have a Mezmo account" color="danger" %}}
 In order to complete this workshop, you will need a Mezmo account with Pipeline enabled.  If you do not have an account, you can sign up for a free trial [here](https://www.mezmo.com/sign-up-mezmo-platform).
 
-Please feel free to select either of the demo logs upon signup, we will be connecting new data from a local OpenTelemetry Demo deployment.
+Please feel free to select either of the demo logs upon signup, we will be connecting new data from a local OpenTelemetry Demo deployment.  You can explore [Mezmo Flow](https://docs.mezmo.com/telemetry-pipelines/about-mezmo-flow) or continue on with the workshop.
 {{% /alert %}}
 
 ## Step 1: Create an OpenTelemetry Log Shared Source

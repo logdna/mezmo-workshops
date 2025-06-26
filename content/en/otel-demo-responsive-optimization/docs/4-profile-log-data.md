@@ -16,7 +16,7 @@ Now that data is wired up, let's first explore what we have and create a profile
 
 ## Step 1: Create an "Exploration" Pipeline
 
-Create a new Mezmo Pipeline by clicking [New Pipeline](https://app.mezmo.com/pipelines/pipeline/new) in the platform.  Give this a name like `Log Explorer`.
+Create a new Mezmo Pipeline by clicking [New Pipeline](https://app.mezmo.com/pipelines/pipeline/new) in the platform.  Give this a name like `Log Explorer` and select `Create a blank pipeline`.
 
 ![Create Pipeline](../../images/4-profile_create-pipeline.png)
 

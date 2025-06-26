@@ -94,7 +94,7 @@ As noted in the prior section, the raw Apache data coming in from `frontend-prox
 
 ![Custom Apache Profile](../../images/4-profile_apache-profile.png)
 
-To do this, we will add another Route Processor on App along with a Parse Sequentially processor on that slice of data.
+To do this, we will add another `Route` Processor by App along with a Parse Sequentially processor on that slice of data.
 
 ### Step 4.a: App Router
 Connect a Route processor through the `three dots` or `Add Processor` at the bottom with the following configuration on application
@@ -118,8 +118,7 @@ Now let's wire a `Parse Sequentially` processor to the `Frontend Proxy` output. 
   * Parser: `Grok Pattern`
   * Pattern: 
   ```grok
-  %{SQUARE_BRACKET}%{TIMESTAMP_ISO8601:dt}%{SQUARE_BRACKET} %{DOUBLE_QUOTE}%{DATA:method} %{DATA:path} %{DATA:http_protocol}%{DOUBLE_QUOTE} %{DATA:rsp_code} %{DATA:rsp_flags} %{DATA:rsp_code_details} %{DATA:conn_term_details} %{DOUBLE_QUOTE}%{DATA:upstream_transport_failure_reason}%{DOUBLE_QUOTE} %{DATA:bytes_received} %{DATA:bytes_sent} %{DATA:duration} %{DATA:rsp_upstream_service_time} %{DOUBLE_QUOTE}%{DATA:req_forward_for}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_user_agent}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_id}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_authority}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:upstream_host}%{DOUBLE_QUOTE} %{DATA:upstream_cluster} %{DATA:upstream_local_addr} %{DATA:downstream_local_addr} %{DATA:downstream_remote_addr} %{DATA:requested_server_name} %{GREEDYDATA:route_name}
-  ```
+  %{SQUARE_BRACKET}%{TIMESTAMP_ISO8601:dt}%{SQUARE_BRACKET} %{DOUBLE_QUOTE}%{DATA:method} %{DATA:path} %{DATA:http_protocol}%{DOUBLE_QUOTE} %{DATA:rsp_code} %{DATA:rsp_flags} %{DATA:rsp_code_details} %{DATA:conn_term_details} %{DOUBLE_QUOTE}%{DATA:upstream_transport_failure_reason}%{DOUBLE_QUOTE} %{DATA:bytes_received} %{DATA:bytes_sent} %{DATA:duration} %{DATA:rsp_upstream_service_time} %{DOUBLE_QUOTE}%{DATA:req_forward_for}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_user_agent}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_id}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_authority}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:upstream_host}%{DOUBLE_QUOTE} %{DATA:upstream_cluster} %{DATA:upstream_local_addr} %{DATA:downstream_local_addr} %{DATA:downstream_remote_addr} %{DATA:requested_server_name} %{GREEDYDATA:route_name}```
 
 ![Apache Parser](../../images/5-log-handler_parse-seq-config.png)
 
@@ -154,9 +153,11 @@ After the initial Enrichment processor and Apache Parser, let's now route the da
   * Title: `Deploy`
   * Criteria: `message.op_state` `contains` `deploy`
 
+![Log State Router](../../images/5-log-handler_state-router-config.png)
+
 You will end up with a pipeline that looks like the following
 
-![Log State Router](../../images/5-log-handler_interim-pipeline.png)
+![Log Handdler Interim Pipeline](../../images/5-log-handler_interim-pipeline-1.png)
 
 ## Step 6: Aggregate Normal State Logs
 
@@ -196,7 +197,7 @@ function processEvent(message, metadata, timestamp, annotations) {
 
 At this point, your pipeline should look like the following
 
-![Template Router Config](../../images/5-log-handler_template-interim.png)
+![Log Handdler Interim Pipeline](../../images/5-log-handler_interim-pipeline-2.png)
 
 ## Step 7: Sample Normal State Logs
 
