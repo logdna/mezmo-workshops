@@ -17,6 +17,8 @@ Please feel free to select either of the demo logs upon signup, we will be conne
 
 Once you have an account, go ahead and [Create a new Shared Source](https://app.mezmo.com/pipelines/shared-sources).  Select `OpenTelemetry Logs` and call it what you will, be sure to save your created Access Key as you will need this later.
 
+![OpenTelemetry Log Source](../../images/2-shared-sources_init.png)
+
 Note that a [Shared Source](https://docs.mezmo.com/telemetry-pipelines/shared-sources) is a powerful way to re-use sources within Mezmo without needing to configure new integrations.  Organizations can take advantage of them to provide teams the self-service ability to pull in sanitized and normalized telemetry data from any stream needed.
 
 ![OpenTelemetry Log Source](../../images/2-shared-sources_otel-log.png)

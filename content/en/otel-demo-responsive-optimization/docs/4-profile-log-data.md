@@ -26,6 +26,8 @@ Click `Add Source` and select your OpenTelemetry Log source from the `Shared Sou
 
 ![OpenTelemetry Log Source](../../images/4-profile_add-source.png)
 
+![OpenTelemetry Shared Source Selection](../../images/4-profile_add-source-selection.png)
+
 ## Step 3: Insert Otel to Profile mapping Script
 
 In order to fully take advantage of the [Mezmo Data Profiler](https://docs.mezmo.com/telemetry-pipelines/data-profiling), let's tweak the structure of this data to easily grab insights about the data using Mezmo standards.
@@ -97,7 +99,7 @@ Finally, you must deploy your pipeline in order to start exploring your log data
 * ![Final Pipeline: Log Exploration](../../images/pipelines_final_log_exploration.png)
 
 ## Step 6: Analyze Log Patterns
-After allowing the profiler to run a short amount of time Once your docker has been built and deployed, give it a few and you will start to see the profiler build out.  Eventually you will see something similar to the following
+Once your docker has been built and deployed, give it a few and you will start to see the profiler build out.  Within minutes, you will see something similar to the following
 
 ![OpenTelemetry Log Profile](../../images/4-profile_profile.png)
 

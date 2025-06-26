@@ -116,7 +116,10 @@ Now let's wire a `Parse Sequentially` processor to the `Frontend Proxy` output. 
 * Custom Parser:
   * Title: `Custom Apache`
   * Parser: `Grok Pattern`
-  * Pattern: `%{SQUARE_BRACKET}%{TIMESTAMP_ISO8601:dt}%{SQUARE_BRACKET} %{DOUBLE_QUOTE}%{DATA:method} %{DATA:path} %{DATA:http_protocol}%{DOUBLE_QUOTE} %{DATA:rsp_code} %{DATA:rsp_flags} %{DATA:rsp_code_details} %{DATA:conn_term_details} %{DOUBLE_QUOTE}%{DATA:upstream_transport_failure_reason}%{DOUBLE_QUOTE} %{DATA:bytes_received} %{DATA:bytes_sent} %{DATA:duration} %{DATA:rsp_upstream_service_time} %{DOUBLE_QUOTE}%{DATA:req_forward_for}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_user_agent}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_id}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_authority}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:upstream_host}%{DOUBLE_QUOTE} %{DATA:upstream_cluster} %{DATA:upstream_local_addr} %{DATA:downstream_local_addr} %{DATA:downstream_remote_addr} %{DATA:requested_server_name} %{GREEDYDATA:route_name}`
+  * Pattern: 
+  ```grok
+  %{SQUARE_BRACKET}%{TIMESTAMP_ISO8601:dt}%{SQUARE_BRACKET} %{DOUBLE_QUOTE}%{DATA:method} %{DATA:path} %{DATA:http_protocol}%{DOUBLE_QUOTE} %{DATA:rsp_code} %{DATA:rsp_flags} %{DATA:rsp_code_details} %{DATA:conn_term_details} %{DOUBLE_QUOTE}%{DATA:upstream_transport_failure_reason}%{DOUBLE_QUOTE} %{DATA:bytes_received} %{DATA:bytes_sent} %{DATA:duration} %{DATA:rsp_upstream_service_time} %{DOUBLE_QUOTE}%{DATA:req_forward_for}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_user_agent}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_id}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:req_authority}%{DOUBLE_QUOTE} %{DOUBLE_QUOTE}%{DATA:upstream_host}%{DOUBLE_QUOTE} %{DATA:upstream_cluster} %{DATA:upstream_local_addr} %{DATA:downstream_local_addr} %{DATA:downstream_remote_addr} %{DATA:requested_server_name} %{GREEDYDATA:route_name}
+  ```
 
 ![Apache Parser](../../images/5-log-handler_parse-seq-config.png)
 
@@ -168,7 +171,32 @@ To accomplish this, create a new Route processor connected to `State Router`'s `
 
 ![Template Router Config](../../images/5-log-handler_template-router-config.png)
 
-We will then
+We will then add a `Reduce` processor to roll these logs up over 5 minutes.  Connect the processor with the following configuration
+
+* Title: `5min Flood Count`
+* Duration: `5 minutes`
+* Group By Field Path: `message.host`
+* Merge Strategy per Field:
+  * Field Path: `message._cnt` `sum`
+
+
+![Template Router Config](../../images/5-log-handler_template-reduce-config.png)
+
+Finally, we will convert the output into a summary message using the following configuration
+
+```javascript
+function processEvent(message, metadata, timestamp, annotations) {
+  message.line = {
+    'message':'Flooded homepage ' + message._cnt.toString() + ' times',
+    'count': message._cnt
+  }
+  return message
+}
+```
+
+At this point, your pipeline should look like the following
+
+![Template Router Config](../../images/5-log-handler_template-interim.png)
 
 ## Step 7: Sample Normal State Logs
 

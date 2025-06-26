@@ -19,7 +19,7 @@ Grab the URL and saved Access Keys from your Log, Metric and Trace Shared Source
 
 ## Step 3: Build and Run the OpenTelmetry Demo
 
-To easily build from scratch, simply run the convenience script `sh run.sh` from the demo's root folder.  This will build all necessary resources and deploy the demo to [localhost:8008](localhost:8080).
+To easily build from scratch, simply run the convenience script `sh run.sh` from the demo's root folder.  This will build all necessary resources and deploy the demo to [localhost:8080](localhost:8080).
 
 {{% alert title="Build Time" color="danger" %}}
 Note that it may take up to **15 minutes** to build the demo from scratch the first time.  Recommend starting this and then continuing on with the workship while things build and deploy.

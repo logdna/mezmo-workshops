@@ -64,6 +64,29 @@ You will end up with a pipeline that looks like the following
 ## Step 5: Normalize and Aggregate in Normal State
 A common approach to reduce Metric volumes is to simply aggregate and reduce cardinality, Mezmo makes this incredibly easy with intuitive processors.  We will implement a 5 min aggregation on all incoming metrics and trim off the tags being used.  Connected to your `Normal` and `Unmatched` outputs from the `State Router`, add a `Script Execution` processor with the following script:
 
+```javascript
+function processEvent(message, metadata, timestamp, annotations) {
+
+  let service_name = message.tags.service_name
+  let host_id = message.tags.host_id
+  
+  if( service_name == null ){
+    service_name = metadata.resource.attributes['service.name']
+  }
+  if( service_name == null ){ service_name = 'NA' }
+  if( host_id == null ){
+    host_id = metadata.resource.attributes['host.id']
+  }
+  if( host_id == null ){ host_id = 'NA' }
+
+  message.tags = {
+    'service_name': service_name,
+    'host_id': host_id
+  }
+  
+  return message
+}
+```
 
 Then, let's limit the cardinality of that `host_id` tag to 10 by connecting a `Tag Cardinality Limit` processor with the following configuration:
 * Tags: `message.tags.host_id`

@@ -28,7 +28,7 @@ To accomplish this we will:
 
 ## Final Product
 
-In the end you are going to build four Pipelines that looks like
+In the end you are going to build four Pipelines that look like
 
 * Log Profiling Pipeline
 ![Final Pipeline: Log Exploration](../../images/pipelines_final_log_exploration.png)

@@ -11,6 +11,10 @@ tags:
 
 ## Why It Matters
 
+Telemetry data is both fundamental and costly for any business.  While this data is invaluable for troubleshooting, monitoring and various other concerns, it is not always valuable at the same time.
+
+Mezmo introduced [Responsive Pipelines](https://docs.mezmo.com/telemetry-pipelines/configure-responsive-pipelines) specifically to address the dynamic nature of telemetry data.  By allowing for extreme configurability, telemetry flows can be tuned for changing circumstances from incidents to deployments. 
+
 ## Step 1: Modify Responsive Test script
 
 Using the State ID's for your Log, Metric and Trace pipelines modify [`switch_state.sh`](https://github.com/braxtonj/opentelemetry-demo/blob/main/switch_state.sh) with the proper credentials.
