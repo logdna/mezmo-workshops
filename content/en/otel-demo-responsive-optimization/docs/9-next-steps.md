@@ -7,8 +7,6 @@ weight: 9
 
 We have succesfully integrated OpenTelemetry Telemetry data (logs, metrics and traces) and optimized them for cost and MTTR using Responsive Techniques.  By now, you should have four pipelines that look like
 
-connected a fleet of simulated devices to a Mezmo Pipeline to clean, encrypt and route an important subset to S3 for later analysis.  You should have Pipelines that looks like
-
 * Log Profiling Pipeline
 ![Final Pipeline: Log Exploration](../../images/pipelines_final_log_exploration.png)
 * Log Handler Pipeline

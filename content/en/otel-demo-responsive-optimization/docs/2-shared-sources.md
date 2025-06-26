@@ -25,7 +25,7 @@ Note that a [Shared Source](https://docs.mezmo.com/telemetry-pipelines/shared-so
 
 ## Step 2: Create an OpenTelemetry Metric Shared Source
 
-Repeat the prior step but this time select `OpenTelemetry Metrics`.  Once again be sure to write that Access Key down for later.
+Repeat the prior step but this time select `OpenTelemetry Metrics`.  Be sure to write that Access Key down for later.
 
 ![OpenTelemetry Metric Source](../../images/2-shared-sources_otel-metric.png)
 

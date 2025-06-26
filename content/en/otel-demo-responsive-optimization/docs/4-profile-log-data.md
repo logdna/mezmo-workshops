@@ -99,7 +99,7 @@ Finally, you must deploy your pipeline in order to start exploring your log data
 * ![Final Pipeline: Log Exploration](../../images/pipelines_final_log_exploration.png)
 
 ## Step 6: Analyze Log Patterns
-Once your docker has been built and deployed, give it a few and you will start to see the profiler build out.  Within minutes, you will see something similar to the following
+Once your docker has been built and deployed, you will start to see the profiler build out.  Within minutes, you will see something similar to the following
 
 ![OpenTelemetry Log Profile](../../images/4-profile_profile.png)
 
