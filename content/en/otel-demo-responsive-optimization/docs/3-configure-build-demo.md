@@ -15,7 +15,7 @@ Run `git clone https://github.com/braxtonj/opentelemetry-demo` into a folder of 
 
 ## Step 2: Configure `mezmo-otel-config-extras.yml` with Shared Source Credentials
 
-Grab the URL and saved Access Keys from your Log, Metric and Trace Shared Sources (don't worry, if you didn't save the key you can always create a new one).  Modify [opentelemetry-demo/mezmo-otel-config-extras.yml](https://github.com/braxtonj/opentelemetry-demo/blob/main/mezmo-otel-config-extras.yml) with the proper credentials and save.  Note that Log, Metrics and Traces will each have their own unique URL and Access Keys.
+Grab the URL and saved Access Keys from your Log, Metric and Trace Shared Sources (don't worry if you didn't save the key——you can always create a new one).  Modify [opentelemetry-demo/mezmo-otel-config-extras.yml](https://github.com/braxtonj/opentelemetry-demo/blob/main/mezmo-otel-config-extras.yml) with the proper credentials and save.  Note that Log, Metrics and Traces will each have their own unique URL and Access Keys.
 
 ## Step 3: Build and Run the OpenTelmetry Demo
 
