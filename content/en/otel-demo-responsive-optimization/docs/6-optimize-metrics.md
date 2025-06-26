@@ -17,8 +17,6 @@ Create a new Mezmo Pipeline by clicking [New Pipeline](https://app.mezmo.com/pip
 
 Click `Add Source` and select your OpenTelemetry Metric source from the `Shared Sources` list similar to before.  
 
-![OpenTelemetry Metric Add Source](../../images/6-metric-handler_add-source.png)
-
 ## Step 3: Insert State Enrichment
 
 Same as before, we will tee ourselves up for [Responsive Pipelines](https://docs.mezmo.com/telemetry-pipelines/configure-responsive-pipelines) in the future by enriching each metric with the current pipelines operational state.   Click the `three dots` on your Otel Metric Source and select `Add Node->Add Processor->Script Execution`.
@@ -59,7 +57,7 @@ After the initial Enrichment processor, let's route the data flow based on that 
 
 You will end up with a pipeline that looks like the following
 
-![Metric State Router](../../images/6-metric-handler_interim-pipeline.png)
+![Metric State Router](../../images/5-log-handler_state-router-config.png)
 
 ## Step 5: Normalize and Aggregate in Normal State
 A common approach to reduce Metric volumes is to simply aggregate and reduce cardinality, Mezmo makes this incredibly easy with intuitive processors.  We will implement a 5 min aggregation on all incoming metrics and trim off the tags being used.  Connected to your `Normal` and `Unmatched` outputs from the `State Router`, add a `Script Execution` processor with the following script:
@@ -99,17 +97,16 @@ Finally, let's aggregate on a 5 min window by adding an `Aggregate` processor.  
 
 You will now have a pipeline that looks like the following
 
-![OpenTelemetry State Router](../../images/6-metric-handler_metric-agg-interim.png)
+![Metric Aggregator](../../images/6-metric-handler_metric-agg-interim.png)
 
 ## Step 6: Sending Data Downstream Systems
 
 Now, connect all outputs to a Blackhole destination.  This is simply a placeholder for any Observability system you'd like.  Explore our destinations in-app or in our [docs](https://docs.mezmo.com/telemetry-pipelines/supported-telemetry-data-destinations) to easily send telemetry data downstream into tools, data lakes and more.
 
-![Trace Blackhole Connected](../../images/6-metric-handler_blackhole_connected.png)
+![Metric Blackhole Connected](../../images/6-metric-handler_blackhole_connected.png)
 
 ## Step 7: Deploy
 Finally, you must deploy your pipeline in order to start exploring your log data.
-![Deploy](../../images/6-metric-handler_deploy.png)
 
 ## Step 8: Initiate State and Grab State ID
 Same as with the Logs, let's initiate the State and save the `State ID` of this pipeline for later.
